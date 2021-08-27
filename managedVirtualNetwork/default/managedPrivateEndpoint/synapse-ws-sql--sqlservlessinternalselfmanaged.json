@@ -1,0 +1,10 @@
+{
+	"name": "synapse-ws-sql--sqlservlessinternalselfmanaged",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/dedfa758-9fb0-4c1b-b0e2-25c590d4f804/resourceGroups/SCB-POC-DEV/providers/Microsoft.Synapse/workspaces/sqlservlessinternalselfmanaged",
+		"groupId": "sql",
+		"fqdns": [
+			"sqlservlessinternalselfmanaged.1d1650ca-a866-4d86-a92d-51f5ece6075b.sql.azuresynapse.net"
+		]
+	}
+}

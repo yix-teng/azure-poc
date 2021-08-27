@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 1",
+	"properties": {
+		"content": {
+			"query": "-- This is auto-generated code\nSELECT\n    customer.id\nFROM\n    OPENROWSET(\n        BULK 'https://scbpocdev.dfs.core.windows.net/sqlservlessinternalselfmanaged/account.parquet',\n        FORMAT='PARQUET'\n    ) AS account\n    JOIN\n    OPENROWSET(\n        BULK 'https://scbpocdev.dfs.core.windows.net/sqlservlessinternalselfmanaged/customer.parquet',\n        FORMAT='PARQUET'\n    ) AS customer\n    on account.customer_id = customer.id\n\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "master",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
