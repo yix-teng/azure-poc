@@ -1,0 +1,17 @@
+{
+	"name": "SqlQuerySparkSQLTable",
+	"properties": {
+		"content": {
+			"query": "select * from pocdev.dbo.customertable",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "pocdev",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
