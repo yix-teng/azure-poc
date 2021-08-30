@@ -1,5 +1,5 @@
 {
-	"name": "Notebook 1",
+	"name": "create_call_center_table",
 	"properties": {
 		"nbformat": 4,
 		"nbformat_minor": 2,
@@ -71,20 +71,44 @@
 							"deleting": false
 						}
 					},
+					"microsoft": {
+						"language": "python"
+					},
 					"collapsed": true
 				},
 				"source": [
-					"CREATE TABLE `call_center` (`cc_call_center_sk` INT, `cc_call_center_id` STRING, `cc_rec_start_date` DATE, `cc_rec_end_date` DATE, `cc_closed_\n",
-					"date_sk` INT, `cc_open_date_sk` INT, `cc_name` STRING, `cc_class` STRING, `cc_employees` INT, `cc_sq_ft` INT, `cc_hours` STRING, `cc_manager` \n",
-					"STRING, `cc_mkt_id` INT, `cc_mkt_class` STRING, `cc_mkt_desc` STRING, `cc_market_manager` STRING, `cc_division` INT, `cc_division_name` STRING\n",
-					", `cc_company` INT, `cc_company_name` STRING, `cc_street_number` STRING, `cc_street_name` STRING, `cc_street_type` STRING, `cc_suite_number` S\n",
-					"TRING, `cc_city` STRING, `cc_county` STRING, `cc_state` STRING, `cc_zip` STRING, `cc_country` STRING, `cc_gmt_offset` DECIMAL(5,2), `cc_tax_pe\n",
-					"rcentage` DECIMAL(5,2))                                                                                                                       \n",
-					"USING parquet                                                                                                                                 \n",
-					"OPTIONS (                                                                                                                                     \n",
-					"  `serialization.format` '1',                                                                                                                 \n",
-					"  path 'hdfs:/tpcds/call_center'                                                                                                              \n",
-					"); "
+					"%%pyspark\n",
+					"\n",
+					"df = spark.sql(\n",
+					"\"\"\"\n",
+					"CREATE TABLE tpcdb.call_center (cc_call_center_sk INT, cc_call_center_id STRING, cc_rec_start_date DATE, cc_rec_end_date DATE, cc_closed_date_sk INT, \n",
+					"cc_open_date_sk INT, cc_name STRING, cc_class STRING, cc_employees INT, cc_sq_ft INT, cc_hours STRING, cc_manager STRING, \n",
+					"cc_mkt_id INT, cc_mkt_class STRING, cc_mkt_desc STRING, cc_market_manager STRING, cc_division INT, cc_division_name STRING, \n",
+					"cc_company INT, cc_company_name STRING, cc_street_number STRING, cc_street_name STRING, cc_street_type STRING, cc_suite_number STRING, \n",
+					"cc_city STRING, cc_county STRING, cc_state STRING, cc_zip STRING, cc_country STRING, cc_gmt_offset DECIMAL(5,2), cc_tax_percentage DECIMAL(5,2)) \n",
+					"USING parquet LOCATION '/tpcds/call_center/' \n",
+					"\"\"\")\n",
+					"\n",
+					"display(df)"
+				],
+				"execution_count": 4
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": true
+				},
+				"source": [
+					""
 				],
 				"execution_count": null
 			}
