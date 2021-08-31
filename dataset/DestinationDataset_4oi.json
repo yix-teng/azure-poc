@@ -10,8 +10,8 @@
 		"schema": [
 			{
 				"name": "cc_call_center_sk",
-				"type": "bigint",
-				"precision": 19
+				"type": "int",
+				"precision": 10
 			},
 			{
 				"name": "cc_call_center_id",
