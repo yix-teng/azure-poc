@@ -1,0 +1,17 @@
+{
+	"name": "Query_all_internal_tpc_tables",
+	"properties": {
+		"content": {
+			"query": "select count(*) from call_center;\nselect count(*) from catalog_page;\nselect count(*) from catalog_returns;\nselect count(*) from catalog_sales;\nselect count(*) from customer;\nselect count(*) from customer_address;\nselect count(*) from customer_demographics;\nselect count(*) from date_dim;\nselect count(*) from household_demographics;\nselect count(*) from income_band;\nselect count(*) from inventory;\nselect count(*) from item;\nselect count(*) from promotion;\nselect count(*) from reason;\nselect count(*) from ship_mode;\nselect count(*) from store;\nselect count(*) from store_returns;\nselect count(*) from store_sales;\nselect count(*) from time_dim;\nselect count(*) from warehouse;\nselect count(*) from web_page;\nselect count(*) from web_returns;\nselect count(*) from web_sales;\nselect count(*) from web_site;\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "DeticatedSqlPool",
+				"poolName": "DeticatedSqlPool"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
