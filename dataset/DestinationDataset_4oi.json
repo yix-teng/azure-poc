@@ -23,17 +23,17 @@
 			},
 			{
 				"name": "cc_rec_end_date",
-				"type": "nvarchar"
+				"type": "date"
 			},
 			{
 				"name": "cc_closed_date_sk",
-				"type": "bigint",
-				"precision": 19
+				"type": "int",
+				"precision": 10
 			},
 			{
 				"name": "cc_open_date_sk",
-				"type": "bigint",
-				"precision": 19
+				"type": "int",
+				"precision": 10
 			},
 			{
 				"name": "cc_name",
