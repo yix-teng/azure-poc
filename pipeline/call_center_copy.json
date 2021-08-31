@@ -49,8 +49,8 @@
 								},
 								"sink": {
 									"name": "cc_call_center_sk",
-									"type": "Int64",
-									"physicalType": "bigint"
+									"type": "Int32",
+									"physicalType": "int"
 								}
 							},
 							{
@@ -73,8 +73,8 @@
 								},
 								"sink": {
 									"name": "cc_rec_start_date",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"type": "DateTime",
+									"physicalType": "date"
 								}
 							},
 							{
@@ -85,8 +85,8 @@
 								},
 								"sink": {
 									"name": "cc_rec_end_date",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"type": "DateTime",
+									"physicalType": "date"
 								}
 							},
 							{
@@ -97,8 +97,8 @@
 								},
 								"sink": {
 									"name": "cc_closed_date_sk",
-									"type": "Int64",
-									"physicalType": "bigint"
+									"type": "Int32",
+									"physicalType": "int"
 								}
 							},
 							{
@@ -109,8 +109,8 @@
 								},
 								"sink": {
 									"name": "cc_open_date_sk",
-									"type": "Int64",
-									"physicalType": "bigint"
+									"type": "Int32",
+									"physicalType": "int"
 								}
 							},
 							{
@@ -397,8 +397,8 @@
 								},
 								"sink": {
 									"name": "cc_gmt_offset",
-									"type": "Double",
-									"physicalType": "float"
+									"type": "Single",
+									"physicalType": "real"
 								}
 							},
 							{
@@ -409,8 +409,8 @@
 								},
 								"sink": {
 									"name": "cc_tax_percentage",
-									"type": "Double",
-									"physicalType": "float"
+									"type": "Single",
+									"physicalType": "real"
 								}
 							}
 						],
