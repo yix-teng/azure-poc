@@ -1,0 +1,17 @@
+{
+	"name": "load_internal_tables_tpcd",
+	"properties": {
+		"content": {
+			"query": "COPY INTO call_center FROM  'https://scbpocdev.blob.core.windows.net/tpcdata/tpcds/call_center/' WITH (FILE_TYPE = 'PARQUET')\nCOPY INTO catalog_page FROM  'https://scbpocdev.blob.core.windows.net/tpcdata/tpcds/catalog_page/' WITH (FILE_TYPE = 'PARQUET')\nCOPY INTO catalog_returns FROM  'https://scbpocdev.blob.core.windows.net/tpcdata/tpcds/catalog_returns/' WITH (FILE_TYPE = 'PARQUET')\nCOPY INTO catalog_sales FROM  'https://scbpocdev.blob.core.windows.net/tpcdata/tpcds/catalog_sales/' WITH (FILE_TYPE = 'PARQUET')\nCOPY INTO customer FROM  'https://scbpocdev.blob.core.windows.net/tpcdata/tpcds/customer/' WITH (FILE_TYPE = 'PARQUET')\nCOPY INTO customer_address FROM  'https://scbpocdev.blob.core.windows.net/tpcdata/tpcds/customer_address/' WITH (FILE_TYPE = 'PARQUET')\nCOPY INTO customer_demographics FROM  'https://scbpocdev.blob.core.windows.net/tpcdata/tpcds/customer_demographics/' WITH (FILE_TYPE = 'PARQUET')\nCOPY INTO date_dim FROM  'https://scbpocdev.blob.core.windows.net/tpcdata/tpcds/date_dim/' WITH (FILE_TYPE = 'PARQUET')\nCOPY INTO household_demographics FROM  'https://scbpocdev.blob.core.windows.net/tpcdata/tpcds/household_demographics/' WITH (FILE_TYPE = 'PARQUET')\nCOPY INTO income_band FROM  'https://scbpocdev.blob.core.windows.net/tpcdata/tpcds/income_band/' WITH (FILE_TYPE = 'PARQUET')\nCOPY INTO inventory FROM  'https://scbpocdev.blob.core.windows.net/tpcdata/tpcds/inventory/' WITH (FILE_TYPE = 'PARQUET')\nCOPY INTO item FROM  'https://scbpocdev.blob.core.windows.net/tpcdata/tpcds/item/' WITH (FILE_TYPE = 'PARQUET')\nCOPY INTO promotion FROM  'https://scbpocdev.blob.core.windows.net/tpcdata/tpcds/promotion/' WITH (FILE_TYPE = 'PARQUET')\nCOPY INTO reason FROM  'https://scbpocdev.blob.core.windows.net/tpcdata/tpcds/reason/' WITH (FILE_TYPE = 'PARQUET')\nCOPY INTO ship_mode FROM  'https://scbpocdev.blob.core.windows.net/tpcdata/tpcds/ship_mode/' WITH (FILE_TYPE = 'PARQUET')\nCOPY INTO store FROM  'https://scbpocdev.blob.core.windows.net/tpcdata/tpcds/store/' WITH (FILE_TYPE = 'PARQUET')\nCOPY INTO store_returns FROM  'https://scbpocdev.blob.core.windows.net/tpcdata/tpcds/store_returns/' WITH (FILE_TYPE = 'PARQUET')\nCOPY INTO store_sales FROM  'https://scbpocdev.blob.core.windows.net/tpcdata/tpcds/store_sales/' WITH (FILE_TYPE = 'PARQUET')\nCOPY INTO time_dim FROM  'https://scbpocdev.blob.core.windows.net/tpcdata/tpcds/time_dim/' WITH (FILE_TYPE = 'PARQUET')\nCOPY INTO warehouse FROM  'https://scbpocdev.blob.core.windows.net/tpcdata/tpcds/warehouse/' WITH (FILE_TYPE = 'PARQUET')\nCOPY INTO web_page FROM  'https://scbpocdev.blob.core.windows.net/tpcdata/tpcds/web_page/' WITH (FILE_TYPE = 'PARQUET')\nCOPY INTO web_returns FROM  'https://scbpocdev.blob.core.windows.net/tpcdata/tpcds/web_returns/' WITH (FILE_TYPE = 'PARQUET')\nCOPY INTO web_sales FROM  'https://scbpocdev.blob.core.windows.net/tpcdata/tpcds/web_sales/' WITH (FILE_TYPE = 'PARQUET')\nCOPY INTO web_site FROM  'https://scbpocdev.blob.core.windows.net/tpcdata/tpcds/web_site/' WITH (FILE_TYPE = 'PARQUET')\n\n\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "master",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
