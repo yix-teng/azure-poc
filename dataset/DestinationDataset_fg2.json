@@ -1,0 +1,16 @@
+{
+	"name": "DestinationDataset_fg2",
+	"properties": {
+		"annotations": [],
+		"type": "SqlPoolTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "call_center_clone"
+		},
+		"sqlPool": {
+			"referenceName": "DeticatedSqlPool",
+			"type": "SqlPoolReference"
+		}
+	}
+}
