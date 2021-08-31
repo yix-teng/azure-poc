@@ -19,7 +19,7 @@
 			},
 			{
 				"name": "cc_rec_start_date",
-				"type": "nvarchar"
+				"type": "date"
 			},
 			{
 				"name": "cc_rec_end_date",
