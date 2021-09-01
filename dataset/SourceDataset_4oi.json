@@ -10,8 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "part-00000-c6c0883f-a698-40bd-99f8-60448163634e-c000.snappy.parquet",
-				"folderPath": "tpcds/call_center",
+				"folderPath": "tpcds/store_sales",
 				"fileSystem": "tpcdata"
 			},
 			"compressionCodec": "snappy"
