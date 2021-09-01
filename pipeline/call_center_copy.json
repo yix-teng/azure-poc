@@ -29,8 +29,10 @@
 						"storeSettings": {
 							"type": "AzureBlobFSReadSettings",
 							"recursive": true,
+							"wildcardFolderPath": "tpcds/store_sales",
 							"wildcardFileName": "*",
-							"enablePartitionDiscovery": false
+							"enablePartitionDiscovery": true,
+							"partitionRootPath": "tpcdata/tpcds/store_returns"
 						}
 					},
 					"sink": {
