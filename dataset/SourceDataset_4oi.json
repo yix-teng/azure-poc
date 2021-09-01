@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "tpcds",
+				"folderPath": "tpcds/store_sales",
 				"fileSystem": "tpcdata"
 			},
 			"compressionCodec": "snappy"
