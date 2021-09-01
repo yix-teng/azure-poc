@@ -145,7 +145,7 @@
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "call_center"
+			"table": "store_sales"
 		}
 	}
 }
