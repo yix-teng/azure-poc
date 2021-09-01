@@ -1,5 +1,5 @@
 {
-	"name": "Pipeline 1",
+	"name": "Parition data ingest pipeline",
 	"properties": {
 		"activities": [
 			{
