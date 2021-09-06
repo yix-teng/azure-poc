@@ -1,0 +1,17 @@
+{
+	"name": "Serveless_create_external_views",
+	"properties": {
+		"content": {
+			"query": "IF NOT EXISTS (SELECT * FROM sys.external_file_formats WHERE name = 'SynapseParquetFormat') \n\tCREATE EXTERNAL FILE FORMAT [SynapseParquetFormat] \n\tWITH ( FORMAT_TYPE = PARQUET)\nGO\n\nIF NOT EXISTS (SELECT * FROM sys.external_data_sources WHERE name = 'tpcdata_scbpocdev_dfs_core_windows_net') \n\tCREATE EXTERNAL DATA SOURCE [tpcdata_scbpocdev_dfs_core_windows_net] \n\tWITH (\n\t\tLOCATION   = 'https://scbpocdev.dfs.core.windows.net/tpcdata', \n\t)\nGo\n\nCREATE View catalog_returns_view as select *, cr.filepath(1) as cr_returned_date_sk from  \n\tOPENROWSET (\n\tBULK 'tpcds/catalog_returns/cr_returned_date_sk=*/*.parquet',\n\tDATA_SOURCE = 'tpcdata_scbpocdev_dfs_core_windows_net',\n\tFORMAT = 'PARQUET'\n\t) as cr\nGO\n\nSELECT TOP 100 * FROM catalog_returns_view\nGO\n\n\n\nCREATE EXTERNAL TABLE catalog_returns_view (\n\t[cr_returned_time_sk] int,\n\t[cr_item_sk] int,\n\t[cr_refunded_customer_sk] int,\n\t[cr_refunded_cdemo_sk] int,\n\t[cr_refunded_hdemo_sk] int,\n\t[cr_refunded_addr_sk] int,\n\t[cr_returning_customer_sk] int,\n\t[cr_returning_cdemo_sk] int,\n\t[cr_returning_hdemo_sk] int,\n\t[cr_returning_addr_sk] int,\n\t[cr_call_center_sk] int,\n\t[cr_catalog_page_sk] int,\n\t[cr_ship_mode_sk] int,\n\t[cr_warehouse_sk] int,\n\t[cr_reason_sk] int,\n\t[cr_order_number] bigint,\n\t[cr_return_quantity] int,\n\t[cr_return_amount] numeric(7,2),\n\t[cr_return_tax] numeric(7,2),\n\t[cr_return_amt_inc_tax] numeric(7,2),\n\t[cr_fee] numeric(7,2),\n\t[cr_return_ship_cost] numeric(7,2),\n\t[cr_refunded_cash] numeric(7,2),\n\t[cr_reversed_charge] numeric(7,2),\n\t[cr_store_credit] numeric(7,2),\n\t[cr_net_loss] numeric(7,2)\n\t)\n\tWITH (\n\tLOCATION = 'tpcds/catalog_returns/cr_returned_date_sk=2450829/part-00178-bed879d2-66db-46a6-85d7-0c395f9852f1.c000.snappy.parquet',\n\tDATA_SOURCE = [tpcdata_scbpocdev_dfs_core_windows_net],\n\tFILE_FORMAT = [SynapseParquetFormat]\n\t)\nGO\n\nSELECT TOP 100 * FROM catalog_returns_view\nGO\n\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "sqlservlessinternalselfmanagedDB",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
