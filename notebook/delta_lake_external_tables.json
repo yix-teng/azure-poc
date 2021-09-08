@@ -1,5 +1,5 @@
 {
-	"name": "Notebook 4",
+	"name": "delta_lake_external_tables",
 	"properties": {
 		"nbformat": 4,
 		"nbformat_minor": 2,
@@ -110,7 +110,7 @@
 							"deleting": false
 						}
 					},
-					"collapsed": true
+					"collapsed": false
 				},
 				"source": [
 					"select count(*) from delta_ext_db.call_center;\n",
