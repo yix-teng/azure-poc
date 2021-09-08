@@ -1,5 +1,5 @@
 {
-	"name": "delta_lake_external_tables",
+	"name": "Round_1N2_delta_lake_external_tables",
 	"properties": {
 		"nbformat": 4,
 		"nbformat_minor": 2,
@@ -22,8 +22,8 @@
 		"metadata": {
 			"saveOutput": true,
 			"kernelspec": {
-				"name": "synapse_pyspark",
-				"display_name": "Synapse PySpark"
+				"name": "synapse_sparksql",
+				"display_name": "sql"
 			},
 			"language_info": {
 				"name": "sql"
