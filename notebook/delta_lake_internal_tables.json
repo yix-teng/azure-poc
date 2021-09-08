@@ -26,7 +26,7 @@
 				"display_name": "Synapse PySpark"
 			},
 			"language_info": {
-				"name": "python"
+				"name": "sql"
 			},
 			"a365ComputeOptions": {
 				"id": "/subscriptions/dedfa758-9fb0-4c1b-b0e2-25c590d4f804/resourceGroups/SCB-POC-DEV/providers/Microsoft.Synapse/workspaces/sqlservlessinternalselfmanaged/bigDataPools/previewtest",
@@ -107,28 +107,28 @@
 					"collapsed": true
 				},
 				"source": [
-					"spark.sql(\"CREATE TABLE pocdeltadev.call_center USING DELTA LOCATION 'abfss://tpcdata@scbpocdev.dfs.core.windows.net/tpcds-delta/call_center/'\")\n",
-					"spark.sql(\"CREATE TABLE pocdeltadev.catalog_page USING DELTA LOCATION 'abfss://tpcdata@scbpocdev.dfs.core.windows.net/tpcds-delta/catalog_page/'\")\n",
-					"spark.sql(\"CREATE TABLE pocdeltadev.catalog_returns USING DELTA LOCATION 'abfss://tpcdata@scbpocdev.dfs.core.windows.net/tpcds-delta/catalog_returns/'\")\n",
-					"spark.sql(\"CREATE TABLE pocdeltadev.catalog_sales USING DELTA LOCATION 'abfss://tpcdata@scbpocdev.dfs.core.windows.net/tpcds-delta/catalog_sales/'\")\n",
-					"spark.sql(\"CREATE TABLE pocdeltadev.customer USING DELTA LOCATION 'abfss://tpcdata@scbpocdev.dfs.core.windows.net/tpcds-delta/customer/'\")\n",
-					"spark.sql(\"CREATE TABLE pocdeltadev.customer_address USING DELTA LOCATION 'abfss://tpcdata@scbpocdev.dfs.core.windows.net/tpcds-delta/customer_address/'\")\n",
-					"spark.sql(\"CREATE TABLE pocdeltadev.customer_demographics USING DELTA LOCATION 'abfss://tpcdata@scbpocdev.dfs.core.windows.net/tpcds-delta/customer_demographics/'\")\n",
-					"spark.sql(\"CREATE TABLE pocdeltadev.date_dim USING DELTA LOCATION 'abfss://tpcdata@scbpocdev.dfs.core.windows.net/tpcds-delta/date_dim/'\")\n",
-					"spark.sql(\"CREATE TABLE pocdeltadev.household_demographics USING DELTA LOCATION 'abfss://tpcdata@scbpocdev.dfs.core.windows.net/tpcds-delta/household_demographics/'\")\n",
-					"spark.sql(\"CREATE TABLE pocdeltadev.income_band USING DELTA LOCATION 'abfss://tpcdata@scbpocdev.dfs.core.windows.net/tpcds-delta/income_band/'\")\n",
-					"spark.sql(\"CREATE TABLE pocdeltadev.inventory USING DELTA LOCATION 'abfss://tpcdata@scbpocdev.dfs.core.windows.net/tpcds-delta/inventory/'\")\n",
-					"spark.sql(\"CREATE TABLE pocdeltadev.item USING DELTA LOCATION 'abfss://tpcdata@scbpocdev.dfs.core.windows.net/tpcds-delta/item/'\")\n",
-					"spark.sql(\"CREATE TABLE pocdeltadev.promotion USING DELTA LOCATION 'abfss://tpcdata@scbpocdev.dfs.core.windows.net/tpcds-delta/promotion/'\")\n",
-					"spark.sql(\"CREATE TABLE pocdeltadev.reason USING DELTA LOCATION 'abfss://tpcdata@scbpocdev.dfs.core.windows.net/tpcds-delta/reason/'\")\n",
-					"spark.sql(\"CREATE TABLE pocdeltadev.ship_mode USING DELTA LOCATION 'abfss://tpcdata@scbpocdev.dfs.core.windows.net/tpcds-delta/ship_mode/'\")\n",
-					"spark.sql(\"CREATE TABLE pocdeltadev.store USING DELTA LOCATION 'abfss://tpcdata@scbpocdev.dfs.core.windows.net/tpcds-delta/store/'\")\n",
-					"spark.sql(\"CREATE TABLE pocdeltadev.store_returns USING DELTA LOCATION 'abfss://tpcdata@scbpocdev.dfs.core.windows.net/tpcds-delta/store_returns/'\")\n",
-					"spark.sql(\"CREATE TABLE pocdeltadev.store_sales USING DELTA LOCATION 'abfss://tpcdata@scbpocdev.dfs.core.windows.net/tpcds-delta/store_sales/'\")\n",
-					"spark.sql(\"CREATE TABLE pocdeltadev.time_dim USING DELTA LOCATION 'abfss://tpcdata@scbpocdev.dfs.core.windows.net/tpcds-delta/time_dim/'\")\n",
-					"spark.sql(\"CREATE TABLE pocdeltadev.warehouse USING DELTA LOCATION 'abfss://tpcdata@scbpocdev.dfs.core.windows.net/tpcds-delta/warehouse/'\")\n",
-					"spark.sql(\"CREATE TABLE pocdeltadev.web_page USING DELTA LOCATION 'abfss://tpcdata@scbpocdev.dfs.core.windows.net/tpcds-delta/web_page/'\")\n",
-					"spark.sql(\"CREATE TABLE pocdeltadev.web_returns USING DELTA LOCATION 'abfss://tpcdata@scbpocdev.dfs.core.windows.net/tpcds-delta/web_returns/'\")\n",
+					"# spark.sql(\"CREATE TABLE pocdeltadev.call_center USING DELTA LOCATION 'abfss://tpcdata@scbpocdev.dfs.core.windows.net/tpcds-delta/call_center/'\")\n",
+					"# spark.sql(\"CREATE TABLE pocdeltadev.catalog_page USING DELTA LOCATION 'abfss://tpcdata@scbpocdev.dfs.core.windows.net/tpcds-delta/catalog_page/'\")\n",
+					"# spark.sql(\"CREATE TABLE pocdeltadev.catalog_returns USING DELTA LOCATION 'abfss://tpcdata@scbpocdev.dfs.core.windows.net/tpcds-delta/catalog_returns/'\")\n",
+					"# spark.sql(\"CREATE TABLE pocdeltadev.catalog_sales USING DELTA LOCATION 'abfss://tpcdata@scbpocdev.dfs.core.windows.net/tpcds-delta/catalog_sales/'\")\n",
+					"# spark.sql(\"CREATE TABLE pocdeltadev.customer USING DELTA LOCATION 'abfss://tpcdata@scbpocdev.dfs.core.windows.net/tpcds-delta/customer/'\")\n",
+					"# spark.sql(\"CREATE TABLE pocdeltadev.customer_address USING DELTA LOCATION 'abfss://tpcdata@scbpocdev.dfs.core.windows.net/tpcds-delta/customer_address/'\")\n",
+					"# spark.sql(\"CREATE TABLE pocdeltadev.customer_demographics USING DELTA LOCATION 'abfss://tpcdata@scbpocdev.dfs.core.windows.net/tpcds-delta/customer_demographics/'\")\n",
+					"# spark.sql(\"CREATE TABLE pocdeltadev.date_dim USING DELTA LOCATION 'abfss://tpcdata@scbpocdev.dfs.core.windows.net/tpcds-delta/date_dim/'\")\n",
+					"# spark.sql(\"CREATE TABLE pocdeltadev.household_demographics USING DELTA LOCATION 'abfss://tpcdata@scbpocdev.dfs.core.windows.net/tpcds-delta/household_demographics/'\")\n",
+					"# spark.sql(\"CREATE TABLE pocdeltadev.income_band USING DELTA LOCATION 'abfss://tpcdata@scbpocdev.dfs.core.windows.net/tpcds-delta/income_band/'\")\n",
+					"# spark.sql(\"CREATE TABLE pocdeltadev.inventory USING DELTA LOCATION 'abfss://tpcdata@scbpocdev.dfs.core.windows.net/tpcds-delta/inventory/'\")\n",
+					"# spark.sql(\"CREATE TABLE pocdeltadev.item USING DELTA LOCATION 'abfss://tpcdata@scbpocdev.dfs.core.windows.net/tpcds-delta/item/'\")\n",
+					"# spark.sql(\"CREATE TABLE pocdeltadev.promotion USING DELTA LOCATION 'abfss://tpcdata@scbpocdev.dfs.core.windows.net/tpcds-delta/promotion/'\")\n",
+					"# spark.sql(\"CREATE TABLE pocdeltadev.reason USING DELTA LOCATION 'abfss://tpcdata@scbpocdev.dfs.core.windows.net/tpcds-delta/reason/'\")\n",
+					"# spark.sql(\"CREATE TABLE pocdeltadev.ship_mode USING DELTA LOCATION 'abfss://tpcdata@scbpocdev.dfs.core.windows.net/tpcds-delta/ship_mode/'\")\n",
+					"# spark.sql(\"CREATE TABLE pocdeltadev.store USING DELTA LOCATION 'abfss://tpcdata@scbpocdev.dfs.core.windows.net/tpcds-delta/store/'\")\n",
+					"# spark.sql(\"CREATE TABLE pocdeltadev.store_returns USING DELTA LOCATION 'abfss://tpcdata@scbpocdev.dfs.core.windows.net/tpcds-delta/store_returns/'\")\n",
+					"# spark.sql(\"CREATE TABLE pocdeltadev.store_sales USING DELTA LOCATION 'abfss://tpcdata@scbpocdev.dfs.core.windows.net/tpcds-delta/store_sales/'\")\n",
+					"# spark.sql(\"CREATE TABLE pocdeltadev.time_dim USING DELTA LOCATION 'abfss://tpcdata@scbpocdev.dfs.core.windows.net/tpcds-delta/time_dim/'\")\n",
+					"# spark.sql(\"CREATE TABLE pocdeltadev.warehouse USING DELTA LOCATION 'abfss://tpcdata@scbpocdev.dfs.core.windows.net/tpcds-delta/warehouse/'\")\n",
+					"# spark.sql(\"CREATE TABLE pocdeltadev.web_page USING DELTA LOCATION 'abfss://tpcdata@scbpocdev.dfs.core.windows.net/tpcds-delta/web_page/'\")\n",
+					"# spark.sql(\"CREATE TABLE pocdeltadev.web_returns USING DELTA LOCATION 'abfss://tpcdata@scbpocdev.dfs.core.windows.net/tpcds-delta/web_returns/'\")\n",
 					"spark.sql(\"CREATE TABLE pocdeltadev.web_sales USING DELTA LOCATION 'abfss://tpcdata@scbpocdev.dfs.core.windows.net/tpcds-delta/web_sales/'\")\n",
 					"spark.sql(\"CREATE TABLE pocdeltadev.web_site USING DELTA LOCATION 'abfss://tpcdata@scbpocdev.dfs.core.windows.net/tpcds-delta/web_site/'\")"
 				],
@@ -146,16 +146,35 @@
 							"deleting": false
 						}
 					},
-					"microsoft": {
-						"language": "sparksql"
-					},
 					"collapsed": false
 				},
 				"source": [
-					"%%sql\n",
-					"select distinct wr_returned_date_sk from pocdeltadev.web_returns"
+					"select count(*) from pocdeltadev.call_center;\n",
+					"select count(*) from pocdeltadev.catalog_page;\n",
+					"select count(*) from pocdeltadev.catalog_returns;\n",
+					"select count(*) from pocdeltadev.catalog_sales;\n",
+					"select count(*) from pocdeltadev.customer;\n",
+					"select count(*) from pocdeltadev.customer_address;\n",
+					"select count(*) from pocdeltadev.customer_demographics;\n",
+					"select count(*) from pocdeltadev.date_dim;\n",
+					"select count(*) from pocdeltadev.household_demographics;\n",
+					"select count(*) from pocdeltadev.income_band;\n",
+					"select count(*) from pocdeltadev.inventory;\n",
+					"select count(*) from pocdeltadev.item;\n",
+					"select count(*) from pocdeltadev.promotion;\n",
+					"select count(*) from pocdeltadev.reason;\n",
+					"select count(*) from pocdeltadev.ship_mode;\n",
+					"select count(*) from pocdeltadev.store;\n",
+					"select count(*) from pocdeltadev.store_returns;\n",
+					"select count(*) from pocdeltadev.store_sales;\n",
+					"select count(*) from pocdeltadev.time_dim;\n",
+					"select count(*) from pocdeltadev.warehouse;\n",
+					"select count(*) from pocdeltadev.web_page;\n",
+					"select count(*) from pocdeltadev.web_returns;\n",
+					"select count(*) from pocdeltadev.web_sales;\n",
+					"select count(*) from pocdeltadev.web_site;"
 				],
-				"execution_count": 6
+				"execution_count": 4
 			},
 			{
 				"cell_type": "code",
