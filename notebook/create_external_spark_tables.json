@@ -305,7 +305,7 @@
 							"deleting": false
 						}
 					},
-					"collapsed": true
+					"collapsed": false
 				},
 				"source": [
 					"select count(*) from spark_ext_db.catalog_returns;\n",
