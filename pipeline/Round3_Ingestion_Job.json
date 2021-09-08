@@ -1,5 +1,5 @@
 {
-	"name": "Parition data ingest pipeline",
+	"name": "Round3_Ingestion_Job",
 	"properties": {
 		"activities": [
 			{
@@ -27,8 +27,7 @@
 						}
 					},
 					"sink": {
-						"type": "SqlDWSink",
-						"sqlWriterUseTableLock": true
+						"type": "SqlDWSink"
 					},
 					"enableStaging": false,
 					"translator": {
