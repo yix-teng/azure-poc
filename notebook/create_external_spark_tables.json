@@ -4,14 +4,14 @@
 		"nbformat": 4,
 		"nbformat_minor": 2,
 		"bigDataPool": {
-			"referenceName": "deltalake",
+			"referenceName": "previewtest",
 			"type": "BigDataPoolReference"
 		},
 		"sessionProperties": {
-			"driverMemory": "112g",
-			"driverCores": 16,
-			"executorMemory": "112g",
-			"executorCores": 16,
+			"driverMemory": "56g",
+			"driverCores": 8,
+			"executorMemory": "56g",
+			"executorCores": 8,
 			"numExecutors": 2,
 			"conf": {
 				"spark.dynamicAllocation.enabled": "false",
@@ -23,24 +23,24 @@
 			"saveOutput": true,
 			"kernelspec": {
 				"name": "synapse_sparksql",
-				"display_name": "sql"
+				"display_name": "Synapse SQL"
 			},
 			"language_info": {
 				"name": "sql"
 			},
 			"a365ComputeOptions": {
-				"id": "/subscriptions/dedfa758-9fb0-4c1b-b0e2-25c590d4f804/resourceGroups/SCB-POC-DEV/providers/Microsoft.Synapse/workspaces/sqlservlessinternalselfmanaged/bigDataPools/deltalake",
-				"name": "deltalake",
+				"id": "/subscriptions/dedfa758-9fb0-4c1b-b0e2-25c590d4f804/resourceGroups/SCB-POC-DEV/providers/Microsoft.Synapse/workspaces/sqlservlessinternalselfmanaged/bigDataPools/previewtest",
+				"name": "previewtest",
 				"type": "Spark",
-				"endpoint": "https://sqlservlessinternalselfmanaged.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/deltalake",
+				"endpoint": "https://sqlservlessinternalselfmanaged.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/previewtest",
 				"auth": {
 					"type": "AAD",
 					"authResource": "https://dev.azuresynapse.net"
 				},
-				"sparkVersion": "2.4",
+				"sparkVersion": "3.1",
 				"nodeCount": 10,
-				"cores": 16,
-				"memory": 112,
+				"cores": 8,
+				"memory": 56,
 				"automaticScaleJobs": false
 			},
 			"sessionKeepAliveTimeout": 30
@@ -248,6 +248,31 @@
 					""
 				],
 				"execution_count": 9
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": true
+				},
+				"source": [
+					"ALTER TABLE sparkdb.catalog_returns RECOVER PARTITIONS;\n",
+					"ALTER TABLE sparkdb.catalog_sales RECOVER PARTITIONS;\n",
+					"ALTER TABLE sparkdb.inventory RECOVER PARTITIONS;\n",
+					"ALTER TABLE sparkdb.store_returns RECOVER PARTITIONS;\n",
+					"ALTER TABLE sparkdb.store_sales RECOVER PARTITIONS;\n",
+					"ALTER TABLE sparkdb.web_returns RECOVER PARTITIONS;\n",
+					"ALTER TABLE sparkdb.web_sales RECOVER PARTITIONS;"
+				],
+				"execution_count": 1
 			}
 		]
 	}
