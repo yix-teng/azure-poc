@@ -308,15 +308,15 @@
 					"collapsed": true
 				},
 				"source": [
-					"select count(*) from spark_ext_db.catalog_returns RECOVER PARTITIONS;\n",
-					"select count(*) from spark_ext_db.catalog_sales RECOVER PARTITIONS;\n",
-					"select count(*) from spark_ext_db.inventory RECOVER PARTITIONS;\n",
-					"select count(*) from spark_ext_db.store_returns RECOVER PARTITIONS;\n",
-					"select count(*) from spark_ext_db.store_sales RECOVER PARTITIONS;\n",
-					"select count(*) from spark_ext_db.web_returns RECOVER PARTITIONS;\n",
-					"select count(*) from spark_ext_db.web_sales RECOVER PARTITIONS;"
+					"select count(*) from spark_ext_db.catalog_returns;\n",
+					"select count(*) from spark_ext_db.catalog_sales;\n",
+					"select count(*) from spark_ext_db.inventory;\n",
+					"select count(*) from spark_ext_db.store_returns;\n",
+					"select count(*) from spark_ext_db.store_sales;\n",
+					"select count(*) from spark_ext_db.web_returns;\n",
+					"select count(*) from spark_ext_db.web_sales;"
 				],
-				"execution_count": 4
+				"execution_count": 2
 			}
 		]
 	}
