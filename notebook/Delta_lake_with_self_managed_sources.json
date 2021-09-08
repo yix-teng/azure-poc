@@ -116,6 +116,67 @@
 					"select * from call_center_delta"
 				],
 				"execution_count": 4
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": true
+				},
+				"source": [
+					"CONVERT TO DELTA parquet.`abfss://tpcdata@scbpocdev.dfs.core.windows.net/tpcds/catalog_returns/`"
+				],
+				"execution_count": 5
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": true
+				},
+				"source": [
+					"CREATE TABLE call_center_delta\n",
+					"USING DELTA\n",
+					"LOCATION 'abfss://tpcdata@scbpocdev.dfs.core.windows.net/tpcds/catalog_returns/'\n",
+					"PARTITIONED BY (cr_returned_date_sk)\n",
+					""
+				],
+				"execution_count": null
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": true
+				},
+				"source": [
+					""
+				],
+				"execution_count": null
 			}
 		]
 	}
