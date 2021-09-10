@@ -2,14 +2,14 @@
 	"name": "Test Spark job",
 	"properties": {
 		"targetBigDataPool": {
-			"referenceName": "deltalake",
+			"referenceName": "previewtest",
 			"type": "BigDataPoolReference"
 		},
-		"requiredSparkVersion": "2.4",
+		"requiredSparkVersion": "3.1",
 		"language": "python",
 		"jobProperties": {
 			"name": "Test Spark job",
-			"file": "abfss://tpcdata@scbpocdev.dfs.core.windows.net/shakespeare.txt",
+			"file": "abfss://tpcdata@scbpocdev.dfs.core.windows.net/wordcount.py",
 			"conf": {
 				"spark.dynamicAllocation.enabled": "false",
 				"spark.dynamicAllocation.minExecutors": "2",
@@ -17,14 +17,14 @@
 			},
 			"args": [
 				"abfss://tpcdata@scbpocdev.dfs.core.windows.net/shakespeare.txt",
-				"abfss://tpcdata@scbpocdev.dfs.core.windows.net/"
+				"abfss://tpcdata@scbpocdev.dfs.core.windows.net/results/"
 			],
 			"jars": [],
 			"files": [],
-			"driverMemory": "28g",
-			"driverCores": 4,
-			"executorMemory": "28g",
-			"executorCores": 4,
+			"driverMemory": "56g",
+			"driverCores": 8,
+			"executorMemory": "56g",
+			"executorCores": 8,
 			"numExecutors": 2
 		}
 	}
