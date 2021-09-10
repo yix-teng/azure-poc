@@ -1,0 +1,16 @@
+{
+	"name": "catalogreturnsget",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"name": "catalogreturnsget"
+				}
+			],
+			"sinks": [],
+			"transformations": [],
+			"script": "source(output(\n\t\tcr_returned_time_sk as integer,\n\t\tcr_item_sk as integer,\n\t\tcr_refunded_customer_sk as integer,\n\t\tcr_refunded_cdemo_sk as integer,\n\t\tcr_refunded_hdemo_sk as integer,\n\t\tcr_refunded_addr_sk as integer,\n\t\tcr_returning_customer_sk as integer,\n\t\tcr_returning_cdemo_sk as integer,\n\t\tcr_returning_hdemo_sk as integer,\n\t\tcr_returning_addr_sk as integer,\n\t\tcr_call_center_sk as integer,\n\t\tcr_catalog_page_sk as integer,\n\t\tcr_ship_mode_sk as integer,\n\t\tcr_warehouse_sk as integer,\n\t\tcr_reason_sk as integer,\n\t\tcr_order_number as long,\n\t\tcr_return_quantity as integer,\n\t\tcr_return_amount as decimal(7,2),\n\t\tcr_return_tax as decimal(7,2),\n\t\tcr_return_amt_inc_tax as decimal(7,2),\n\t\tcr_fee as decimal(7,2),\n\t\tcr_return_ship_cost as decimal(7,2),\n\t\tcr_refunded_cash as decimal(7,2),\n\t\tcr_reversed_charge as decimal(7,2),\n\t\tcr_store_credit as decimal(7,2),\n\t\tcr_net_loss as decimal(7,2),\n\t\tcr_returned_date_sk as integer\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tlimit: 100,\n\tstore: 'synapse',\n\tdatabaseType: 'spark',\n\tformat: 'table',\n\tdatabase: 'spark_ext_db',\n\ttableName: 'catalog_returns') ~> catalogreturnsget"
+		}
+	}
+}
