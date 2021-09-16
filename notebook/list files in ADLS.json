@@ -40,8 +40,7 @@
 				"sparkVersion": "2.4",
 				"nodeCount": 10,
 				"cores": 16,
-				"memory": 112,
-				"automaticScaleJobs": false
+				"memory": 112
 			},
 			"sessionKeepAliveTimeout": 30
 		},
@@ -57,7 +56,7 @@
 					"%%pyspark\n",
 					"\n",
 					"list_file =  []\n",
-					"adls_path = 'abfss://tpcdata@scbpocdev.dfs.core.windows.net/tpcds/store_returns'\n",
+					"adls_path = 'abfss://dbstorage1000@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_parquet/store_sales/'\n",
 					"\n",
 					"#dynamically find all the files in dir,subdir etc...\n",
 					"def ADLS_Find_Files(adls_path):\n",
@@ -68,14 +67,15 @@
 					"      if file.name.endswith('/'):\n",
 					"        list_of_tables.extend(mssparkutils.fs.ls(file.path))\n",
 					"      else:\n",
-					"        print(file)\n",
+					"        if '__HIVE_DEFAULT_PARTITION__' in file.name:\n",
+					"          print(file)\n",
 					"  except Exception as e:\n",
 					"    # print('Searching for file path failed : '+str(file))\n",
 					"    raise e\n",
 					"\n",
 					"ADLS_Find_Files(adls_path)"
 				],
-				"execution_count": 18
+				"execution_count": 34
 			},
 			{
 				"cell_type": "code",
@@ -89,31 +89,23 @@
 							"deleting": false
 						}
 					},
-					"collapsed": true
-				},
-				"source": [
-					""
-				],
-				"execution_count": null
-			},
-			{
-				"cell_type": "code",
-				"metadata": {
-					"jupyter": {
-						"source_hidden": false,
-						"outputs_hidden": false
-					},
-					"nteract": {
-						"transient": {
-							"deleting": false
-						}
+					"microsoft": {
+						"language": "python"
 					},
 					"collapsed": true
 				},
 				"source": [
-					""
+					"%%pyspark\n",
+					"\n",
+					"# mssparkutils.fs.mv(\"abfss://dbstorage1000@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_parquet/catalog_returns/cr_returned_date_sk=__HIVE_DEFAULT_PARTITION__\", \"abfss://dbstorage1000@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_parquet/catalog_returns/cr_returned_date_sk=0\")\n",
+					"# mssparkutils.fs.mv(\"abfss://dbstorage1000@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_parquet/catalog_sales/cs_sold_date_sk=__HIVE_DEFAULT_PARTITION__\", \"abfss://dbstorage1000@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_parquet/catalog_sales/cs_sold_date_sk=0\")\n",
+					"# mssparkutils.fs.mv(\"abfss://dbstorage1000@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_parquet/inventory/inv_date_sk=__HIVE_DEFAULT_PARTITION__\", \"abfss://dbstorage1000@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_parquet/inventory/inv_date_sk=0\")\n",
+					"# mssparkutils.fs.mv(\"abfss://dbstorage1000@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_parquet/store_returns/sr_returned_date_sk=__HIVE_DEFAULT_PARTITION__\", \"abfss://dbstorage1000@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_parquet/store_returns/sr_returned_date_sk=0\")\n",
+					"# mssparkutils.fs.mv(\"abfss://dbstorage1000@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_parquet/store_sales/ss_sold_date_sk=__HIVE_DEFAULT_PARTITION__\", \"abfss://dbstorage1000@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_parquet/store_sales/ss_sold_date_sk=0\")\n",
+					"# mssparkutils.fs.mv(\"abfss://dbstorage1000@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_parquet/web_returns/wr_returned_date_sk=__HIVE_DEFAULT_PARTITION__\", \"abfss://dbstorage1000@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_parquet/web_returns/wr_returned_date_sk=0\")\n",
+					"# mssparkutils.fs.mv(\"abfss://dbstorage1000@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_parquet/web_sales/ws_sold_date_sk=__HIVE_DEFAULT_PARTITION__\", \"abfss://dbstorage1000@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_parquet/web_sales/ws_sold_date_sk=0\")"
 				],
-				"execution_count": null
+				"execution_count": 33
 			}
 		]
 	}
