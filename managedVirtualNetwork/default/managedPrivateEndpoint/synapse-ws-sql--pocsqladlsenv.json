@@ -1,0 +1,10 @@
+{
+	"name": "synapse-ws-sql--pocsqladlsenv",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/dedfa758-9fb0-4c1b-b0e2-25c590d4f804/resourceGroups/POC-SQL_ADLS-ENV/providers/Microsoft.Synapse/workspaces/pocsqladlsenv",
+		"groupId": "sql",
+		"fqdns": [
+			"pocsqladlsenv.3a58d6c8-e00d-4aed-a0a3-d88444ebf95c.sql.azuresynapse.net"
+		]
+	}
+}
