@@ -40,8 +40,7 @@
 				"sparkVersion": "3.1",
 				"nodeCount": 10,
 				"cores": 8,
-				"memory": 56,
-				"automaticScaleJobs": false
+				"memory": 56
 			},
 			"sessionKeepAliveTimeout": 30
 		},
@@ -98,28 +97,28 @@
 					"collapsed": false
 				},
 				"source": [
-					"                                                                                                 \n",
-					"CREATE TABLE `Round_2_create_external_spark_tables_1TB_DB`.`call_center` (`cc_call_center_sk` INT, `cc_call_center_id` STRING, `cc_rec_start_date` DATE, `cc_rec_end_date` DATE, `cc_closed_date_sk` INT, `cc_open_date_sk` INT, `cc_name` STRING, `cc_class` STRING, `cc_employees` INT, `cc_sq_ft` INT, `cc_hours` STRING, `cc_manager` STRING, `cc_mkt_id` INT, `cc_mkt_class` STRING, `cc_mkt_desc` STRING, `cc_market_manager` STRING, `cc_division` INT, `cc_division_name` STRING, `cc_company` INT, `cc_company_name` STRING, `cc_street_number` STRING, `cc_street_name` STRING, `cc_street_type` STRING, `cc_suite_number` STRING, `cc_city` STRING, `cc_county` STRING, `cc_state` STRING, `cc_zip` STRING, `cc_country` STRING, `cc_gmt_offset` DECIMAL(5,2), `cc_tax_percentage` DECIMAL(5,2))         \n",
-					"USING parquet                   \n",
-					"OPTIONS (                         \n",
-					"  `serialization.format` '1',     \n",
-					"  path 'abfss://dbstorage1000@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_parquet/call_center'\n",
-					"); \n",
+					"                                                                                                \n",
+					"-- CREATE TABLE `Round_2_create_external_spark_tables_1TB_DB`.`call_center` (`cc_call_center_sk` INT, `cc_call_center_id` STRING, `cc_rec_start_date` DATE, `cc_rec_end_date` DATE, `cc_closed_date_sk` INT, `cc_open_date_sk` INT, `cc_name` STRING, `cc_class` STRING, `cc_employees` INT, `cc_sq_ft` INT, `cc_hours` STRING, `cc_manager` STRING, `cc_mkt_id` INT, `cc_mkt_class` STRING, `cc_mkt_desc` STRING, `cc_market_manager` STRING, `cc_division` INT, `cc_division_name` STRING, `cc_company` INT, `cc_company_name` STRING, `cc_street_number` STRING, `cc_street_name` STRING, `cc_street_type` STRING, `cc_suite_number` STRING, `cc_city` STRING, `cc_county` STRING, `cc_state` STRING, `cc_zip` STRING, `cc_country` STRING, `cc_gmt_offset` DECIMAL(5,2), `cc_tax_percentage` DECIMAL(5,2))         \n",
+					"-- USING parquet                   \n",
+					"-- OPTIONS (                         \n",
+					"--   `serialization.format` '1',     \n",
+					"--   path 'abfss://dbstorage1000@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_parquet/call_center'\n",
+					"-- ); \n",
 					"\n",
-					"CREATE TABLE `Round_2_create_external_spark_tables_1TB_DB`.`catalog_page` (`cp_catalog_page_sk` INT, `cp_catalog_page_id` STRING, `cp_start_date_sk` INT, `cp_end_date_sk` INT, `cp_department` STRING, `cp_catalog_number` INT, `cp_catalog_page_number` INT, `cp_description` STRING, `cp_type` STRING)                                 \n",
-					"USING parquet                   \n",
-					"OPTIONS (                       \n",
-					"  `serialization.format` '1',   \n",
-					"  path 'abfss://dbstorage1000@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_parquet/catalog_page'                                                                                                             \n",
-					");       \n",
+					"-- CREATE TABLE `Round_2_create_external_spark_tables_1TB_DB`.`catalog_page` (`cp_catalog_page_sk` INT, `cp_catalog_page_id` STRING, `cp_start_date_sk` INT, `cp_end_date_sk` INT, `cp_department` STRING, `cp_catalog_number` INT, `cp_catalog_page_number` INT, `cp_description` STRING, `cp_type` STRING)                                 \n",
+					"-- USING parquet                   \n",
+					"-- OPTIONS (                       \n",
+					"--   `serialization.format` '1',   \n",
+					"--   path 'abfss://dbstorage1000@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_parquet/catalog_page'                                                                                                             \n",
+					"-- );       \n",
 					"\n",
-					"CREATE TABLE `Round_2_create_external_spark_tables_1TB_DB`.`catalog_returns` (`cr_returned_time_sk` INT, `cr_item_sk` INT, `cr_refunded_customer_sk` INT, `cr_refunded_cdemo_sk` INT, `cr_refunded_hdemo_sk` INT, `cr_refunded_addr_sk` INT, `cr_returning_customer_sk` INT, `cr_returning_cdemo_sk` INT, `cr_returning_hdemo_sk` INT, `cr_returning_addr_sk` INT, `cr_call_center_sk` INT, `cr_catalog_page_sk` INT, `cr_ship_mode_sk` INT, `cr_warehouse_sk` INT, `cr_reason_sk` INT, `cr_order_number` BIGINT, `cr_return_quantity` INT, `cr_return_amount` DECIMAL(7,2), `cr_return_tax` DECIMAL(7,2), `cr_return_amt_inc_tax` DECIMAL(7,2), `cr_fee` DECIMAL(7,2), `cr_return_ship_cost` DECIMAL(7,2), `cr_refunded_cash` DECIMAL(7,2), `cr_reversed_charge` DECIMAL(7,2), `cr_store_credit` DECIMAL(7,2), `cr_net_loss` DECIMAL(7,2), `cr_returned_date_sk` INT)                                                            \n",
-					"USING parquet                   \n",
-					"OPTIONS (                       \n",
-					"  `serialization.format` '1',   \n",
-					"  path 'abfss://dbstorage1000@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_parquet/catalog_returns'                                                                                                          \n",
-					")                               \n",
-					"PARTITIONED BY (cr_returned_date_sk);\n",
+					"-- CREATE TABLE `Round_2_create_external_spark_tables_1TB_DB`.`catalog_returns` (`cr_returned_time_sk` INT, `cr_item_sk` INT, `cr_refunded_customer_sk` INT, `cr_refunded_cdemo_sk` INT, `cr_refunded_hdemo_sk` INT, `cr_refunded_addr_sk` INT, `cr_returning_customer_sk` INT, `cr_returning_cdemo_sk` INT, `cr_returning_hdemo_sk` INT, `cr_returning_addr_sk` INT, `cr_call_center_sk` INT, `cr_catalog_page_sk` INT, `cr_ship_mode_sk` INT, `cr_warehouse_sk` INT, `cr_reason_sk` INT, `cr_order_number` BIGINT, `cr_return_quantity` INT, `cr_return_amount` DECIMAL(7,2), `cr_return_tax` DECIMAL(7,2), `cr_return_amt_inc_tax` DECIMAL(7,2), `cr_fee` DECIMAL(7,2), `cr_return_ship_cost` DECIMAL(7,2), `cr_refunded_cash` DECIMAL(7,2), `cr_reversed_charge` DECIMAL(7,2), `cr_store_credit` DECIMAL(7,2), `cr_net_loss` DECIMAL(7,2), `cr_returned_date_sk` INT)                                                            \n",
+					"-- USING parquet                   \n",
+					"-- OPTIONS (                       \n",
+					"--   `serialization.format` '1',   \n",
+					"--   path 'abfss://dbstorage1000@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_parquet/catalog_returns'                                                                                                          \n",
+					"-- )                               \n",
+					"-- PARTITIONED BY (cr_returned_date_sk);\n",
 					"\n",
 					"CREATE TABLE `Round_2_create_external_spark_tables_1TB_DB`.`catalog_sales` (`cs_sold_time_sk` INT, `cs_ship_date_sk` INT, `cs_bill_customer_sk` INT, `cs_bill_cdemo_sk` INT, `cs_bill_hdemo_sk` INT, `cs_bill_addr_sk` INT, `cs_ship_customer_sk` INT, `cs_ship_cdemo_sk` INT, `cs_ship_hdemo_sk` INT, `cs_ship_addr_sk` INT, `cs_call_center_sk` INT, `cs_catalog_page_sk` INT, `cs_ship_mode_sk` INT, `cs_warehouse_sk` INT, `cs_item_sk` INT, `cs_promo_sk` INT, `cs_order_number` BIGINT, `cs_quantity` INT, `cs_wholesale_cost` DECIMAL(7,2), `cs_list_price` DECIMAL(7,2), `cs_sales_price` DECIMAL(7,2), `cs_ext_discount_amt` DECIMAL(7,2), `cs_ext_sales_price` DECIMAL(7,2), `cs_ext_wholesale_cost` DECIMAL(7,2), `cs_ext_list_price` DECIMAL(7,2), `cs_ext_tax` DECIMAL(7,2), `cs_coupon_amt` DECIMAL(7,2), `cs_ext_ship_cost` DECIMAL(7,2), `cs_net_paid` DECIMAL(7,2), `cs_net_paid_inc_tax` DECIMAL(7,2), `cs_net_paid_inc_ship` DECIMAL(7,2), `cs_net_paid_inc_ship_tax` DECIMAL(7,2), `cs_net_profit` DECIMAL(7,2), `cs_sold_date_sk` INT)                     \n",
 					"USING parquet                   \n",
@@ -284,7 +283,7 @@
 					"\n",
 					""
 				],
-				"execution_count": 1
+				"execution_count": 4
 			},
 			{
 				"cell_type": "code",
@@ -298,7 +297,7 @@
 							"deleting": false
 						}
 					},
-					"collapsed": true
+					"collapsed": false
 				},
 				"source": [
 					"ALTER TABLE Round_2_create_external_spark_tables_1TB_DB.catalog_returns RECOVER PARTITIONS;\n",
@@ -309,7 +308,7 @@
 					"ALTER TABLE Round_2_create_external_spark_tables_1TB_DB.web_returns RECOVER PARTITIONS;\n",
 					"ALTER TABLE Round_2_create_external_spark_tables_1TB_DB.web_sales RECOVER PARTITIONS;"
 				],
-				"execution_count": 1
+				"execution_count": 7
 			},
 			{
 				"cell_type": "code",
@@ -334,7 +333,25 @@
 					"select count(*) from Round_2_create_external_spark_tables_1TB_DB.web_returns;\n",
 					"select count(*) from Round_2_create_external_spark_tables_1TB_DB.web_sales;"
 				],
-				"execution_count": 2
+				"execution_count": 8
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					""
+				],
+				"execution_count": null
 			}
 		]
 	}
