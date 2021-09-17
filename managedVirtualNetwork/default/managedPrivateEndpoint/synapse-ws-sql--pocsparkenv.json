@@ -1,0 +1,10 @@
+{
+	"name": "synapse-ws-sql--pocsparkenv",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/dedfa758-9fb0-4c1b-b0e2-25c590d4f804/resourceGroups/POC-Spark-Env/providers/Microsoft.Synapse/workspaces/pocsparkenv",
+		"groupId": "sql",
+		"fqdns": [
+			"pocsparkenv.d1fd35a1-f571-4158-8d24-4fe3070a7c25.sql.azuresynapse.net"
+		]
+	}
+}
