@@ -23,7 +23,7 @@
 			"saveOutput": true,
 			"kernelspec": {
 				"name": "synapse_sparksql",
-				"display_name": "sql"
+				"display_name": "Synapse SQL"
 			},
 			"language_info": {
 				"name": "sql"
@@ -67,7 +67,7 @@
 				"source": [
 					"CREATE DATABASE Round_1_create_external_delta_tables_1TB_DB"
 				],
-				"execution_count": 2
+				"execution_count": 3
 			},
 			{
 				"cell_type": "code",
@@ -81,7 +81,7 @@
 							"deleting": false
 						}
 					},
-					"collapsed": true
+					"collapsed": false
 				},
 				"source": [
 					"CREATE TABLE Round_1_create_external_delta_tables_1TB_DB.call_center USING DELTA LOCATION 'abfss://dbstorage1000d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/call_center/';\n",
@@ -109,7 +109,7 @@
 					"CREATE TABLE Round_1_create_external_delta_tables_1TB_DB.web_sales USING DELTA LOCATION 'abfss://dbstorage1000d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/web_sales/';\n",
 					"CREATE TABLE Round_1_create_external_delta_tables_1TB_DB.web_site USING DELTA LOCATION 'abfss://dbstorage1000d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/web_site/';"
 				],
-				"execution_count": 5
+				"execution_count": 4
 			},
 			{
 				"cell_type": "code",
@@ -151,7 +151,7 @@
 					"select count(*) from Round_1_create_external_delta_tables_1TB_DB.web_sales;\n",
 					"select count(*) from Round_1_create_external_delta_tables_1TB_DB.web_site;"
 				],
-				"execution_count": 6
+				"execution_count": 5
 			}
 		]
 	}
