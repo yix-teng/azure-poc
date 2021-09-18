@@ -4,14 +4,14 @@
 		"nbformat": 4,
 		"nbformat_minor": 2,
 		"bigDataPool": {
-			"referenceName": "Rd2Cluster",
+			"referenceName": "Rd1Cluster",
 			"type": "BigDataPoolReference"
 		},
 		"sessionProperties": {
-			"driverMemory": "56g",
-			"driverCores": 8,
-			"executorMemory": "56g",
-			"executorCores": 8,
+			"driverMemory": "28g",
+			"driverCores": 4,
+			"executorMemory": "28g",
+			"executorCores": 4,
 			"numExecutors": 2,
 			"conf": {
 				"spark.dynamicAllocation.enabled": "false",
@@ -22,25 +22,25 @@
 		"metadata": {
 			"saveOutput": true,
 			"kernelspec": {
-				"name": "synapse_pyspark",
-				"display_name": "python"
+				"name": "synapse_spark",
+				"display_name": "Synapse Spark"
 			},
 			"language_info": {
 				"name": "scala"
 			},
 			"a365ComputeOptions": {
-				"id": "/subscriptions/dedfa758-9fb0-4c1b-b0e2-25c590d4f804/resourceGroups/POC-SQL_ADLS-ENV/providers/Microsoft.Synapse/workspaces/pocsqladlsenv/bigDataPools/Rd2Cluster",
-				"name": "Rd2Cluster",
+				"id": "/subscriptions/dedfa758-9fb0-4c1b-b0e2-25c590d4f804/resourceGroups/POC-SQL_ADLS-ENV/providers/Microsoft.Synapse/workspaces/pocsqladlsenv/bigDataPools/Rd1Cluster",
+				"name": "Rd1Cluster",
 				"type": "Spark",
-				"endpoint": "https://pocsqladlsenv.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/Rd2Cluster",
+				"endpoint": "https://pocsqladlsenv.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/Rd1Cluster",
 				"auth": {
 					"type": "AAD",
 					"authResource": "https://dev.azuresynapse.net"
 				},
-				"sparkVersion": "2.4",
+				"sparkVersion": "3.1",
 				"nodeCount": 4,
-				"cores": 8,
-				"memory": 56
+				"cores": 4,
+				"memory": 28
 			},
 			"sessionKeepAliveTimeout": 30
 		},
@@ -85,7 +85,7 @@
 					"  forkThread = true)\n",
 					"experiment.waitForFinish(timeout)"
 				],
-				"execution_count": null
+				"execution_count": 1
 			},
 			{
 				"cell_type": "code",
