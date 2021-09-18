@@ -1,0 +1,158 @@
+{
+	"name": "Round_1_delta_lake_external_tables_1TB",
+	"properties": {
+		"nbformat": 4,
+		"nbformat_minor": 2,
+		"bigDataPool": {
+			"referenceName": "DeltaRd1Cluster",
+			"type": "BigDataPoolReference"
+		},
+		"sessionProperties": {
+			"driverMemory": "28g",
+			"driverCores": 4,
+			"executorMemory": "28g",
+			"executorCores": 4,
+			"numExecutors": 2,
+			"conf": {
+				"spark.dynamicAllocation.enabled": "false",
+				"spark.dynamicAllocation.minExecutors": "2",
+				"spark.dynamicAllocation.maxExecutors": "2"
+			}
+		},
+		"metadata": {
+			"saveOutput": true,
+			"kernelspec": {
+				"name": "synapse_sparksql",
+				"display_name": "sql"
+			},
+			"language_info": {
+				"name": "sql"
+			},
+			"a365ComputeOptions": {
+				"id": "/subscriptions/dedfa758-9fb0-4c1b-b0e2-25c590d4f804/resourceGroups/POC-DeltaLake-Env/providers/Microsoft.Synapse/workspaces/pocdeltalake/bigDataPools/DeltaRd1Cluster",
+				"name": "DeltaRd1Cluster",
+				"type": "Spark",
+				"endpoint": "https://pocdeltalake.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/DeltaRd1Cluster",
+				"auth": {
+					"type": "AAD",
+					"authResource": "https://dev.azuresynapse.net"
+				},
+				"sparkVersion": "3.1",
+				"nodeCount": 4,
+				"cores": 4,
+				"memory": 28
+			},
+			"sessionKeepAliveTimeout": 30
+		},
+		"cells": [
+			{
+				"cell_type": "markdown",
+				"metadata": {
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"* This will create unmanaged external delta tables from a specific ADLS folder location\n",
+					"* change the ADLS location to the different dataset as required"
+				]
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"collapsed": false
+				},
+				"source": [
+					"CREATE DATABASE Round_1_create_external_delta_tables_1TB_DB"
+				],
+				"execution_count": 2
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": true
+				},
+				"source": [
+					"CREATE TABLE Round_1_create_external_delta_tables_1TB_DB.call_center USING DELTA LOCATION 'abfss://dbstorage1000d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/call_center/';\n",
+					"CREATE TABLE Round_1_create_external_delta_tables_1TB_DB.catalog_page USING DELTA LOCATION 'abfss://dbstorage1000d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/catalog_page/';\n",
+					"CREATE TABLE Round_1_create_external_delta_tables_1TB_DB.catalog_returns USING DELTA LOCATION 'abfss://dbstorage1000d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/catalog_returns/';\n",
+					"CREATE TABLE Round_1_create_external_delta_tables_1TB_DB.catalog_sales USING DELTA LOCATION 'abfss://dbstorage1000d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/catalog_sales/';\n",
+					"CREATE TABLE Round_1_create_external_delta_tables_1TB_DB.customer USING DELTA LOCATION 'abfss://dbstorage1000d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/customer/';\n",
+					"CREATE TABLE Round_1_create_external_delta_tables_1TB_DB.customer_address USING DELTA LOCATION 'abfss://dbstorage1000d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/customer_address/';\n",
+					"CREATE TABLE Round_1_create_external_delta_tables_1TB_DB.customer_demographics USING DELTA LOCATION 'abfss://dbstorage1000d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/customer_demographics/';\n",
+					"CREATE TABLE Round_1_create_external_delta_tables_1TB_DB.date_dim USING DELTA LOCATION 'abfss://dbstorage1000d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/date_dim/';\n",
+					"CREATE TABLE Round_1_create_external_delta_tables_1TB_DB.household_demographics USING DELTA LOCATION 'abfss://dbstorage1000d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/household_demographics/';\n",
+					"CREATE TABLE Round_1_create_external_delta_tables_1TB_DB.income_band USING DELTA LOCATION 'abfss://dbstorage1000d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/income_band/';\n",
+					"CREATE TABLE Round_1_create_external_delta_tables_1TB_DB.inventory USING DELTA LOCATION 'abfss://dbstorage1000d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/inventory/';\n",
+					"CREATE TABLE Round_1_create_external_delta_tables_1TB_DB.item USING DELTA LOCATION 'abfss://dbstorage1000d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/item/';\n",
+					"CREATE TABLE Round_1_create_external_delta_tables_1TB_DB.promotion USING DELTA LOCATION 'abfss://dbstorage1000d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/promotion/';\n",
+					"CREATE TABLE Round_1_create_external_delta_tables_1TB_DB.reason USING DELTA LOCATION 'abfss://dbstorage1000d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/reason/';\n",
+					"CREATE TABLE Round_1_create_external_delta_tables_1TB_DB.ship_mode USING DELTA LOCATION 'abfss://dbstorage1000d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/ship_mode/';\n",
+					"CREATE TABLE Round_1_create_external_delta_tables_1TB_DB.store USING DELTA LOCATION 'abfss://dbstorage1000d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/store/';\n",
+					"CREATE TABLE Round_1_create_external_delta_tables_1TB_DB.store_returns USING DELTA LOCATION 'abfss://dbstorage1000d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/store_returns/';\n",
+					"CREATE TABLE Round_1_create_external_delta_tables_1TB_DB.store_sales USING DELTA LOCATION 'abfss://dbstorage1000d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/store_sales/';\n",
+					"CREATE TABLE Round_1_create_external_delta_tables_1TB_DB.time_dim USING DELTA LOCATION 'abfss://dbstorage1000d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/time_dim/';\n",
+					"CREATE TABLE Round_1_create_external_delta_tables_1TB_DB.warehouse USING DELTA LOCATION 'abfss://dbstorage1000d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/warehouse/';\n",
+					"CREATE TABLE Round_1_create_external_delta_tables_1TB_DB.web_page USING DELTA LOCATION 'abfss://dbstorage1000d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/web_page/';\n",
+					"CREATE TABLE Round_1_create_external_delta_tables_1TB_DB.web_returns USING DELTA LOCATION 'abfss://dbstorage1000d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/web_returns/';\n",
+					"CREATE TABLE Round_1_create_external_delta_tables_1TB_DB.web_sales USING DELTA LOCATION 'abfss://dbstorage1000d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/web_sales/';\n",
+					"CREATE TABLE Round_1_create_external_delta_tables_1TB_DB.web_site USING DELTA LOCATION 'abfss://dbstorage1000d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/web_site/';"
+				],
+				"execution_count": 5
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": false
+				},
+				"source": [
+					"select count(*) from Round_1_create_external_delta_tables_1TB_DB.call_center;\n",
+					"select count(*) from Round_1_create_external_delta_tables_1TB_DB.catalog_page;\n",
+					"select count(*) from Round_1_create_external_delta_tables_1TB_DB.catalog_returns;\n",
+					"select count(*) from Round_1_create_external_delta_tables_1TB_DB.catalog_sales;\n",
+					"select count(*) from Round_1_create_external_delta_tables_1TB_DB.customer;\n",
+					"select count(*) from Round_1_create_external_delta_tables_1TB_DB.customer_address;\n",
+					"select count(*) from Round_1_create_external_delta_tables_1TB_DB.customer_demographics;\n",
+					"select count(*) from Round_1_create_external_delta_tables_1TB_DB.date_dim;\n",
+					"select count(*) from Round_1_create_external_delta_tables_1TB_DB.household_demographics;\n",
+					"select count(*) from Round_1_create_external_delta_tables_1TB_DB.income_band;\n",
+					"select count(*) from Round_1_create_external_delta_tables_1TB_DB.inventory;\n",
+					"select count(*) from Round_1_create_external_delta_tables_1TB_DB.item;\n",
+					"select count(*) from Round_1_create_external_delta_tables_1TB_DB.promotion;\n",
+					"select count(*) from Round_1_create_external_delta_tables_1TB_DB.reason;\n",
+					"select count(*) from Round_1_create_external_delta_tables_1TB_DB.ship_mode;\n",
+					"select count(*) from Round_1_create_external_delta_tables_1TB_DB.store;\n",
+					"select count(*) from Round_1_create_external_delta_tables_1TB_DB.store_returns;\n",
+					"select count(*) from Round_1_create_external_delta_tables_1TB_DB.store_sales;\n",
+					"select count(*) from Round_1_create_external_delta_tables_1TB_DB.time_dim;\n",
+					"select count(*) from Round_1_create_external_delta_tables_1TB_DB.warehouse;\n",
+					"select count(*) from Round_1_create_external_delta_tables_1TB_DB.web_page;\n",
+					"select count(*) from Round_1_create_external_delta_tables_1TB_DB.web_returns;\n",
+					"select count(*) from Round_1_create_external_delta_tables_1TB_DB.web_sales;\n",
+					"select count(*) from Round_1_create_external_delta_tables_1TB_DB.web_site;"
+				],
+				"execution_count": 6
+			}
+		]
+	}
+}
