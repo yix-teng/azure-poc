@@ -53,9 +53,9 @@
 					" \n",
 					"val tpcds = new TPCDS (sqlContext = sqlContext)\n",
 					"// Set:\n",
-					"val databaseName = \"Round_1_create_external_spark_tables_1TB_DB\" // name of database with TPCDS data.\n",
+					"val databaseName = \"Round_1_create_external_delta_tables_1TB_DB\" // name of database with TPCDS data.\n",
 					"sql(s\"use $databaseName\")\n",
-					"val resultLocation = \"abfss://dbstorage1000@scbpocdev.dfs.core.windows.net/synpase_tpcds_results\" // place to write results\n",
+					"val resultLocation = \"abfss://dbstorage1000d@scbpocdev.dfs.core.windows.net/synpase_delta_tpcds_results\" // place to write results\n",
 					"val iterations = 3 // how many iterations of queries to run.\n",
 					"val queries = tpcds.tpcds2_4Queries // queries to run.\n",
 					"val timeout = 24*60*60 // timeout, in seconds.\n",
@@ -85,7 +85,7 @@
 				"source": [
 					"import org.apache.spark.sql.functions._\n",
 					"\n",
-					"val resultLocation = \"abfss://dbstorage1000@scbpocdev.dfs.core.windows.net/synpase_tpcds_results\" // place to write results\n",
+					"val resultLocation = \"abfss://dbstorage1000@scbpocdev.dfs.core.windows.net/synpase_delta_tpcds_results\" // place to write results\n",
 					"val result = spark.read.json(resultLocation).filter(\"timestamp = 1631102177772\").select(explode($\"results\").as(\"r\"))\n",
 					"result.createOrReplaceTempView(\"result\") \n",
 					"spark.sql(\"select substring(r.name,1,100) as Name, bround((r.parsingTime+r.analysisTime+r.optimizationTime+r.planningTime+r.executionTime)/1000.0,1) as Runtime_sec  from result\").show(150)"
