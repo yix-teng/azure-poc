@@ -3,11 +3,15 @@
 	"properties": {
 		"nbformat": 4,
 		"nbformat_minor": 2,
+		"bigDataPool": {
+			"referenceName": "previewtest",
+			"type": "BigDataPoolReference"
+		},
 		"sessionProperties": {
-			"driverMemory": "28g",
-			"driverCores": 4,
-			"executorMemory": "28g",
-			"executorCores": 4,
+			"driverMemory": "56g",
+			"driverCores": 8,
+			"executorMemory": "56g",
+			"executorCores": 8,
 			"numExecutors": 2,
 			"conf": {
 				"spark.dynamicAllocation.enabled": "false",
@@ -20,10 +24,24 @@
 			"enableDebugMode": false,
 			"kernelspec": {
 				"name": "synapse_pyspark",
-				"display_name": "python"
+				"display_name": "Synapse PySpark"
 			},
 			"language_info": {
 				"name": "python"
+			},
+			"a365ComputeOptions": {
+				"id": "/subscriptions/dedfa758-9fb0-4c1b-b0e2-25c590d4f804/resourceGroups/SCB-POC-DEV/providers/Microsoft.Synapse/workspaces/sqlservlessinternalselfmanaged/bigDataPools/previewtest",
+				"name": "previewtest",
+				"type": "Spark",
+				"endpoint": "https://sqlservlessinternalselfmanaged.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/previewtest",
+				"auth": {
+					"type": "AAD",
+					"authResource": "https://dev.azuresynapse.net"
+				},
+				"sparkVersion": "3.1",
+				"nodeCount": 10,
+				"cores": 8,
+				"memory": 56
 			},
 			"sessionKeepAliveTimeout": 30
 		},
@@ -46,7 +64,7 @@
 					"mssparkutils.fs.mv(\"abfss://dbstorage3000@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_parquet/web_returns/wr_returned_date_sk=__HIVE_DEFAULT_PARTITION__\", \"abfss://dbstorage3000@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_parquet/web_returns/wr_returned_date_sk=0\")\n",
 					"mssparkutils.fs.mv(\"abfss://dbstorage3000@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_parquet/web_sales/ws_sold_date_sk=__HIVE_DEFAULT_PARTITION__\", \"abfss://dbstorage3000@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_parquet/web_sales/ws_sold_date_sk=0\")"
 				],
-				"execution_count": null
+				"execution_count": 1
 			}
 		]
 	}
