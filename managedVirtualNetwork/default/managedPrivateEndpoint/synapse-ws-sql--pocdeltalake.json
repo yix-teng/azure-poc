@@ -1,0 +1,10 @@
+{
+	"name": "synapse-ws-sql--pocdeltalake",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/dedfa758-9fb0-4c1b-b0e2-25c590d4f804/resourceGroups/POC-DeltaLake-Env/providers/Microsoft.Synapse/workspaces/pocdeltalake",
+		"groupId": "sql",
+		"fqdns": [
+			"pocdeltalake.020f3d3f-2394-43a0-88bf-2eba02470099.sql.azuresynapse.net"
+		]
+	}
+}
