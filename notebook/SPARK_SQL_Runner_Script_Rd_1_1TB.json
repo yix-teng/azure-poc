@@ -4,14 +4,14 @@
 		"nbformat": 4,
 		"nbformat_minor": 2,
 		"bigDataPool": {
-			"referenceName": "Rd1Cluster",
+			"referenceName": "SparkRd2Cluster",
 			"type": "BigDataPoolReference"
 		},
 		"sessionProperties": {
-			"driverMemory": "28g",
-			"driverCores": 4,
-			"executorMemory": "28g",
-			"executorCores": 4,
+			"driverMemory": "56g",
+			"driverCores": 8,
+			"executorMemory": "56g",
+			"executorCores": 8,
 			"numExecutors": 2,
 			"conf": {
 				"spark.dynamicAllocation.enabled": "false",
@@ -21,6 +21,7 @@
 		},
 		"metadata": {
 			"saveOutput": true,
+			"enableDebugMode": false,
 			"kernelspec": {
 				"name": "synapse_spark",
 				"display_name": "Synapse Spark"
@@ -29,18 +30,18 @@
 				"name": "scala"
 			},
 			"a365ComputeOptions": {
-				"id": "/subscriptions/dedfa758-9fb0-4c1b-b0e2-25c590d4f804/resourceGroups/POC-SQL_ADLS-ENV/providers/Microsoft.Synapse/workspaces/pocsqladlsenv/bigDataPools/Rd1Cluster",
-				"name": "Rd1Cluster",
+				"id": "/subscriptions/dedfa758-9fb0-4c1b-b0e2-25c590d4f804/resourceGroups/POC-Spark-Env/providers/Microsoft.Synapse/workspaces/pocsparkenv/bigDataPools/SparkRd2Cluster",
+				"name": "SparkRd2Cluster",
 				"type": "Spark",
-				"endpoint": "https://pocsqladlsenv.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/Rd1Cluster",
+				"endpoint": "https://pocsparkenv.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/SparkRd2Cluster",
 				"auth": {
 					"type": "AAD",
 					"authResource": "https://dev.azuresynapse.net"
 				},
 				"sparkVersion": "3.1",
 				"nodeCount": 4,
-				"cores": 4,
-				"memory": 28
+				"cores": 8,
+				"memory": 56
 			},
 			"sessionKeepAliveTimeout": 30
 		},
@@ -70,8 +71,11 @@
 					"val sqlContext = new org.apache.spark.sql.SQLContext(sc)\n",
 					" \n",
 					"val tpcds = new TPCDS (sqlContext = sqlContext)\n",
+					"\n",
+					"sqlContext.conf.set(\"spark.sql.broadcastTimeout\", \"86400\")\n",
+					"\n",
 					"// Set:\n",
-					"val databaseName = \"Round_1_create_external_spark_tables_1TB_DB\" // name of database with TPCDS data.\n",
+					"val databaseName = \"External_spark_tables_1TB_DB\" // name of database with TPCDS data.\n",
 					"sql(s\"use $databaseName\")\n",
 					"val resultLocation = \"abfss://dbstorage1000@scbpocdev.dfs.core.windows.net/synpase_tpcds_results\" // place to write results\n",
 					"val iterations = 3 // how many iterations of queries to run.\n",
