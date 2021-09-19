@@ -21,6 +21,7 @@
 		},
 		"metadata": {
 			"saveOutput": true,
+			"enableDebugMode": false,
 			"kernelspec": {
 				"name": "synapse_spark",
 				"display_name": "Synapse Spark"
@@ -31,16 +32,10 @@
 			"a365ComputeOptions": {
 				"id": "/subscriptions/dedfa758-9fb0-4c1b-b0e2-25c590d4f804/resourceGroups/POC-SQL_ADLS-ENV/providers/Microsoft.Synapse/workspaces/pocsqladlsenv/bigDataPools/Rd2Cluster",
 				"name": "Rd2Cluster",
-				"type": "Spark",
-				"endpoint": "https://pocsqladlsenv.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/Rd2Cluster",
 				"auth": {
 					"type": "AAD",
 					"authResource": "https://dev.azuresynapse.net"
-				},
-				"sparkVersion": "2.4",
-				"nodeCount": 4,
-				"cores": 8,
-				"memory": 56
+				}
 			},
 			"sessionKeepAliveTimeout": 30
 		},
@@ -71,7 +66,7 @@
 					" \n",
 					"val tpcds = new TPCDS (sqlContext = sqlContext)\n",
 					"// Set:\n",
-					"val databaseName = \"Round_2_create_external_spark_tables_3TB_DB\" // name of database with TPCDS data.\n",
+					"val databaseName = \"External_spark_tables_3TB_DB\" // name of database with TPCDS data.\n",
 					"sql(s\"use $databaseName\")\n",
 					"val resultLocation = \"abfss://dbstorage3000@scbpocdev.dfs.core.windows.net/rd2_3_tb_synpase_tpcds_results\" // place to write results\n",
 					"val iterations = 3 // how many iterations of queries to run.\n",
