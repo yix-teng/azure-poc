@@ -266,7 +266,7 @@
 					"\n",
 					""
 				],
-				"execution_count": 2
+				"execution_count": 1
 			},
 			{
 				"cell_type": "markdown",
@@ -294,7 +294,7 @@
 							"deleting": false
 						}
 					},
-					"collapsed": true
+					"collapsed": false
 				},
 				"source": [
 					"ALTER TABLE External_spark_tables_1TB_DB.catalog_returns RECOVER PARTITIONS;\n",
@@ -305,7 +305,7 @@
 					"ALTER TABLE External_spark_tables_1TB_DB.web_returns RECOVER PARTITIONS;\n",
 					"ALTER TABLE External_spark_tables_1TB_DB.web_sales RECOVER PARTITIONS;"
 				],
-				"execution_count": 4
+				"execution_count": 2
 			},
 			{
 				"cell_type": "code",
