@@ -104,7 +104,6 @@
 					" \n",
 					"// Note: Declare \"sqlContext\" for Spark 2.x version\n",
 					"val sqlContext = new org.apache.spark.sql.SQLContext(sc)\n",
-					"sqlContext.conf.set(\"spark.sql.broadcastTimeout\", \"86400\")\n",
 					"\n",
 					"val tpcds = new TPCDS (sqlContext = sqlContext)\n",
 					"\n",
