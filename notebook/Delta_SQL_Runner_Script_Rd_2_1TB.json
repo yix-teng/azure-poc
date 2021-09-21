@@ -75,7 +75,7 @@
 					"val databaseName = \"external_delta_tables_3TB_DB\" // name of database with TPCDS data.\n",
 					"sql(s\"use $databaseName\")\n",
 					"val resultLocation = \"abfss://dbstorage3000d@scbpocdev.dfs.core.windows.net/Delta_SQL_Runner_Script_Rd_2_3TB\" // place to write results\n",
-					"val iterations = 3 // how many iterations of queries to run.\n",
+					"val iterations = 1 // how many iterations of queries to run.\n",
 					"val queries = tpcds.tpcds2_4Queries // queries to run.\n",
 					"val timeout = 24*60*60 // timeout, in seconds.\n",
 					"// Run:\n",
@@ -86,7 +86,7 @@
 					"  forkThread = true)\n",
 					"experiment.waitForFinish(timeout)"
 				],
-				"execution_count": 1
+				"execution_count": 2
 			},
 			{
 				"cell_type": "code",
