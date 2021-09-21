@@ -86,7 +86,7 @@
 					"  forkThread = true)\n",
 					"experiment.waitForFinish(timeout)"
 				],
-				"execution_count": 2
+				"execution_count": 3
 			},
 			{
 				"cell_type": "code",
