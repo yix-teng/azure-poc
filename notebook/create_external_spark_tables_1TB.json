@@ -1,5 +1,5 @@
 {
-	"name": "Round_2_create_external_spark_tables_1TB",
+	"name": "create_external_spark_tables_1TB",
 	"properties": {
 		"nbformat": 4,
 		"nbformat_minor": 2,
