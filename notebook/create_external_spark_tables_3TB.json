@@ -1,5 +1,5 @@
 {
-	"name": "Round_2_create_external_spark_tables_3TB",
+	"name": "create_external_spark_tables_3TB",
 	"properties": {
 		"nbformat": 4,
 		"nbformat_minor": 2,
@@ -21,6 +21,7 @@
 		},
 		"metadata": {
 			"saveOutput": true,
+			"enableDebugMode": false,
 			"kernelspec": {
 				"name": "synapse_sparksql",
 				"display_name": "Synapse SQL"
@@ -31,16 +32,10 @@
 			"a365ComputeOptions": {
 				"id": "/subscriptions/dedfa758-9fb0-4c1b-b0e2-25c590d4f804/resourceGroups/POC-SQL_ADLS-ENV/providers/Microsoft.Synapse/workspaces/pocsqladlsenv/bigDataPools/Rd2Cluster",
 				"name": "Rd2Cluster",
-				"type": "Spark",
-				"endpoint": "https://pocsqladlsenv.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/Rd2Cluster",
 				"auth": {
 					"type": "AAD",
 					"authResource": "https://dev.azuresynapse.net"
-				},
-				"sparkVersion": "2.4",
-				"nodeCount": 4,
-				"cores": 8,
-				"memory": 56
+				}
 			},
 			"sessionKeepAliveTimeout": 30
 		},
