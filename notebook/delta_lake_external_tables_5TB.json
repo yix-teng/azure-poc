@@ -152,7 +152,7 @@
 					"select count(*) from external_delta_tables_5TB_DB.web_sales;\n",
 					"select count(*) from external_delta_tables_5TB_DB.web_site;"
 				],
-				"execution_count": 5
+				"execution_count": 3
 			}
 		]
 	}
