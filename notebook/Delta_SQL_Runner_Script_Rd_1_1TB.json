@@ -3,11 +3,15 @@
 	"properties": {
 		"nbformat": 4,
 		"nbformat_minor": 2,
+		"bigDataPool": {
+			"referenceName": "DeltaRd2Cluster",
+			"type": "BigDataPoolReference"
+		},
 		"sessionProperties": {
-			"driverMemory": "28g",
-			"driverCores": 4,
-			"executorMemory": "28g",
-			"executorCores": 4,
+			"driverMemory": "56g",
+			"driverCores": 8,
+			"executorMemory": "56g",
+			"executorCores": 8,
 			"numExecutors": 2,
 			"conf": {
 				"spark.dynamicAllocation.enabled": "false",
@@ -17,12 +21,27 @@
 		},
 		"metadata": {
 			"saveOutput": true,
+			"enableDebugMode": false,
 			"kernelspec": {
-				"name": "synapse_pyspark",
-				"display_name": "python"
+				"name": "synapse_spark",
+				"display_name": "scala"
 			},
 			"language_info": {
 				"name": "scala"
+			},
+			"a365ComputeOptions": {
+				"id": "/subscriptions/dedfa758-9fb0-4c1b-b0e2-25c590d4f804/resourceGroups/POC-DeltaLake-Env/providers/Microsoft.Synapse/workspaces/pocdeltalake/bigDataPools/DeltaRd2Cluster",
+				"name": "DeltaRd2Cluster",
+				"type": "Spark",
+				"endpoint": "https://pocdeltalake.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/DeltaRd2Cluster",
+				"auth": {
+					"type": "AAD",
+					"authResource": "https://dev.azuresynapse.net"
+				},
+				"sparkVersion": "3.1",
+				"nodeCount": 5,
+				"cores": 8,
+				"memory": 56
 			},
 			"sessionKeepAliveTimeout": 30
 		},
@@ -57,7 +76,7 @@
 					"sql(s\"use $databaseName\")\n",
 					"val resultLocation = \"abfss://dbstorage1000d@scbpocdev.dfs.core.windows.net/synpase_delta_tpcds_results\" // place to write results\n",
 					"val iterations = 3 // how many iterations of queries to run.\n",
-					"val queries = tpcds.tpcds2_4Queries // queries to run.\n",
+					"val queries = tpcds.tpcds2_4Queries_Batch_1 // queries to run.\n",
 					"val timeout = 24*60*60 // timeout, in seconds.\n",
 					"// Run:\n",
 					"val experiment = tpcds.runExperiment(\n",
