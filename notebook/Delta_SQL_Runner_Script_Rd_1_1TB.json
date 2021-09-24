@@ -76,7 +76,7 @@
 					"sql(s\"use $databaseName\")\n",
 					"val resultLocation = \"abfss://dbstorage1000d@scbpocdev.dfs.core.windows.net/synpase_delta_tpcds_results\" // place to write results\n",
 					"val iterations = 3 // how many iterations of queries to run.\n",
-					"val queries = tpcds.tpcds2_4Queries_Batch_1 // queries to run.\n",
+					"val queries = tpcds.tpcds2_4Queries // queries to run.\n",
 					"val timeout = 24*60*60 // timeout, in seconds.\n",
 					"// Run:\n",
 					"val experiment = tpcds.runExperiment(\n",
