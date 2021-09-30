@@ -68,7 +68,7 @@
 				"source": [
 					"CREATE DATABASE external_delta_tables_1TB_DB"
 				],
-				"execution_count": 1
+				"execution_count": 2
 			},
 			{
 				"cell_type": "code",
@@ -110,7 +110,7 @@
 					"CREATE TABLE external_delta_tables_1TB_DB.web_sales USING DELTA LOCATION 'abfss://dbstorage1000d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/web_sales/';\n",
 					"CREATE TABLE external_delta_tables_1TB_DB.web_site USING DELTA LOCATION 'abfss://dbstorage1000d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/web_site/';"
 				],
-				"execution_count": 2
+				"execution_count": 3
 			},
 			{
 				"cell_type": "code",
@@ -123,7 +123,8 @@
 						"transient": {
 							"deleting": false
 						}
-					}
+					},
+					"collapsed": false
 				},
 				"source": [
 					"ANALYZE TABLE external_delta_tables_1TB_DB.call_center COMPUTE STATISTICS;\n",
@@ -151,7 +152,7 @@
 					"ANALYZE TABLE external_delta_tables_1TB_DB.web_sales COMPUTE STATISTICS;\n",
 					"ANALYZE TABLE external_delta_tables_1TB_DB.web_site COMPUTE STATISTICS;"
 				],
-				"execution_count": null
+				"execution_count": 14
 			},
 			{
 				"cell_type": "code",
