@@ -4,14 +4,14 @@
 		"nbformat": 4,
 		"nbformat_minor": 2,
 		"bigDataPool": {
-			"referenceName": "Rd2Cluster",
+			"referenceName": "Round2Spark1TB",
 			"type": "BigDataPoolReference"
 		},
 		"sessionProperties": {
-			"driverMemory": "56g",
-			"driverCores": 8,
-			"executorMemory": "56g",
-			"executorCores": 8,
+			"driverMemory": "28g",
+			"driverCores": 4,
+			"executorMemory": "28g",
+			"executorCores": 4,
 			"numExecutors": 2,
 			"conf": {
 				"spark.dynamicAllocation.enabled": "false",
@@ -30,12 +30,18 @@
 				"name": "sql"
 			},
 			"a365ComputeOptions": {
-				"id": "/subscriptions/dedfa758-9fb0-4c1b-b0e2-25c590d4f804/resourceGroups/POC-SQL_ADLS-ENV/providers/Microsoft.Synapse/workspaces/pocsqladlsenv/bigDataPools/Rd2Cluster",
-				"name": "Rd2Cluster",
+				"id": "/subscriptions/dedfa758-9fb0-4c1b-b0e2-25c590d4f804/resourceGroups/SCB-POC-DEV/providers/Microsoft.Synapse/workspaces/sqlservlessinternalselfmanaged/bigDataPools/Round2Spark1TB",
+				"name": "Round2Spark1TB",
+				"type": "Spark",
+				"endpoint": "https://sqlservlessinternalselfmanaged.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/Round2Spark1TB",
 				"auth": {
 					"type": "AAD",
 					"authResource": "https://dev.azuresynapse.net"
-				}
+				},
+				"sparkVersion": "3.1",
+				"nodeCount": 4,
+				"cores": 8,
+				"memory": 56
 			},
 			"sessionKeepAliveTimeout": 30
 		},
@@ -288,7 +294,7 @@
 							"deleting": false
 						}
 					},
-					"collapsed": true
+					"collapsed": false
 				},
 				"source": [
 					"ALTER TABLE external_spark_tables_100GB_DB.catalog_returns RECOVER PARTITIONS;\n",
@@ -299,7 +305,7 @@
 					"ALTER TABLE external_spark_tables_100GB_DB.web_returns RECOVER PARTITIONS;\n",
 					"ALTER TABLE external_spark_tables_100GB_DB.web_sales RECOVER PARTITIONS;"
 				],
-				"execution_count": 4
+				"execution_count": 3
 			},
 			{
 				"cell_type": "code",
@@ -324,7 +330,7 @@
 					"select count(*) from external_spark_tables_100GB_DB.web_returns;\n",
 					"select count(*) from external_spark_tables_100GB_DB.web_sales;"
 				],
-				"execution_count": 3
+				"execution_count": 4
 			}
 		]
 	}
