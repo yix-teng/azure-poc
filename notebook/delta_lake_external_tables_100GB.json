@@ -1,0 +1,159 @@
+{
+	"name": "delta_lake_external_tables_100GB",
+	"properties": {
+		"nbformat": 4,
+		"nbformat_minor": 2,
+		"bigDataPool": {
+			"referenceName": "DeltaRd2Cluster",
+			"type": "BigDataPoolReference"
+		},
+		"sessionProperties": {
+			"driverMemory": "56g",
+			"driverCores": 8,
+			"executorMemory": "56g",
+			"executorCores": 8,
+			"numExecutors": 2,
+			"conf": {
+				"spark.dynamicAllocation.enabled": "false",
+				"spark.dynamicAllocation.minExecutors": "2",
+				"spark.dynamicAllocation.maxExecutors": "2"
+			}
+		},
+		"metadata": {
+			"saveOutput": true,
+			"enableDebugMode": false,
+			"kernelspec": {
+				"name": "synapse_sparksql",
+				"display_name": "Synapse SQL"
+			},
+			"language_info": {
+				"name": "sql"
+			},
+			"a365ComputeOptions": {
+				"id": "/subscriptions/dedfa758-9fb0-4c1b-b0e2-25c590d4f804/resourceGroups/POC-DeltaLake-Env/providers/Microsoft.Synapse/workspaces/pocdeltalake/bigDataPools/DeltaRd2Cluster",
+				"name": "DeltaRd2Cluster",
+				"type": "Spark",
+				"endpoint": "https://pocdeltalake.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/DeltaRd2Cluster",
+				"auth": {
+					"type": "AAD",
+					"authResource": "https://dev.azuresynapse.net"
+				},
+				"sparkVersion": "3.1",
+				"nodeCount": 5,
+				"cores": 8,
+				"memory": 56
+			},
+			"sessionKeepAliveTimeout": 30
+		},
+		"cells": [
+			{
+				"cell_type": "markdown",
+				"metadata": {
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"* This will create unmanaged external delta tables from a specific ADLS folder location\n",
+					"* change the ADLS location to the different dataset as required"
+				]
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"collapsed": false
+				},
+				"source": [
+					"CREATE DATABASE external_delta_tables_100GB_DB"
+				],
+				"execution_count": 1
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": false
+				},
+				"source": [
+					"CREATE TABLE external_delta_tables_100GB_DB.call_center USING DELTA LOCATION 'abfss://dbstorage100d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/call_center/';\n",
+					"CREATE TABLE external_delta_tables_100GB_DB.catalog_page USING DELTA LOCATION 'abfss://dbstorage100d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/catalog_page/';\n",
+					"CREATE TABLE external_delta_tables_100GB_DB.catalog_returns USING DELTA LOCATION 'abfss://dbstorage100d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/catalog_returns/';\n",
+					"CREATE TABLE external_delta_tables_100GB_DB.catalog_sales USING DELTA LOCATION 'abfss://dbstorage100d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/catalog_sales/';\n",
+					"CREATE TABLE external_delta_tables_100GB_DB.customer USING DELTA LOCATION 'abfss://dbstorage100d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/customer/';\n",
+					"CREATE TABLE external_delta_tables_100GB_DB.customer_address USING DELTA LOCATION 'abfss://dbstorage100d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/customer_address/';\n",
+					"CREATE TABLE external_delta_tables_100GB_DB.customer_demographics USING DELTA LOCATION 'abfss://dbstorage100d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/customer_demographics/';\n",
+					"CREATE TABLE external_delta_tables_100GB_DB.date_dim USING DELTA LOCATION 'abfss://dbstorage100d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/date_dim/';\n",
+					"CREATE TABLE external_delta_tables_100GB_DB.household_demographics USING DELTA LOCATION 'abfss://dbstorage100d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/household_demographics/';\n",
+					"CREATE TABLE external_delta_tables_100GB_DB.income_band USING DELTA LOCATION 'abfss://dbstorage100d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/income_band/';\n",
+					"CREATE TABLE external_delta_tables_100GB_DB.inventory USING DELTA LOCATION 'abfss://dbstorage100d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/inventory/';\n",
+					"CREATE TABLE external_delta_tables_100GB_DB.item USING DELTA LOCATION 'abfss://dbstorage100d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/item/';\n",
+					"CREATE TABLE external_delta_tables_100GB_DB.promotion USING DELTA LOCATION 'abfss://dbstorage100d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/promotion/';\n",
+					"CREATE TABLE external_delta_tables_100GB_DB.reason USING DELTA LOCATION 'abfss://dbstorage100d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/reason/';\n",
+					"CREATE TABLE external_delta_tables_100GB_DB.ship_mode USING DELTA LOCATION 'abfss://dbstorage100d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/ship_mode/';\n",
+					"CREATE TABLE external_delta_tables_100GB_DB.store USING DELTA LOCATION 'abfss://dbstorage100d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/store/';\n",
+					"CREATE TABLE external_delta_tables_100GB_DB.store_returns USING DELTA LOCATION 'abfss://dbstorage100d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/store_returns/';\n",
+					"CREATE TABLE external_delta_tables_100GB_DB.store_sales USING DELTA LOCATION 'abfss://dbstorage100d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/store_sales/';\n",
+					"CREATE TABLE external_delta_tables_100GB_DB.time_dim USING DELTA LOCATION 'abfss://dbstorage100d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/time_dim/';\n",
+					"CREATE TABLE external_delta_tables_100GB_DB.warehouse USING DELTA LOCATION 'abfss://dbstorage100d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/warehouse/';\n",
+					"CREATE TABLE external_delta_tables_100GB_DB.web_page USING DELTA LOCATION 'abfss://dbstorage100d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/web_page/';\n",
+					"CREATE TABLE external_delta_tables_100GB_DB.web_returns USING DELTA LOCATION 'abfss://dbstorage100d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/web_returns/';\n",
+					"CREATE TABLE external_delta_tables_100GB_DB.web_sales USING DELTA LOCATION 'abfss://dbstorage100d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/web_sales/';\n",
+					"CREATE TABLE external_delta_tables_100GB_DB.web_site USING DELTA LOCATION 'abfss://dbstorage100d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/web_site/';"
+				],
+				"execution_count": 2
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": false
+				},
+				"source": [
+					"select count(*) from external_delta_tables_100GB_DB.call_center;\n",
+					"select count(*) from external_delta_tables_100GB_DB.catalog_page;\n",
+					"select count(*) from external_delta_tables_100GB_DB.catalog_returns;\n",
+					"select count(*) from external_delta_tables_100GB_DB.catalog_sales;\n",
+					"select count(*) from external_delta_tables_100GB_DB.customer;\n",
+					"select count(*) from external_delta_tables_100GB_DB.customer_address;\n",
+					"select count(*) from external_delta_tables_100GB_DB.customer_demographics;\n",
+					"select count(*) from external_delta_tables_100GB_DB.date_dim;\n",
+					"select count(*) from external_delta_tables_100GB_DB.household_demographics;\n",
+					"select count(*) from external_delta_tables_100GB_DB.income_band;\n",
+					"select count(*) from external_delta_tables_100GB_DB.inventory;\n",
+					"select count(*) from external_delta_tables_100GB_DB.item;\n",
+					"select count(*) from external_delta_tables_100GB_DB.promotion;\n",
+					"select count(*) from external_delta_tables_100GB_DB.reason;\n",
+					"select count(*) from external_delta_tables_100GB_DB.ship_mode;\n",
+					"select count(*) from external_delta_tables_100GB_DB.store;\n",
+					"select count(*) from external_delta_tables_100GB_DB.store_returns;\n",
+					"select count(*) from external_delta_tables_100GB_DB.store_sales;\n",
+					"select count(*) from external_delta_tables_100GB_DB.time_dim;\n",
+					"select count(*) from external_delta_tables_100GB_DB.warehouse;\n",
+					"select count(*) from external_delta_tables_100GB_DB.web_page;\n",
+					"select count(*) from external_delta_tables_100GB_DB.web_returns;\n",
+					"select count(*) from external_delta_tables_100GB_DB.web_sales;\n",
+					"select count(*) from external_delta_tables_100GB_DB.web_site;"
+				],
+				"execution_count": 5
+			}
+		]
+	}
+}
