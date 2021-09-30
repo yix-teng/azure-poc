@@ -76,7 +76,7 @@
 					"// Set:\n",
 					"val databaseName = \"External_spark_tables_1TB_DB\" // name of database with TPCDS data.\n",
 					"sql(s\"use $databaseName\")\n",
-					"val resultLocation = \"abfss://dbstorage1000@scbpocdev.dfs.core.windows.net/synpase_tpcds_results\" // place to write results\n",
+					"val resultLocation = \"abfss://dbstorage1000@scbpocdev.dfs.core.windows.net/External_spark_tables_1TB_DB_results\" // place to write results\n",
 					"val iterations = 1 // how many iterations of queries to run.\n",
 					"val queries = tpcds.tpcds2_4Queries // queries to run.\n",
 					"val timeout = 24*60*60 // timeout, in seconds.\n",
