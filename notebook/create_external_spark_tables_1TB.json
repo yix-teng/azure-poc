@@ -4,7 +4,7 @@
 		"nbformat": 4,
 		"nbformat_minor": 2,
 		"bigDataPool": {
-			"referenceName": "Rd2Cluster",
+			"referenceName": "SparkRd2Cluster",
 			"type": "BigDataPoolReference"
 		},
 		"sessionProperties": {
@@ -30,12 +30,18 @@
 				"name": "sql"
 			},
 			"a365ComputeOptions": {
-				"id": "/subscriptions/dedfa758-9fb0-4c1b-b0e2-25c590d4f804/resourceGroups/POC-SQL_ADLS-ENV/providers/Microsoft.Synapse/workspaces/pocsqladlsenv/bigDataPools/Rd2Cluster",
-				"name": "Rd2Cluster",
+				"id": "/subscriptions/dedfa758-9fb0-4c1b-b0e2-25c590d4f804/resourceGroups/POC-Spark-Env/providers/Microsoft.Synapse/workspaces/pocsparkenv/bigDataPools/SparkRd2Cluster",
+				"name": "SparkRd2Cluster",
+				"type": "Spark",
+				"endpoint": "https://pocsparkenv.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/SparkRd2Cluster",
 				"auth": {
 					"type": "AAD",
 					"authResource": "https://dev.azuresynapse.net"
-				}
+				},
+				"sparkVersion": "3.1",
+				"nodeCount": 9,
+				"cores": 8,
+				"memory": 56
 			},
 			"sessionKeepAliveTimeout": 30
 		},
@@ -275,6 +281,48 @@
 					"# findings\n",
 					"* when creating external spark tables with partitions, RECOVER PARTITIONS commands are required to recover the parititons. Else those tables will also return 0 records."
 				]
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": false
+				},
+				"source": [
+					"ANALYZE TABLE external_spark_tables_1TB_DB.call_center COMPUTE STATISTICS;\n",
+					"ANALYZE TABLE external_spark_tables_1TB_DB.catalog_page COMPUTE STATISTICS;\n",
+					"ANALYZE TABLE external_spark_tables_1TB_DB.catalog_returns COMPUTE STATISTICS;\n",
+					"ANALYZE TABLE external_spark_tables_1TB_DB.catalog_sales COMPUTE STATISTICS;\n",
+					"ANALYZE TABLE external_spark_tables_1TB_DB.customer COMPUTE STATISTICS;\n",
+					"ANALYZE TABLE external_spark_tables_1TB_DB.customer_address COMPUTE STATISTICS;\n",
+					"ANALYZE TABLE external_spark_tables_1TB_DB.customer_demographics COMPUTE STATISTICS;\n",
+					"ANALYZE TABLE external_spark_tables_1TB_DB.date_dim COMPUTE STATISTICS;\n",
+					"ANALYZE TABLE external_spark_tables_1TB_DB.household_demographics COMPUTE STATISTICS;\n",
+					"ANALYZE TABLE external_spark_tables_1TB_DB.income_band COMPUTE STATISTICS;\n",
+					"ANALYZE TABLE external_spark_tables_1TB_DB.inventory COMPUTE STATISTICS;\n",
+					"ANALYZE TABLE external_spark_tables_1TB_DB.item COMPUTE STATISTICS;\n",
+					"ANALYZE TABLE external_spark_tables_1TB_DB.promotion COMPUTE STATISTICS;\n",
+					"ANALYZE TABLE external_spark_tables_1TB_DB.reason COMPUTE STATISTICS;\n",
+					"ANALYZE TABLE external_spark_tables_1TB_DB.ship_mode COMPUTE STATISTICS;\n",
+					"ANALYZE TABLE external_spark_tables_1TB_DB.store COMPUTE STATISTICS;\n",
+					"ANALYZE TABLE external_spark_tables_1TB_DB.store_returns COMPUTE STATISTICS;\n",
+					"ANALYZE TABLE external_spark_tables_1TB_DB.store_sales COMPUTE STATISTICS;\n",
+					"ANALYZE TABLE external_spark_tables_1TB_DB.time_dim COMPUTE STATISTICS;\n",
+					"ANALYZE TABLE external_spark_tables_1TB_DB.warehouse COMPUTE STATISTICS;\n",
+					"ANALYZE TABLE external_spark_tables_1TB_DB.web_page COMPUTE STATISTICS;\n",
+					"ANALYZE TABLE external_spark_tables_1TB_DB.web_returns COMPUTE STATISTICS;\n",
+					"ANALYZE TABLE external_spark_tables_1TB_DB.web_sales COMPUTE STATISTICS;\n",
+					"ANALYZE TABLE external_spark_tables_1TB_DB.web_site COMPUTE STATISTICS;"
+				],
+				"execution_count": 4
 			},
 			{
 				"cell_type": "code",
