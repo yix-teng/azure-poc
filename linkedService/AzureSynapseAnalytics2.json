@@ -4,7 +4,11 @@
 		"annotations": [],
 		"type": "AzureSqlDW",
 		"typeProperties": {
-			"connectionString": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=pocsqladlsenv.sql.azuresynapse.net;Initial Catalog=internal_100gb"
+			"connectionString": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=pocsqladlsenv.sql.azuresynapse.net;Initial Catalog=internal_100gb",
+			"credential": {
+				"referenceName": "WorkspaceSystemIdentity",
+				"type": "CredentialReference"
+			}
 		},
 		"connectVia": {
 			"referenceName": "AutoResolveIntegrationRuntime",
