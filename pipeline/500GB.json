@@ -28,12 +28,6 @@
 					},
 					"sink": {
 						"type": "SqlPoolSink",
-						"allowPolyBase": true,
-						"polyBaseSettings": {
-							"rejectValue": 0,
-							"rejectType": "value",
-							"useTypeDefault": true
-						},
 						"sqlWriterUseTableLock": false
 					},
 					"enableStaging": false,
@@ -319,12 +313,6 @@
 					},
 					"sink": {
 						"type": "SqlPoolSink",
-						"allowPolyBase": true,
-						"polyBaseSettings": {
-							"rejectValue": 0,
-							"rejectType": "value",
-							"useTypeDefault": true
-						},
 						"sqlWriterUseTableLock": false
 					},
 					"enableStaging": false,
@@ -650,12 +638,6 @@
 					},
 					"sink": {
 						"type": "SqlPoolSink",
-						"allowPolyBase": true,
-						"polyBaseSettings": {
-							"rejectValue": 0,
-							"rejectType": "value",
-							"useTypeDefault": true
-						},
 						"sqlWriterUseTableLock": false
 					},
 					"enableStaging": false,
@@ -751,12 +733,6 @@
 					},
 					"sink": {
 						"type": "SqlPoolSink",
-						"allowPolyBase": true,
-						"polyBaseSettings": {
-							"rejectValue": 0,
-							"rejectType": "value",
-							"useTypeDefault": true
-						},
 						"sqlWriterUseTableLock": false
 					},
 					"enableStaging": false,
@@ -1152,12 +1128,6 @@
 					},
 					"sink": {
 						"type": "SqlPoolSink",
-						"allowPolyBase": true,
-						"polyBaseSettings": {
-							"rejectValue": 0,
-							"rejectType": "value",
-							"useTypeDefault": true
-						},
 						"sqlWriterUseTableLock": false
 					},
 					"enableStaging": false,
@@ -1413,12 +1383,6 @@
 					},
 					"sink": {
 						"type": "SqlPoolSink",
-						"allowPolyBase": true,
-						"polyBaseSettings": {
-							"rejectValue": 0,
-							"rejectType": "value",
-							"useTypeDefault": true
-						},
 						"sqlWriterUseTableLock": false
 					},
 					"enableStaging": false,
@@ -1714,12 +1678,6 @@
 					},
 					"sink": {
 						"type": "SqlPoolSink",
-						"allowPolyBase": true,
-						"polyBaseSettings": {
-							"rejectValue": 0,
-							"rejectType": "value",
-							"useTypeDefault": true
-						},
 						"sqlWriterUseTableLock": false
 					},
 					"enableStaging": false,
