@@ -1,0 +1,14 @@
+{
+	"name": "AzureSynapseAnalytics2",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDW",
+		"typeProperties": {
+			"connectionString": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=pocsqladlsenv.sql.azuresynapse.net;Initial Catalog=internal_100gb"
+		},
+		"connectVia": {
+			"referenceName": "AutoResolveIntegrationRuntime",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
