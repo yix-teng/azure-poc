@@ -1,0 +1,37 @@
+{
+	"name": "Parquet34",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "tpcconnection",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "TPC-DS/SourceFiles_parquet/inventory",
+				"fileSystem": "dbstorage1000"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": [
+			{
+				"name": "inv_item_sk",
+				"type": "INT32"
+			},
+			{
+				"name": "inv_warehouse_sk",
+				"type": "INT32"
+			},
+			{
+				"name": "inv_quantity_on_hand",
+				"type": "INT32"
+			},
+			{
+				"name": "inv_date_sk",
+				"type": "UTF8"
+			}
+		]
+	}
+}
