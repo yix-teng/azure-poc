@@ -20,14 +20,15 @@
 						"storeSettings": {
 							"type": "AzureBlobFSReadSettings",
 							"recursive": true,
-							"wildcardFolderPath": "tpcds/store_sales",
+							"wildcardFolderPath": "TPC-DS/SourceFiles_parquet/store_sales",
 							"wildcardFileName": "*.parquet",
 							"enablePartitionDiscovery": true,
-							"partitionRootPath": "tpcdata/tpcds/store_sales"
+							"partitionRootPath": "dbstorage1000/TPC-DS/SourceFiles_parquet/store_sales"
 						}
 					},
 					"sink": {
-						"type": "SqlDWSink"
+						"type": "SqlPoolSink",
+						"sqlWriterUseTableLock": false
 					},
 					"enableStaging": false,
 					"translator": {
@@ -342,13 +343,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "SourceDataset_4oi",
+						"referenceName": "scbpocdev",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "DestinationDataset_4oi",
+						"referenceName": "store_sales",
 						"type": "DatasetReference"
 					}
 				]
