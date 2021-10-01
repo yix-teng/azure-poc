@@ -379,10 +379,10 @@
 						"storeSettings": {
 							"type": "AzureBlobFSReadSettings",
 							"recursive": true,
-							"wildcardFolderPath": "tpcds/catalog_returns",
+							"wildcardFolderPath": "TPC-DS/SourceFiles_parquet/catalog_returns",
 							"wildcardFileName": "*.parquet",
 							"enablePartitionDiscovery": true,
-							"partitionRootPath": "tpcdata/tpcds/catalog_returns"
+							"partitionRootPath": "dbstorage1000/TPC-DS/SourceFiles_parquet/catalog_returns"
 						}
 					},
 					"sink": {
@@ -780,10 +780,10 @@
 						"storeSettings": {
 							"type": "AzureBlobFSReadSettings",
 							"recursive": true,
-							"wildcardFolderPath": "tpcds/inventory",
+							"wildcardFolderPath": "TPC-DS/SourceFiles_parquet/inventory",
 							"wildcardFileName": "*.parquet",
 							"enablePartitionDiscovery": true,
-							"partitionRootPath": "tpcdata/tpcds/inventory"
+							"partitionRootPath": "dbstorage1000/TPC-DS/SourceFiles_parquet/inventory"
 						}
 					},
 					"sink": {
@@ -887,10 +887,10 @@
 						"storeSettings": {
 							"type": "AzureBlobFSReadSettings",
 							"recursive": true,
-							"wildcardFolderPath": "tpcds/catalog_sales",
+							"wildcardFolderPath": "TPC-DS/SourceFiles_parquet/catalog_sales",
 							"wildcardFileName": "*.parquet",
 							"enablePartitionDiscovery": true,
-							"partitionRootPath": "tpcdata/tpcds/catalog_sales"
+							"partitionRootPath": "dbstorage1000/TPC-DS/SourceFiles_parquet/catalog_sales"
 						}
 					},
 					"sink": {
@@ -1384,10 +1384,10 @@
 						"storeSettings": {
 							"type": "AzureBlobFSReadSettings",
 							"recursive": true,
-							"wildcardFolderPath": "tpcds/store_returns",
+							"wildcardFolderPath": "TPC-DS/SourceFiles_parquet/store_returns",
 							"wildcardFileName": "*.parquet",
 							"enablePartitionDiscovery": true,
-							"partitionRootPath": "tpcdata/tpcds/store_returns"
+							"partitionRootPath": "dbstorage1000/TPC-DS/SourceFiles_parquet/store_returns"
 						}
 					},
 					"sink": {
@@ -1397,6 +1397,265 @@
 					"enableStaging": false,
 					"translator": {
 						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "sr_return_time_sk",
+									"type": "Int32",
+									"physicalType": "INT32"
+								},
+								"sink": {
+									"name": "sr_return_time_sk",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "sr_item_sk",
+									"type": "Int32",
+									"physicalType": "INT32"
+								},
+								"sink": {
+									"name": "sr_item_sk",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "sr_customer_sk",
+									"type": "Int32",
+									"physicalType": "INT32"
+								},
+								"sink": {
+									"name": "sr_customer_sk",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "sr_cdemo_sk",
+									"type": "Int32",
+									"physicalType": "INT32"
+								},
+								"sink": {
+									"name": "sr_cdemo_sk",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "sr_hdemo_sk",
+									"type": "Int32",
+									"physicalType": "INT32"
+								},
+								"sink": {
+									"name": "sr_hdemo_sk",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "sr_addr_sk",
+									"type": "Int32",
+									"physicalType": "INT32"
+								},
+								"sink": {
+									"name": "sr_addr_sk",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "sr_store_sk",
+									"type": "Int32",
+									"physicalType": "INT32"
+								},
+								"sink": {
+									"name": "sr_store_sk",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "sr_reason_sk",
+									"type": "Int32",
+									"physicalType": "INT32"
+								},
+								"sink": {
+									"name": "sr_reason_sk",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "sr_ticket_number",
+									"type": "Int64",
+									"physicalType": "INT64"
+								},
+								"sink": {
+									"name": "sr_ticket_number",
+									"type": "Int64",
+									"physicalType": "bigint"
+								}
+							},
+							{
+								"source": {
+									"name": "sr_return_quantity",
+									"type": "Int32",
+									"physicalType": "INT32"
+								},
+								"sink": {
+									"name": "sr_return_quantity",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "sr_return_amt",
+									"type": "Decimal",
+									"physicalType": "DECIMAL"
+								},
+								"sink": {
+									"name": "sr_return_amt",
+									"type": "Decimal",
+									"physicalType": "decimal",
+									"scale": 2,
+									"precision": 7
+								}
+							},
+							{
+								"source": {
+									"name": "sr_return_tax",
+									"type": "Decimal",
+									"physicalType": "DECIMAL"
+								},
+								"sink": {
+									"name": "sr_return_tax",
+									"type": "Decimal",
+									"physicalType": "decimal",
+									"scale": 2,
+									"precision": 7
+								}
+							},
+							{
+								"source": {
+									"name": "sr_return_amt_inc_tax",
+									"type": "Decimal",
+									"physicalType": "DECIMAL"
+								},
+								"sink": {
+									"name": "sr_return_amt_inc_tax",
+									"type": "Decimal",
+									"physicalType": "decimal",
+									"scale": 2,
+									"precision": 7
+								}
+							},
+							{
+								"source": {
+									"name": "sr_fee",
+									"type": "Decimal",
+									"physicalType": "DECIMAL"
+								},
+								"sink": {
+									"name": "sr_fee",
+									"type": "Decimal",
+									"physicalType": "decimal",
+									"scale": 2,
+									"precision": 7
+								}
+							},
+							{
+								"source": {
+									"name": "sr_return_ship_cost",
+									"type": "Decimal",
+									"physicalType": "DECIMAL"
+								},
+								"sink": {
+									"name": "sr_return_ship_cost",
+									"type": "Decimal",
+									"physicalType": "decimal",
+									"scale": 2,
+									"precision": 7
+								}
+							},
+							{
+								"source": {
+									"name": "sr_refunded_cash",
+									"type": "Decimal",
+									"physicalType": "DECIMAL"
+								},
+								"sink": {
+									"name": "sr_refunded_cash",
+									"type": "Decimal",
+									"physicalType": "decimal",
+									"scale": 2,
+									"precision": 7
+								}
+							},
+							{
+								"source": {
+									"name": "sr_reversed_charge",
+									"type": "Decimal",
+									"physicalType": "DECIMAL"
+								},
+								"sink": {
+									"name": "sr_reversed_charge",
+									"type": "Decimal",
+									"physicalType": "decimal",
+									"scale": 2,
+									"precision": 7
+								}
+							},
+							{
+								"source": {
+									"name": "sr_store_credit",
+									"type": "Decimal",
+									"physicalType": "DECIMAL"
+								},
+								"sink": {
+									"name": "sr_store_credit",
+									"type": "Decimal",
+									"physicalType": "decimal",
+									"scale": 2,
+									"precision": 7
+								}
+							},
+							{
+								"source": {
+									"name": "sr_net_loss",
+									"type": "Decimal",
+									"physicalType": "DECIMAL"
+								},
+								"sink": {
+									"name": "sr_net_loss",
+									"type": "Decimal",
+									"physicalType": "decimal",
+									"scale": 2,
+									"precision": 7
+								}
+							},
+							{
+								"source": {
+									"name": "sr_returned_date_sk",
+									"type": "String"
+								},
+								"sink": {
+									"name": "sr_returned_date_sk",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							}
+						],
 						"typeConversion": true,
 						"typeConversionSettings": {
 							"allowDataTruncation": true,
@@ -1442,10 +1701,10 @@
 						"storeSettings": {
 							"type": "AzureBlobFSReadSettings",
 							"recursive": true,
-							"wildcardFolderPath": "tpcds/web_returns",
+							"wildcardFolderPath": "TPC-DS/SourceFiles_parquet/web_returns",
 							"wildcardFileName": "*.parquet",
 							"enablePartitionDiscovery": true,
-							"partitionRootPath": "tpcdata/tpcds/web_returns"
+							"partitionRootPath": "/dbstorage1000/TPC-DS/SourceFiles_parquet/web_returns"
 						}
 					},
 					"sink": {
@@ -1807,10 +2066,10 @@
 						"storeSettings": {
 							"type": "AzureBlobFSReadSettings",
 							"recursive": true,
-							"wildcardFolderPath": "tpcds/web_sales",
+							"wildcardFolderPath": "TPC-DS/SourceFiles_parquet/web_sales",
 							"wildcardFileName": "*.parquet",
 							"enablePartitionDiscovery": true,
-							"partitionRootPath": "tpcdata/tpcds/web_sales"
+							"partitionRootPath": "dbstorage1000/TPC-DS/SourceFiles_parquet/web_sales"
 						}
 					},
 					"sink": {
