@@ -88,7 +88,7 @@
 					"  forkThread = true)\n",
 					"experiment.waitForFinish(timeout)"
 				],
-				"execution_count": 2
+				"execution_count": 1
 			},
 			{
 				"cell_type": "code",
@@ -107,11 +107,11 @@
 					"import org.apache.spark.sql.functions._\n",
 					"\n",
 					"val resultLocation = \"abfss://dbstorage100@scbpocdev.dfs.core.windows.net/external_spark_tables_100GB_DB_results\" // place to write results\n",
-					"val result = spark.read.json(resultLocation).filter(\"timestamp = 1633048087774\").select(explode($\"results\").as(\"r\"))\n",
+					"val result = spark.read.json(resultLocation).filter(\"timestamp = 1633088700712\").select(explode($\"results\").as(\"r\"))\n",
 					"result.createOrReplaceTempView(\"result\") \n",
 					"spark.sql(\"select substring(r.name,1,100) as Name, bround((r.parsingTime+r.analysisTime+r.optimizationTime+r.planningTime+r.executionTime)/1000.0,1) as Runtime_sec  from result\").show(150)"
 				],
-				"execution_count": 1
+				"execution_count": 2
 			}
 		]
 	}
