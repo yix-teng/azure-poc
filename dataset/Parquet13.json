@@ -1,0 +1,149 @@
+{
+	"name": "Parquet13",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "poc_dataset",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "TPC-DS/SourceFiles_parquet/catalog_returns",
+				"fileSystem": "dbstorage5000"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": [
+			{
+				"name": "cc_call_center_sk",
+				"type": "INT32"
+			},
+			{
+				"name": "cc_call_center_id",
+				"type": "UTF8"
+			},
+			{
+				"name": "cc_rec_start_date",
+				"type": "DATE"
+			},
+			{
+				"name": "cc_rec_end_date",
+				"type": "DATE"
+			},
+			{
+				"name": "cc_closed_date_sk",
+				"type": "INT32"
+			},
+			{
+				"name": "cc_open_date_sk",
+				"type": "INT32"
+			},
+			{
+				"name": "cc_name",
+				"type": "UTF8"
+			},
+			{
+				"name": "cc_class",
+				"type": "UTF8"
+			},
+			{
+				"name": "cc_employees",
+				"type": "INT32"
+			},
+			{
+				"name": "cc_sq_ft",
+				"type": "INT32"
+			},
+			{
+				"name": "cc_hours",
+				"type": "UTF8"
+			},
+			{
+				"name": "cc_manager",
+				"type": "UTF8"
+			},
+			{
+				"name": "cc_mkt_id",
+				"type": "INT32"
+			},
+			{
+				"name": "cc_mkt_class",
+				"type": "UTF8"
+			},
+			{
+				"name": "cc_mkt_desc",
+				"type": "UTF8"
+			},
+			{
+				"name": "cc_market_manager",
+				"type": "UTF8"
+			},
+			{
+				"name": "cc_division",
+				"type": "INT32"
+			},
+			{
+				"name": "cc_division_name",
+				"type": "UTF8"
+			},
+			{
+				"name": "cc_company",
+				"type": "INT32"
+			},
+			{
+				"name": "cc_company_name",
+				"type": "UTF8"
+			},
+			{
+				"name": "cc_street_number",
+				"type": "UTF8"
+			},
+			{
+				"name": "cc_street_name",
+				"type": "UTF8"
+			},
+			{
+				"name": "cc_street_type",
+				"type": "UTF8"
+			},
+			{
+				"name": "cc_suite_number",
+				"type": "UTF8"
+			},
+			{
+				"name": "cc_city",
+				"type": "UTF8"
+			},
+			{
+				"name": "cc_county",
+				"type": "UTF8"
+			},
+			{
+				"name": "cc_state",
+				"type": "UTF8"
+			},
+			{
+				"name": "cc_zip",
+				"type": "UTF8"
+			},
+			{
+				"name": "cc_country",
+				"type": "UTF8"
+			},
+			{
+				"name": "cc_gmt_offset",
+				"type": "DECIMAL",
+				"precision": 5,
+				"scale": 2
+			},
+			{
+				"name": "cc_tax_percentage",
+				"type": "DECIMAL",
+				"precision": 5,
+				"scale": 2
+			}
+		]
+	}
+}
