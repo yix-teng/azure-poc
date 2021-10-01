@@ -67,14 +67,6 @@
 				"source": [
 					"import com.databricks.spark.sql.perf.tpcds.TPCDS\n",
 					"\n",
-					"\n",
-					"val sparkConf = new SparkConf()\n",
-					"sparkConf.set(\"spark.kryoserializer.buffer.max.mb\", \"512\")\n",
-					"sparkConf.set(\"spark.driver.maxResultSize\", \"5g\")\n",
-					"val sc = new SparkContext(sparkConf)\n",
-					"\n",
-					"val sqlContext = new SQLContext(sc)\n",
-					"\n",
 					"// Note: Declare \"sqlContext\" for Spark 2.x version\n",
 					"val sqlContext = new org.apache.spark.sql.SQLContext(sc)\n",
 					"\n",
@@ -115,7 +107,7 @@
 					"import org.apache.spark.sql.functions._\n",
 					"\n",
 					"val resultLocation = \"abfss://dbstorage100@scbpocdev.dfs.core.windows.net/external_spark_tables_100GB_DB_results\" // place to write results\n",
-					"val result = spark.read.json(resultLocation).filter(\"timestamp = 1633010440719\").select(explode($\"results\").as(\"r\"))\n",
+					"val result = spark.read.json(resultLocation).filter(\"timestamp = 1633048087774\").select(explode($\"results\").as(\"r\"))\n",
 					"result.createOrReplaceTempView(\"result\") \n",
 					"spark.sql(\"select substring(r.name,1,100) as Name, bround((r.parsingTime+r.analysisTime+r.optimizationTime+r.planningTime+r.executionTime)/1000.0,1) as Runtime_sec  from result\").show(150)"
 				],
