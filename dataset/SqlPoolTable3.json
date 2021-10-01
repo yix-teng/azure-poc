@@ -30,7 +30,7 @@
 			"table": "inventory"
 		},
 		"sqlPool": {
-			"referenceName": "DeticatedSqlPool",
+			"referenceName": "internal_100gb",
 			"type": "SqlPoolReference"
 		}
 	}
