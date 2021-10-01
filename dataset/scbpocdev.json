@@ -17,132 +17,120 @@
 		},
 		"schema": [
 			{
-				"name": "cc_call_center_sk",
+				"name": "ss_sold_time_sk",
 				"type": "INT32"
 			},
 			{
-				"name": "cc_call_center_id",
-				"type": "UTF8"
-			},
-			{
-				"name": "cc_rec_start_date",
-				"type": "DATE"
-			},
-			{
-				"name": "cc_rec_end_date",
-				"type": "DATE"
-			},
-			{
-				"name": "cc_closed_date_sk",
+				"name": "ss_item_sk",
 				"type": "INT32"
 			},
 			{
-				"name": "cc_open_date_sk",
+				"name": "ss_customer_sk",
 				"type": "INT32"
 			},
 			{
-				"name": "cc_name",
-				"type": "UTF8"
-			},
-			{
-				"name": "cc_class",
-				"type": "UTF8"
-			},
-			{
-				"name": "cc_employees",
+				"name": "ss_cdemo_sk",
 				"type": "INT32"
 			},
 			{
-				"name": "cc_sq_ft",
+				"name": "ss_hdemo_sk",
 				"type": "INT32"
 			},
 			{
-				"name": "cc_hours",
-				"type": "UTF8"
-			},
-			{
-				"name": "cc_manager",
-				"type": "UTF8"
-			},
-			{
-				"name": "cc_mkt_id",
+				"name": "ss_addr_sk",
 				"type": "INT32"
 			},
 			{
-				"name": "cc_mkt_class",
-				"type": "UTF8"
-			},
-			{
-				"name": "cc_mkt_desc",
-				"type": "UTF8"
-			},
-			{
-				"name": "cc_market_manager",
-				"type": "UTF8"
-			},
-			{
-				"name": "cc_division",
+				"name": "ss_store_sk",
 				"type": "INT32"
 			},
 			{
-				"name": "cc_division_name",
-				"type": "UTF8"
-			},
-			{
-				"name": "cc_company",
+				"name": "ss_promo_sk",
 				"type": "INT32"
 			},
 			{
-				"name": "cc_company_name",
-				"type": "UTF8"
+				"name": "ss_ticket_number",
+				"type": "INT64"
 			},
 			{
-				"name": "cc_street_number",
-				"type": "UTF8"
+				"name": "ss_quantity",
+				"type": "INT32"
 			},
 			{
-				"name": "cc_street_name",
-				"type": "UTF8"
-			},
-			{
-				"name": "cc_street_type",
-				"type": "UTF8"
-			},
-			{
-				"name": "cc_suite_number",
-				"type": "UTF8"
-			},
-			{
-				"name": "cc_city",
-				"type": "UTF8"
-			},
-			{
-				"name": "cc_county",
-				"type": "UTF8"
-			},
-			{
-				"name": "cc_state",
-				"type": "UTF8"
-			},
-			{
-				"name": "cc_zip",
-				"type": "UTF8"
-			},
-			{
-				"name": "cc_country",
-				"type": "UTF8"
-			},
-			{
-				"name": "cc_gmt_offset",
+				"name": "ss_wholesale_cost",
 				"type": "DECIMAL",
-				"precision": 5,
+				"precision": 7,
 				"scale": 2
 			},
 			{
-				"name": "cc_tax_percentage",
+				"name": "ss_list_price",
 				"type": "DECIMAL",
-				"precision": 5,
+				"precision": 7,
 				"scale": 2
+			},
+			{
+				"name": "ss_sales_price",
+				"type": "DECIMAL",
+				"precision": 7,
+				"scale": 2
+			},
+			{
+				"name": "ss_ext_discount_amt",
+				"type": "DECIMAL",
+				"precision": 7,
+				"scale": 2
+			},
+			{
+				"name": "ss_ext_sales_price",
+				"type": "DECIMAL",
+				"precision": 7,
+				"scale": 2
+			},
+			{
+				"name": "ss_ext_wholesale_cost",
+				"type": "DECIMAL",
+				"precision": 7,
+				"scale": 2
+			},
+			{
+				"name": "ss_ext_list_price",
+				"type": "DECIMAL",
+				"precision": 7,
+				"scale": 2
+			},
+			{
+				"name": "ss_ext_tax",
+				"type": "DECIMAL",
+				"precision": 7,
+				"scale": 2
+			},
+			{
+				"name": "ss_coupon_amt",
+				"type": "DECIMAL",
+				"precision": 7,
+				"scale": 2
+			},
+			{
+				"name": "ss_net_paid",
+				"type": "DECIMAL",
+				"precision": 7,
+				"scale": 2
+			},
+			{
+				"name": "ss_net_paid_inc_tax",
+				"type": "DECIMAL",
+				"precision": 7,
+				"scale": 2
+			},
+			{
+				"name": "ss_net_profit",
+				"type": "DECIMAL",
+				"precision": 7,
+				"scale": 2
+			},
+			{
+				"name": "ss_sold_date_sk",
+				"type": "UTF8"
 			}
 		]
 	}
