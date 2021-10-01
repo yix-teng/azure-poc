@@ -2,7 +2,7 @@
 	"name": "DestinationDataset_4oi",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "AzureSynapseAnalytics1",
+			"referenceName": "AzureSynapseAnalytics2",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
