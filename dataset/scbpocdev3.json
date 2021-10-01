@@ -1,6 +1,10 @@
 {
 	"name": "scbpocdev3",
 	"properties": {
+		"linkedServiceName": {
+			"referenceName": "poc_dataset",
+			"type": "LinkedServiceReference"
+		},
 		"annotations": [],
 		"type": "Parquet",
 		"typeProperties": {
