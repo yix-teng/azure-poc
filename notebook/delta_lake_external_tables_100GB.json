@@ -40,8 +40,8 @@
 				},
 				"sparkVersion": "3.1",
 				"nodeCount": 5,
-				"cores": 8,
-				"memory": 56
+				"cores": 16,
+				"memory": 112
 			},
 			"sessionKeepAliveTimeout": 30
 		},
@@ -110,7 +110,7 @@
 					"CREATE TABLE external_delta_tables_100GB_DB.web_sales USING DELTA LOCATION 'abfss://dbstorage100d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/web_sales/';\n",
 					"CREATE TABLE external_delta_tables_100GB_DB.web_site USING DELTA LOCATION 'abfss://dbstorage100d@scbpocdev.dfs.core.windows.net/TPC-DS/SourceFiles_delta/web_site/';"
 				],
-				"execution_count": 2
+				"execution_count": 1
 			},
 			{
 				"cell_type": "code",
@@ -152,7 +152,7 @@
 					"select count(*) from external_delta_tables_100GB_DB.web_sales;\n",
 					"select count(*) from external_delta_tables_100GB_DB.web_site;"
 				],
-				"execution_count": 5
+				"execution_count": 2
 			}
 		]
 	}
