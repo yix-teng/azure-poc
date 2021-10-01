@@ -1,0 +1,37 @@
+{
+	"name": "SqlPoolTable33",
+	"properties": {
+		"annotations": [],
+		"type": "SqlPoolTable",
+		"schema": [
+			{
+				"name": "inv_item_sk",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "inv_warehouse_sk",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "inv_quantity_on_hand",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "inv_date_sk",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "inventory"
+		},
+		"sqlPool": {
+			"referenceName": "internal_500gb",
+			"type": "SqlPoolReference"
+		}
+	}
+}
