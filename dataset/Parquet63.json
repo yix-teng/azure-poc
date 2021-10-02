@@ -11,7 +11,7 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"folderPath": "TPC-DS/SourceFiles_parquet/web_returns",
-				"fileSystem": "dbstorage5000"
+				"fileSystem": "dbstorage500"
 			},
 			"compressionCodec": "snappy"
 		},
