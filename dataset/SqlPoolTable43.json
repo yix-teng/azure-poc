@@ -194,7 +194,7 @@
 			"table": "web_sales"
 		},
 		"sqlPool": {
-			"referenceName": "internal_500gb",
+			"referenceName": "ForExternal",
 			"type": "SqlPoolReference"
 		}
 	}
