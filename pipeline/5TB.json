@@ -2121,6 +2121,7 @@
 				]
 			}
 		],
+		"concurrency": 3,
 		"annotations": []
 	}
 }
