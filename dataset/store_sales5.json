@@ -134,6 +134,10 @@
 		"typeProperties": {
 			"schema": "dbo",
 			"table": "store_sales"
+		},
+		"sqlPool": {
+			"referenceName": "ForExternal",
+			"type": "SqlPoolReference"
 		}
 	}
 }
