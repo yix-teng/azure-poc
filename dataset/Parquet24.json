@@ -11,7 +11,7 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"folderPath": "TPC-DS/SourceFiles_parquet/catalog_sales",
-				"fileSystem": "dbstorage100"
+				"fileSystem": "dbstorage500"
 			},
 			"compressionCodec": "snappy"
 		},
