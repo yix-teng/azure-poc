@@ -1,0 +1,410 @@
+{
+	"name": "500gb_web_sales",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy_qh7",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "dbstorage500/TPC-DS/SourceFiles_parquet/web_sales/"
+					},
+					{
+						"name": "Destination",
+						"value": "dbo.web_sales"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "ParquetSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"maxConcurrentConnections": 99,
+							"recursive": true,
+							"wildcardFileName": "*",
+							"enablePartitionDiscovery": true,
+							"partitionRootPath": "dbstorage500/TPC-DS/SourceFiles_parquet/web_sales/"
+						}
+					},
+					"sink": {
+						"type": "SqlPoolSink",
+						"allowPolyBase": true,
+						"polyBaseSettings": {
+							"rejectValue": 0,
+							"rejectType": "value",
+							"useTypeDefault": true
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "ws_sold_time_sk",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "ws_sold_time_sk",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "ws_ship_date_sk",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "ws_ship_date_sk",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "ws_item_sk",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "ws_item_sk",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "ws_bill_customer_sk",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "ws_bill_customer_sk",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "ws_bill_cdemo_sk",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "ws_bill_cdemo_sk",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "ws_bill_hdemo_sk",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "ws_bill_hdemo_sk",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "ws_bill_addr_sk",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "ws_bill_addr_sk",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "ws_ship_customer_sk",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "ws_ship_customer_sk",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "ws_ship_cdemo_sk",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "ws_ship_cdemo_sk",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "ws_ship_hdemo_sk",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "ws_ship_hdemo_sk",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "ws_ship_addr_sk",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "ws_ship_addr_sk",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "ws_web_page_sk",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "ws_web_page_sk",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "ws_web_site_sk",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "ws_web_site_sk",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "ws_ship_mode_sk",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "ws_ship_mode_sk",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "ws_warehouse_sk",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "ws_warehouse_sk",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "ws_promo_sk",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "ws_promo_sk",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "ws_order_number",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "ws_order_number",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"name": "ws_quantity",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "ws_quantity",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "ws_wholesale_cost",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "ws_wholesale_cost",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "ws_list_price",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "ws_list_price",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "ws_sales_price",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "ws_sales_price",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "ws_ext_discount_amt",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "ws_ext_discount_amt",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "ws_ext_sales_price",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "ws_ext_sales_price",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "ws_ext_wholesale_cost",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "ws_ext_wholesale_cost",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "ws_ext_list_price",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "ws_ext_list_price",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "ws_ext_tax",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "ws_ext_tax",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "ws_coupon_amt",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "ws_coupon_amt",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "ws_ext_ship_cost",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "ws_ext_ship_cost",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "ws_net_paid",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "ws_net_paid",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "ws_net_paid_inc_tax",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "ws_net_paid_inc_tax",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "ws_net_paid_inc_ship",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "ws_net_paid_inc_ship",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "ws_net_paid_inc_ship_tax",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "ws_net_paid_inc_ship_tax",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "ws_net_profit",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "ws_net_profit",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "ws_sold_date_sk",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ws_sold_date_sk",
+									"type": "String"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SourceDataset_qh7",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DestinationDataset_qh7",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}
