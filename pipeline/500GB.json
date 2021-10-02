@@ -23,7 +23,7 @@
 							"wildcardFolderPath": "TPC-DS/SourceFiles_parquet/store_sales",
 							"wildcardFileName": "*.parquet",
 							"enablePartitionDiscovery": true,
-							"partitionRootPath": "dbstorage5000/TPC-DS/SourceFiles_parquet/store_sales"
+							"partitionRootPath": "dbstorage500/TPC-DS/SourceFiles_parquet/store_sales"
 						}
 					},
 					"sink": {
@@ -308,7 +308,7 @@
 							"wildcardFolderPath": "TPC-DS/SourceFiles_parquet/catalog_returns",
 							"wildcardFileName": "*.parquet",
 							"enablePartitionDiscovery": true,
-							"partitionRootPath": "dbstorage5000/TPC-DS/SourceFiles_parquet/catalog_returns"
+							"partitionRootPath": "dbstorage500/TPC-DS/SourceFiles_parquet/catalog_returns"
 						}
 					},
 					"sink": {
@@ -633,7 +633,7 @@
 							"wildcardFolderPath": "TPC-DS/SourceFiles_parquet/inventory",
 							"wildcardFileName": "*.parquet",
 							"enablePartitionDiscovery": true,
-							"partitionRootPath": "dbstorage5000/TPC-DS/SourceFiles_parquet/inventory"
+							"partitionRootPath": "dbstorage500/TPC-DS/SourceFiles_parquet/inventory"
 						}
 					},
 					"sink": {
@@ -728,7 +728,7 @@
 							"wildcardFolderPath": "TPC-DS/SourceFiles_parquet/catalog_sales",
 							"wildcardFileName": "*.parquet",
 							"enablePartitionDiscovery": true,
-							"partitionRootPath": "dbstorage5000/TPC-DS/SourceFiles_parquet/catalog_sales"
+							"partitionRootPath": "dbstorage500/TPC-DS/SourceFiles_parquet/catalog_sales"
 						}
 					},
 					"sink": {
@@ -1123,7 +1123,7 @@
 							"wildcardFolderPath": "TPC-DS/SourceFiles_parquet/store_returns",
 							"wildcardFileName": "*.parquet",
 							"enablePartitionDiscovery": true,
-							"partitionRootPath": "dbstorage5000/TPC-DS/SourceFiles_parquet/store_returns"
+							"partitionRootPath": "dbstorage500/TPC-DS/SourceFiles_parquet/store_returns"
 						}
 					},
 					"sink": {
@@ -1378,7 +1378,7 @@
 							"wildcardFolderPath": "TPC-DS/SourceFiles_parquet/web_returns",
 							"wildcardFileName": "*.parquet",
 							"enablePartitionDiscovery": true,
-							"partitionRootPath": "/dbstorage5000/TPC-DS/SourceFiles_parquet/web_returns"
+							"partitionRootPath": "/dbstorage500/TPC-DS/SourceFiles_parquet/web_returns"
 						}
 					},
 					"sink": {
@@ -1673,7 +1673,7 @@
 							"wildcardFolderPath": "TPC-DS/SourceFiles_parquet/web_sales",
 							"wildcardFileName": "*.parquet",
 							"enablePartitionDiscovery": true,
-							"partitionRootPath": "dbstorage5000/TPC-DS/SourceFiles_parquet/web_sales"
+							"partitionRootPath": "dbstorage500/TPC-DS/SourceFiles_parquet/web_sales"
 						}
 					},
 					"sink": {
