@@ -136,7 +136,7 @@
 			"table": "store_sales"
 		},
 		"sqlPool": {
-			"referenceName": "DeticatedSqlPool",
+			"referenceName": "ForExternal",
 			"type": "SqlPoolReference"
 		}
 	}
