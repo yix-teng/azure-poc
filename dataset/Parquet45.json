@@ -1,0 +1,119 @@
+{
+	"name": "Parquet45",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "poc_dataset",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "TPC-DS/SourceFiles_parquet/store_returns",
+				"fileSystem": "dbstorage500"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": [
+			{
+				"name": "sr_return_time_sk",
+				"type": "INT32"
+			},
+			{
+				"name": "sr_item_sk",
+				"type": "INT32"
+			},
+			{
+				"name": "sr_customer_sk",
+				"type": "INT32"
+			},
+			{
+				"name": "sr_cdemo_sk",
+				"type": "INT32"
+			},
+			{
+				"name": "sr_hdemo_sk",
+				"type": "INT32"
+			},
+			{
+				"name": "sr_addr_sk",
+				"type": "INT32"
+			},
+			{
+				"name": "sr_store_sk",
+				"type": "INT32"
+			},
+			{
+				"name": "sr_reason_sk",
+				"type": "INT32"
+			},
+			{
+				"name": "sr_ticket_number",
+				"type": "INT64"
+			},
+			{
+				"name": "sr_return_quantity",
+				"type": "INT32"
+			},
+			{
+				"name": "sr_return_amt",
+				"type": "DECIMAL",
+				"precision": 7,
+				"scale": 2
+			},
+			{
+				"name": "sr_return_tax",
+				"type": "DECIMAL",
+				"precision": 7,
+				"scale": 2
+			},
+			{
+				"name": "sr_return_amt_inc_tax",
+				"type": "DECIMAL",
+				"precision": 7,
+				"scale": 2
+			},
+			{
+				"name": "sr_fee",
+				"type": "DECIMAL",
+				"precision": 7,
+				"scale": 2
+			},
+			{
+				"name": "sr_return_ship_cost",
+				"type": "DECIMAL",
+				"precision": 7,
+				"scale": 2
+			},
+			{
+				"name": "sr_refunded_cash",
+				"type": "DECIMAL",
+				"precision": 7,
+				"scale": 2
+			},
+			{
+				"name": "sr_reversed_charge",
+				"type": "DECIMAL",
+				"precision": 7,
+				"scale": 2
+			},
+			{
+				"name": "sr_store_credit",
+				"type": "DECIMAL",
+				"precision": 7,
+				"scale": 2
+			},
+			{
+				"name": "sr_net_loss",
+				"type": "DECIMAL",
+				"precision": 7,
+				"scale": 2
+			},
+			{
+				"name": "sr_returned_date_sk",
+				"type": "UTF8"
+			}
+		]
+	}
+}
