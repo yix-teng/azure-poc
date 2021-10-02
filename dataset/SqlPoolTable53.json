@@ -138,7 +138,7 @@
 			"table": "web_returns"
 		},
 		"sqlPool": {
-			"referenceName": "internal_500gb",
+			"referenceName": "ForExternal",
 			"type": "SqlPoolReference"
 		}
 	}
