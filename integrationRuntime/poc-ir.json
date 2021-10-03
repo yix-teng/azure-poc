@@ -7,7 +7,7 @@
 				"location": "Southeast Asia",
 				"dataFlowProperties": {
 					"computeType": "MemoryOptimized",
-					"coreCount": 8,
+					"coreCount": 144,
 					"timeToLive": 0,
 					"cleanup": false
 				}
