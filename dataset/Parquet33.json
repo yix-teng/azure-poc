@@ -2,7 +2,7 @@
 	"name": "Parquet33",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "data_source_link",
+			"referenceName": "poc_dataset",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
