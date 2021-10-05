@@ -136,7 +136,7 @@
 			"table": "store_sales"
 		},
 		"sqlPool": {
-			"referenceName": "internal_100gb",
+			"referenceName": "ForExternal",
 			"type": "SqlPoolReference"
 		}
 	}
