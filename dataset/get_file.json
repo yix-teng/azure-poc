@@ -15,7 +15,10 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "@dataset.FileName",
+				"fileName": {
+					"value": "@dataset().FileName",
+					"type": "Expression"
+				},
 				"folderPath": "TPC-DS/SourceFiles_parquet/store_sales",
 				"fileSystem": "dbstorage100"
 			},
