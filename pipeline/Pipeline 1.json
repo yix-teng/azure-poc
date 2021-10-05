@@ -3,93 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "ForEach1",
-				"type": "ForEach",
-				"dependsOn": [
-					{
-						"activity": "Get Metadata1",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"userProperties": [],
-				"typeProperties": {
-					"items": {
-						"value": "@activity('Get Metadata1').output.childItems",
-						"type": "Expression"
-					},
-					"activities": [
-						{
-							"name": "Filter1",
-							"type": "Filter",
-							"dependsOn": [],
-							"userProperties": [],
-							"typeProperties": {
-								"items": {
-									"value": "@item().type",
-									"type": "Expression"
-								},
-								"condition": {
-									"value": "@not(equals(item().type,'Folder'))",
-									"type": "Expression"
-								}
-							}
-						},
-						{
-							"name": "Copy data1",
-							"type": "Copy",
-							"dependsOn": [
-								{
-									"activity": "Filter1",
-									"dependencyConditions": [
-										"Succeeded"
-									]
-								}
-							],
-							"policy": {
-								"timeout": "7.00:00:00",
-								"retry": 0,
-								"retryIntervalInSeconds": 30,
-								"secureOutput": false,
-								"secureInput": false
-							},
-							"userProperties": [],
-							"typeProperties": {
-								"source": {
-									"type": "ParquetSource",
-									"storeSettings": {
-										"type": "AzureBlobFSReadSettings",
-										"recursive": true,
-										"enablePartitionDiscovery": false
-									}
-								},
-								"sink": {
-									"type": "SqlPoolSink",
-									"allowCopyCommand": true
-								},
-								"enableStaging": false,
-								"parallelCopies": 15,
-								"dataIntegrationUnits": 32
-							},
-							"inputs": [
-								{
-									"referenceName": "get_file",
-									"type": "DatasetReference"
-								}
-							],
-							"outputs": [
-								{
-									"referenceName": "store_sales",
-									"type": "DatasetReference"
-								}
-							]
-						}
-					]
-				}
-			},
-			{
-				"name": "Get Metadata1",
+				"name": "Get_Folder_Metadata_AC",
 				"type": "GetMetadata",
 				"dependsOn": [],
 				"policy": {
@@ -102,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "source_parquet",
+						"referenceName": "get_folder",
 						"type": "DatasetReference"
 					},
 					"fieldList": [
@@ -113,13 +27,81 @@
 						"enablePartitionDiscovery": false
 					}
 				}
+			},
+			{
+				"name": "ForEach_AC",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "Get_Folder_Metadata_AC",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('Get_Folder_Metadata_AC').output.childItems",
+						"type": "Expression"
+					},
+					"activities": [
+						{
+							"name": "Get_File_Metadata_AC",
+							"type": "GetMetadata",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "7.00:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"dataset": {
+									"referenceName": "get_file",
+									"type": "DatasetReference",
+									"parameters": {
+										"FileName": "@item().name"
+									}
+								},
+								"fieldList": [
+									"itemName"
+								],
+								"storeSettings": {
+									"type": "AzureBlobFSReadSettings",
+									"enablePartitionDiscovery": false
+								}
+							}
+						},
+						{
+							"name": "Set variable2",
+							"type": "SetVariable",
+							"dependsOn": [
+								{
+									"activity": "Get_File_Metadata_AC",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "test",
+								"value": "@item().name"
+							}
+						}
+					]
+				}
 			}
 		],
 		"variables": {
-			"file_name": {
+			"test": {
 				"type": "String"
 			}
 		},
 		"annotations": []
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
 }
