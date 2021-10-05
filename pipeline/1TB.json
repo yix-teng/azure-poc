@@ -23,7 +23,7 @@
 							"wildcardFolderPath": "TPC-DS/SourceFiles_parquet/store_sales",
 							"wildcardFileName": "*.parquet",
 							"enablePartitionDiscovery": true,
-							"partitionRootPath": "dbstorage100/TPC-DS/SourceFiles_parquet/store_sales"
+							"partitionRootPath": "dbstorage1000/TPC-DS/SourceFiles_parquet/store_sales"
 						}
 					},
 					"sink": {
@@ -31,6 +31,8 @@
 						"sqlWriterUseTableLock": false
 					},
 					"enableStaging": false,
+					"parallelCopies": 15,
+					"dataIntegrationUnits": 32,
 					"translator": {
 						"type": "TabularTranslator",
 						"mappings": [
@@ -361,7 +363,7 @@
 					{
 						"activity": "Copy store_sales",
 						"dependencyConditions": [
-							"Succeeded"
+							"Failed"
 						]
 					}
 				],
