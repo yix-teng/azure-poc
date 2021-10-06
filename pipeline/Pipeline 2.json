@@ -1,0 +1,93 @@
+{
+	"name": "Pipeline 2",
+	"properties": {
+		"activities": [
+			{
+				"name": "ForEach1",
+				"type": "ForEach",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@pipeline().parameters.files",
+						"type": "Expression"
+					},
+					"activities": [
+						{
+							"name": "Copy data1",
+							"type": "Copy",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "7.00:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"source": {
+									"type": "ParquetSource",
+									"storeSettings": {
+										"type": "AzureBlobFSReadSettings",
+										"recursive": true,
+										"wildcardFolderPath": {
+											"value": "@concat('TPC-DS/SourceFiles_parquet/catalog_sales/',pipeline().parameters.paritionName)",
+											"type": "Expression"
+										},
+										"wildcardFileName": "*.parquet",
+										"enablePartitionDiscovery": false
+									}
+								},
+								"sink": {
+									"type": "SqlPoolSink",
+									"allowCopyCommand": true,
+									"copyCommandSettings": {
+										"defaultValues": [
+											{
+												"columnName": "",
+												"defaultValue": ""
+											}
+										]
+									}
+								},
+								"enableStaging": false
+							},
+							"inputs": [
+								{
+									"referenceName": "get_parquet",
+									"type": "DatasetReference",
+									"parameters": {
+										"PartitionName": {
+											"value": "@pipeline().parameters.paritionName",
+											"type": "Expression"
+										},
+										"ParquetName": {
+											"value": "@item().name",
+											"type": "Expression"
+										}
+									}
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "catalog_sales_tbl",
+									"type": "DatasetReference"
+								}
+							]
+						}
+					]
+				}
+			}
+		],
+		"parameters": {
+			"files": {
+				"type": "array"
+			},
+			"paritionName": {
+				"type": "string"
+			}
+		},
+		"annotations": []
+	}
+}
