@@ -1,0 +1,16 @@
+{
+	"name": "catalog_sales_tbl",
+	"properties": {
+		"annotations": [],
+		"type": "SqlPoolTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "catalog_sales"
+		},
+		"sqlPool": {
+			"referenceName": "internal_1tb",
+			"type": "SqlPoolReference"
+		}
+	}
+}
