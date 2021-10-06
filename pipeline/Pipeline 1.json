@@ -24,6 +24,7 @@
 					],
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings",
+						"recursive": true,
 						"enablePartitionDiscovery": false
 					}
 				}
@@ -47,8 +48,8 @@
 					},
 					"activities": [
 						{
-							"name": "Get_File_Metadata_AC",
-							"type": "GetMetadata",
+							"name": "Copy data1",
+							"type": "Copy",
 							"dependsOn": [],
 							"policy": {
 								"timeout": "7.00:00:00",
@@ -59,38 +60,381 @@
 							},
 							"userProperties": [],
 							"typeProperties": {
-								"dataset": {
+								"source": {
+									"type": "ParquetSource",
+									"storeSettings": {
+										"type": "AzureBlobFSReadSettings",
+										"recursive": true,
+										"enablePartitionDiscovery": false
+									}
+								},
+								"sink": {
+									"type": "SqlPoolSink",
+									"allowCopyCommand": true,
+									"copyCommandSettings": {
+										"defaultValues": [
+											{
+												"columnName": "cs_sold_date_sk",
+												"defaultValue": "2450815"
+											}
+										]
+									}
+								},
+								"enableStaging": false,
+								"translator": {
+									"type": "TabularTranslator",
+									"mappings": [
+										{
+											"source": {
+												"name": "cs_sold_time_sk",
+												"type": "Int32"
+											},
+											"sink": {
+												"name": "cs_sold_time_sk",
+												"type": "Int32"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_ship_date_sk",
+												"type": "Int32"
+											},
+											"sink": {
+												"name": "cs_ship_date_sk",
+												"type": "Int32"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_bill_customer_sk",
+												"type": "Int32"
+											},
+											"sink": {
+												"name": "cs_bill_customer_sk",
+												"type": "Int32"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_bill_cdemo_sk",
+												"type": "Int32"
+											},
+											"sink": {
+												"name": "cs_bill_cdemo_sk",
+												"type": "Int32"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_bill_hdemo_sk",
+												"type": "Int32"
+											},
+											"sink": {
+												"name": "cs_bill_hdemo_sk",
+												"type": "Int32"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_bill_addr_sk",
+												"type": "Int32"
+											},
+											"sink": {
+												"name": "cs_bill_addr_sk",
+												"type": "Int32"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_ship_customer_sk",
+												"type": "Int32"
+											},
+											"sink": {
+												"name": "cs_ship_customer_sk",
+												"type": "Int32"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_ship_cdemo_sk",
+												"type": "Int32"
+											},
+											"sink": {
+												"name": "cs_ship_cdemo_sk",
+												"type": "Int32"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_ship_hdemo_sk",
+												"type": "Int32"
+											},
+											"sink": {
+												"name": "cs_ship_hdemo_sk",
+												"type": "Int32"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_ship_addr_sk",
+												"type": "Int32"
+											},
+											"sink": {
+												"name": "cs_ship_addr_sk",
+												"type": "Int32"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_call_center_sk",
+												"type": "Int32"
+											},
+											"sink": {
+												"name": "cs_call_center_sk",
+												"type": "Int32"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_catalog_page_sk",
+												"type": "Int32"
+											},
+											"sink": {
+												"name": "cs_catalog_page_sk",
+												"type": "Int32"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_ship_mode_sk",
+												"type": "Int32"
+											},
+											"sink": {
+												"name": "cs_ship_mode_sk",
+												"type": "Int32"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_warehouse_sk",
+												"type": "Int32"
+											},
+											"sink": {
+												"name": "cs_warehouse_sk",
+												"type": "Int32"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_item_sk",
+												"type": "Int32"
+											},
+											"sink": {
+												"name": "cs_item_sk",
+												"type": "Int32"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_promo_sk",
+												"type": "Int32"
+											},
+											"sink": {
+												"name": "cs_promo_sk",
+												"type": "Int32"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_order_number",
+												"type": "Int64"
+											},
+											"sink": {
+												"name": "cs_order_number",
+												"type": "Int64"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_quantity",
+												"type": "Int32"
+											},
+											"sink": {
+												"name": "cs_quantity",
+												"type": "Int32"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_wholesale_cost",
+												"type": "Decimal"
+											},
+											"sink": {
+												"name": "cs_wholesale_cost",
+												"type": "Decimal"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_list_price",
+												"type": "Decimal"
+											},
+											"sink": {
+												"name": "cs_list_price",
+												"type": "Decimal"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_sales_price",
+												"type": "Decimal"
+											},
+											"sink": {
+												"name": "cs_sales_price",
+												"type": "Decimal"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_ext_discount_amt",
+												"type": "Decimal"
+											},
+											"sink": {
+												"name": "cs_ext_discount_amt",
+												"type": "Decimal"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_ext_sales_price",
+												"type": "Decimal"
+											},
+											"sink": {
+												"name": "cs_ext_sales_price",
+												"type": "Decimal"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_ext_wholesale_cost",
+												"type": "Decimal"
+											},
+											"sink": {
+												"name": "cs_ext_wholesale_cost",
+												"type": "Decimal"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_ext_list_price",
+												"type": "Decimal"
+											},
+											"sink": {
+												"name": "cs_ext_list_price",
+												"type": "Decimal"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_ext_tax",
+												"type": "Decimal"
+											},
+											"sink": {
+												"name": "cs_ext_tax",
+												"type": "Decimal"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_coupon_amt",
+												"type": "Decimal"
+											},
+											"sink": {
+												"name": "cs_coupon_amt",
+												"type": "Decimal"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_ext_ship_cost",
+												"type": "Decimal"
+											},
+											"sink": {
+												"name": "cs_ext_ship_cost",
+												"type": "Decimal"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_net_paid",
+												"type": "Decimal"
+											},
+											"sink": {
+												"name": "cs_net_paid",
+												"type": "Decimal"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_net_paid_inc_tax",
+												"type": "Decimal"
+											},
+											"sink": {
+												"name": "cs_net_paid_inc_tax",
+												"type": "Decimal"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_net_paid_inc_ship",
+												"type": "Decimal"
+											},
+											"sink": {
+												"name": "cs_net_paid_inc_ship",
+												"type": "Decimal"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_net_paid_inc_ship_tax",
+												"type": "Decimal"
+											},
+											"sink": {
+												"name": "cs_net_paid_inc_ship_tax",
+												"type": "Decimal"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_net_profit",
+												"type": "Decimal"
+											},
+											"sink": {
+												"name": "cs_net_profit",
+												"type": "Decimal"
+											}
+										}
+									]
+								}
+							},
+							"inputs": [
+								{
 									"referenceName": "get_file",
 									"type": "DatasetReference",
 									"parameters": {
-										"FileName": "@item().name"
+										"FileName": {
+											"value": "@item().name",
+											"type": "Expression"
+										}
 									}
-								},
-								"fieldList": [
-									"itemName"
-								],
-								"storeSettings": {
-									"type": "AzureBlobFSReadSettings",
-									"enablePartitionDiscovery": false
-								}
-							}
-						},
-						{
-							"name": "Set variable2",
-							"type": "SetVariable",
-							"dependsOn": [
-								{
-									"activity": "Get_File_Metadata_AC",
-									"dependencyConditions": [
-										"Succeeded"
-									]
 								}
 							],
-							"userProperties": [],
-							"typeProperties": {
-								"variableName": "test",
-								"value": "@item().name"
-							}
+							"outputs": [
+								{
+									"referenceName": "catalog_sales_tbl",
+									"type": "DatasetReference"
+								}
+							]
 						}
 					]
 				}
