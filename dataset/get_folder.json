@@ -10,7 +10,10 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "TPC-DS/SourceFiles_parquet/store_sales",
+				"folderPath": {
+					"value": "TPC-DS/SourceFiles_parquet/catalog_sales/@dataset().name",
+					"type": "Expression"
+				},
 				"fileSystem": "dbstorage10"
 			},
 			"compressionCodec": "snappy"
