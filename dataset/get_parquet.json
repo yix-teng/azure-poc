@@ -23,7 +23,7 @@
 					"type": "Expression"
 				},
 				"folderPath": {
-					"value": "@concat('TPC-DS/SourceFiles_parquet/catalog_sales/',dataset().PartitionName)",
+					"value": "TPC-DS/SourceFiles_parquet/catalog_sales/@dataset().PartitionName",
 					"type": "Expression"
 				},
 				"fileSystem": "dbstorage10"
