@@ -16,7 +16,14 @@
 						{
 							"name": "Copy data1",
 							"type": "Copy",
-							"dependsOn": [],
+							"dependsOn": [
+								{
+									"activity": "Get Metadata1",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
 							"policy": {
 								"timeout": "7.00:00:00",
 								"retry": 0,
@@ -31,11 +38,6 @@
 									"storeSettings": {
 										"type": "AzureBlobFSReadSettings",
 										"recursive": true,
-										"wildcardFolderPath": {
-											"value": "@concat('TPC-DS/SourceFiles_parquet/catalog_sales/',pipeline().parameters.paritionName)",
-											"type": "Expression"
-										},
-										"wildcardFileName": "*.parquet",
 										"enablePartitionDiscovery": false
 									}
 								},
@@ -45,16 +47,386 @@
 									"copyCommandSettings": {
 										"defaultValues": [
 											{
-												"columnName": "",
-												"defaultValue": ""
+												"columnName": "cs_sold_date_sk",
+												"defaultValue": "123"
 											}
 										]
 									}
 								},
-								"enableStaging": false
+								"enableStaging": false,
+								"translator": {
+									"type": "TabularTranslator",
+									"mappings": [
+										{
+											"source": {
+												"name": "cs_sold_time_sk",
+												"type": "Int32"
+											},
+											"sink": {
+												"name": "cs_sold_time_sk",
+												"type": "Int32"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_ship_date_sk",
+												"type": "Int32"
+											},
+											"sink": {
+												"name": "cs_ship_date_sk",
+												"type": "Int32"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_bill_customer_sk",
+												"type": "Int32"
+											},
+											"sink": {
+												"name": "cs_bill_customer_sk",
+												"type": "Int32"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_bill_cdemo_sk",
+												"type": "Int32"
+											},
+											"sink": {
+												"name": "cs_bill_cdemo_sk",
+												"type": "Int32"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_bill_hdemo_sk",
+												"type": "Int32"
+											},
+											"sink": {
+												"name": "cs_bill_hdemo_sk",
+												"type": "Int32"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_bill_addr_sk",
+												"type": "Int32"
+											},
+											"sink": {
+												"name": "cs_bill_addr_sk",
+												"type": "Int32"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_ship_customer_sk",
+												"type": "Int32"
+											},
+											"sink": {
+												"name": "cs_ship_customer_sk",
+												"type": "Int32"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_ship_cdemo_sk",
+												"type": "Int32"
+											},
+											"sink": {
+												"name": "cs_ship_cdemo_sk",
+												"type": "Int32"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_ship_hdemo_sk",
+												"type": "Int32"
+											},
+											"sink": {
+												"name": "cs_ship_hdemo_sk",
+												"type": "Int32"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_ship_addr_sk",
+												"type": "Int32"
+											},
+											"sink": {
+												"name": "cs_ship_addr_sk",
+												"type": "Int32"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_call_center_sk",
+												"type": "Int32"
+											},
+											"sink": {
+												"name": "cs_call_center_sk",
+												"type": "Int32"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_catalog_page_sk",
+												"type": "Int32"
+											},
+											"sink": {
+												"name": "cs_catalog_page_sk",
+												"type": "Int32"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_ship_mode_sk",
+												"type": "Int32"
+											},
+											"sink": {
+												"name": "cs_ship_mode_sk",
+												"type": "Int32"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_warehouse_sk",
+												"type": "Int32"
+											},
+											"sink": {
+												"name": "cs_warehouse_sk",
+												"type": "Int32"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_item_sk",
+												"type": "Int32"
+											},
+											"sink": {
+												"name": "cs_item_sk",
+												"type": "Int32"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_promo_sk",
+												"type": "Int32"
+											},
+											"sink": {
+												"name": "cs_promo_sk",
+												"type": "Int32"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_order_number",
+												"type": "Int64"
+											},
+											"sink": {
+												"name": "cs_order_number",
+												"type": "Int64"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_quantity",
+												"type": "Int32"
+											},
+											"sink": {
+												"name": "cs_quantity",
+												"type": "Int32"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_wholesale_cost",
+												"type": "Decimal"
+											},
+											"sink": {
+												"name": "cs_wholesale_cost",
+												"type": "Decimal"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_list_price",
+												"type": "Decimal"
+											},
+											"sink": {
+												"name": "cs_list_price",
+												"type": "Decimal"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_sales_price",
+												"type": "Decimal"
+											},
+											"sink": {
+												"name": "cs_sales_price",
+												"type": "Decimal"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_ext_discount_amt",
+												"type": "Decimal"
+											},
+											"sink": {
+												"name": "cs_ext_discount_amt",
+												"type": "Decimal"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_ext_sales_price",
+												"type": "Decimal"
+											},
+											"sink": {
+												"name": "cs_ext_sales_price",
+												"type": "Decimal"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_ext_wholesale_cost",
+												"type": "Decimal"
+											},
+											"sink": {
+												"name": "cs_ext_wholesale_cost",
+												"type": "Decimal"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_ext_list_price",
+												"type": "Decimal"
+											},
+											"sink": {
+												"name": "cs_ext_list_price",
+												"type": "Decimal"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_ext_tax",
+												"type": "Decimal"
+											},
+											"sink": {
+												"name": "cs_ext_tax",
+												"type": "Decimal"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_coupon_amt",
+												"type": "Decimal"
+											},
+											"sink": {
+												"name": "cs_coupon_amt",
+												"type": "Decimal"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_ext_ship_cost",
+												"type": "Decimal"
+											},
+											"sink": {
+												"name": "cs_ext_ship_cost",
+												"type": "Decimal"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_net_paid",
+												"type": "Decimal"
+											},
+											"sink": {
+												"name": "cs_net_paid",
+												"type": "Decimal"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_net_paid_inc_tax",
+												"type": "Decimal"
+											},
+											"sink": {
+												"name": "cs_net_paid_inc_tax",
+												"type": "Decimal"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_net_paid_inc_ship",
+												"type": "Decimal"
+											},
+											"sink": {
+												"name": "cs_net_paid_inc_ship",
+												"type": "Decimal"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_net_paid_inc_ship_tax",
+												"type": "Decimal"
+											},
+											"sink": {
+												"name": "cs_net_paid_inc_ship_tax",
+												"type": "Decimal"
+											}
+										},
+										{
+											"source": {
+												"name": "cs_net_profit",
+												"type": "Decimal"
+											},
+											"sink": {
+												"name": "cs_net_profit",
+												"type": "Decimal"
+											}
+										}
+									]
+								}
 							},
 							"inputs": [
 								{
+									"referenceName": "get_parquet",
+									"type": "DatasetReference",
+									"parameters": {
+										"PartitionName": {
+											"value": "@pipeline().parameters.paritionName",
+											"type": "Expression"
+										},
+										"ParquetName": {
+											"value": "@activity('Get Metadata1').output.itemName",
+											"type": "Expression"
+										}
+									}
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "catalog_sales_tbl",
+									"type": "DatasetReference"
+								}
+							]
+						},
+						{
+							"name": "Get Metadata1",
+							"type": "GetMetadata",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "7.00:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"dataset": {
 									"referenceName": "get_parquet",
 									"type": "DatasetReference",
 									"parameters": {
@@ -67,14 +439,15 @@
 											"type": "Expression"
 										}
 									}
+								},
+								"fieldList": [
+									"itemName"
+								],
+								"storeSettings": {
+									"type": "AzureBlobFSReadSettings",
+									"enablePartitionDiscovery": false
 								}
-							],
-							"outputs": [
-								{
-									"referenceName": "catalog_sales_tbl",
-									"type": "DatasetReference"
-								}
-							]
+							}
 						}
 					]
 				}
