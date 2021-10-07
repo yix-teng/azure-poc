@@ -20,20 +20,34 @@
 						"additionalColumns": [
 							{
 								"name": "cs_sold_date_sk",
-								"value": "1234"
+								"value": {
+									"value": "@split(pipeline().parameters.paritionName,'=')[1]",
+									"type": "Expression"
+								}
 							}
 						],
 						"storeSettings": {
 							"type": "AzureBlobFSReadSettings",
-							"recursive": true,
+							"recursive": false,
 							"enablePartitionDiscovery": false
 						}
 					},
 					"sink": {
 						"type": "SqlPoolSink",
-						"allowCopyCommand": true
+						"allowPolyBase": true,
+						"polyBaseSettings": {
+							"rejectValue": 0,
+							"rejectType": "value",
+							"useTypeDefault": false
+						}
 					},
-					"enableStaging": false,
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "poc_dataset",
+							"type": "LinkedServiceReference"
+						}
+					},
 					"translator": {
 						"type": "TabularTranslator",
 						"mappings": [
