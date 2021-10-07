@@ -4,6 +4,7 @@
 		"activities": [
 			{
 				"name": "Get_Folder_Metadata_AC",
+				"description": "xc",
 				"type": "GetMetadata",
 				"dependsOn": [],
 				"policy": {
@@ -76,6 +77,7 @@
 								],
 								"storeSettings": {
 									"type": "AzureBlobFSReadSettings",
+									"recursive": true,
 									"enablePartitionDiscovery": false
 								}
 							}
