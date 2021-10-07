@@ -137,6 +137,7 @@
 				}
 			}
 		],
+		"concurrency": 30,
 		"variables": {
 			"test": {
 				"type": "String"
