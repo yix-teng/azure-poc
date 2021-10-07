@@ -417,6 +417,7 @@
 				]
 			}
 		],
+		"concurrency": 30,
 		"parameters": {
 			"parquetName": {
 				"type": "string"
