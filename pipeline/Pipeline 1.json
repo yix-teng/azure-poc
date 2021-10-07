@@ -85,7 +85,7 @@
 							"type": "ExecutePipeline",
 							"dependsOn": [
 								{
-									"activity": "Get Metadata1",
+									"activity": "Filter1",
 									"dependencyConditions": [
 										"Succeeded"
 									]
@@ -99,14 +99,37 @@
 								},
 								"waitOnCompletion": true,
 								"parameters": {
-									"files": {
-										"value": "@activity('Get Metadata1').output.childItems",
+									"parquetName": {
+										"value": "@activity('Filter1').output.value",
 										"type": "Expression"
 									},
 									"paritionName": {
 										"value": "@item().name",
 										"type": "Expression"
 									}
+								}
+							}
+						},
+						{
+							"name": "Filter1",
+							"type": "Filter",
+							"dependsOn": [
+								{
+									"activity": "Get Metadata1",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"userProperties": [],
+							"typeProperties": {
+								"items": {
+									"value": "@activity('Get Metadata1').output.childItems",
+									"type": "Expression"
+								},
+								"condition": {
+									"value": "@not(contains(item().name,'.parquet'))",
+									"type": "Expression"
 								}
 							}
 						}
