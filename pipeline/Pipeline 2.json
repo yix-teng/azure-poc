@@ -17,6 +17,12 @@
 				"typeProperties": {
 					"source": {
 						"type": "ParquetSource",
+						"additionalColumns": [
+							{
+								"name": "cs_sold_date_sk",
+								"value": "1234"
+							}
+						],
 						"storeSettings": {
 							"type": "AzureBlobFSReadSettings",
 							"recursive": true,
@@ -25,15 +31,7 @@
 					},
 					"sink": {
 						"type": "SqlPoolSink",
-						"allowCopyCommand": true,
-						"copyCommandSettings": {
-							"defaultValues": [
-								{
-									"columnName": "cs_sold_date_sk",
-									"defaultValue": "123"
-								}
-							]
-						}
+						"allowCopyCommand": true
 					},
 					"enableStaging": false,
 					"translator": {
@@ -371,7 +369,7 @@
 							},
 							{
 								"source": {
-									"name": "@pipeline().parameters.paritionName"
+									"name": "cs_sold_date_sk"
 								},
 								"sink": {
 									"name": "cs_sold_date_sk",
