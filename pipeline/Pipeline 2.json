@@ -30,7 +30,7 @@
 							"defaultValues": [
 								{
 									"columnName": "cs_sold_date_sk",
-									"defaultValue": "1234"
+									"defaultValue": "123"
 								}
 							]
 						}
@@ -367,6 +367,15 @@
 								"sink": {
 									"name": "cs_net_profit",
 									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"name": "@pipeline().parameters.paritionName"
+								},
+								"sink": {
+									"name": "cs_sold_date_sk",
+									"type": "String"
 								}
 							}
 						]
