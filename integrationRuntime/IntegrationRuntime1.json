@@ -4,10 +4,10 @@
 		"type": "Managed",
 		"typeProperties": {
 			"computeProperties": {
-				"location": "Southeast Asia",
+				"location": "AutoResolve",
 				"dataFlowProperties": {
-					"computeType": "MemoryOptimized",
-					"coreCount": 32,
+					"computeType": "General",
+					"coreCount": 8,
 					"timeToLive": 0,
 					"cleanup": false
 				}
