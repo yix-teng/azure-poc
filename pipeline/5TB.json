@@ -1459,7 +1459,6 @@
 					},
 					"sink": {
 						"type": "SqlDWSink",
-						"allowCopyCommand": true,
 						"sqlWriterUseTableLock": false
 					},
 					"enableStaging": false,
