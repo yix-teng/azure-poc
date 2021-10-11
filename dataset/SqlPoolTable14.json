@@ -154,7 +154,7 @@
 			"table": "catalog_returns"
 		},
 		"sqlPool": {
-			"referenceName": "ForExternal",
+			"referenceName": "internal_1tb",
 			"type": "SqlPoolReference"
 		}
 	}
