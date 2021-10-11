@@ -23,11 +23,11 @@
 							"wildcardFolderPath": "TPC-DS/SourceFiles_parquet/store_sales",
 							"wildcardFileName": "*.parquet",
 							"enablePartitionDiscovery": true,
-							"partitionRootPath": "dbstorage500/TPC-DS/SourceFiles_parquet/store_sales"
+							"partitionRootPath": "dbstorage5000/TPC-DS/SourceFiles_parquet/store_sales"
 						}
 					},
 					"sink": {
-						"type": "SqlPoolSink",
+						"type": "SqlDWSink",
 						"sqlWriterUseTableLock": false
 					},
 					"enableStaging": false,
@@ -349,7 +349,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "store_sales5",
+						"referenceName": "AzureSynapseAnalyticsTable4",
 						"type": "DatasetReference"
 					}
 				]
@@ -382,12 +382,11 @@
 							"wildcardFolderPath": "TPC-DS/SourceFiles_parquet/catalog_returns",
 							"wildcardFileName": "*.parquet",
 							"enablePartitionDiscovery": true,
-							"partitionRootPath": "dbstorage500/TPC-DS/SourceFiles_parquet/catalog_returns"
+							"partitionRootPath": "dbstorage5000/TPC-DS/SourceFiles_parquet/catalog_returns"
 						}
 					},
 					"sink": {
-						"type": "SqlPoolSink",
-						"allowCopyCommand": true,
+						"type": "SqlDWSink",
 						"sqlWriterUseTableLock": false
 					},
 					"enableStaging": false,
@@ -675,7 +674,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "SqlPoolTable15",
+						"referenceName": "AzureSynapseAnalyticsTable5",
 						"type": "DatasetReference"
 					}
 				]
@@ -708,11 +707,11 @@
 							"wildcardFolderPath": "TPC-DS/SourceFiles_parquet/inventory",
 							"wildcardFileName": "*.parquet",
 							"enablePartitionDiscovery": true,
-							"partitionRootPath": "dbstorage500/TPC-DS/SourceFiles_parquet/inventory"
+							"partitionRootPath": "dbstorage5000/TPC-DS/SourceFiles_parquet/inventory"
 						}
 					},
 					"sink": {
-						"type": "SqlPoolSink",
+						"type": "SqlDWSink",
 						"allowCopyCommand": true,
 						"sqlWriterUseTableLock": false
 					},
@@ -771,7 +770,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "SqlPoolTable35",
+						"referenceName": "AzureSynapseAnalyticsTable7",
 						"type": "DatasetReference"
 					}
 				]
@@ -804,11 +803,11 @@
 							"wildcardFolderPath": "TPC-DS/SourceFiles_parquet/catalog_sales",
 							"wildcardFileName": "*.parquet",
 							"enablePartitionDiscovery": true,
-							"partitionRootPath": "dbstorage500/TPC-DS/SourceFiles_parquet/catalog_sales"
+							"partitionRootPath": "dbstorage5000/TPC-DS/SourceFiles_parquet/catalog_sales"
 						}
 					},
 					"sink": {
-						"type": "SqlPoolSink",
+						"type": "SqlDWSink",
 						"allowCopyCommand": true,
 						"sqlWriterUseTableLock": false
 					},
@@ -1167,7 +1166,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "SqlPoolTable25",
+						"referenceName": "AzureSynapseAnalyticsTable6",
 						"type": "DatasetReference"
 					}
 				]
@@ -1200,12 +1199,11 @@
 							"wildcardFolderPath": "TPC-DS/SourceFiles_parquet/store_returns",
 							"wildcardFileName": "*.parquet",
 							"enablePartitionDiscovery": true,
-							"partitionRootPath": "dbstorage500/TPC-DS/SourceFiles_parquet/store_returns"
+							"partitionRootPath": "dbstorage5000/TPC-DS/SourceFiles_parquet/store_returns"
 						}
 					},
 					"sink": {
-						"type": "SqlPoolSink",
-						"allowCopyCommand": true,
+						"type": "SqlDWSink",
 						"sqlWriterUseTableLock": false
 					},
 					"enableStaging": false,
@@ -1423,7 +1421,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "SqlPoolTable65",
+						"referenceName": "AzureSynapseAnalyticsTable8",
 						"type": "DatasetReference"
 					}
 				]
@@ -1456,11 +1454,11 @@
 							"wildcardFolderPath": "TPC-DS/SourceFiles_parquet/web_returns",
 							"wildcardFileName": "*.parquet",
 							"enablePartitionDiscovery": true,
-							"partitionRootPath": "/dbstorage500/TPC-DS/SourceFiles_parquet/web_returns"
+							"partitionRootPath": "/dbstorage5000/TPC-DS/SourceFiles_parquet/web_returns"
 						}
 					},
 					"sink": {
-						"type": "SqlPoolSink",
+						"type": "SqlDWSink",
 						"allowCopyCommand": true,
 						"sqlWriterUseTableLock": false
 					},
@@ -1719,7 +1717,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "SqlPoolTable55",
+						"referenceName": "AzureSynapseAnalyticsTable10",
 						"type": "DatasetReference"
 					}
 				]
@@ -1752,11 +1750,11 @@
 							"wildcardFolderPath": "TPC-DS/SourceFiles_parquet/web_sales",
 							"wildcardFileName": "*.parquet",
 							"enablePartitionDiscovery": true,
-							"partitionRootPath": "dbstorage500/TPC-DS/SourceFiles_parquet/web_sales"
+							"partitionRootPath": "dbstorage5000/TPC-DS/SourceFiles_parquet/web_sales"
 						}
 					},
 					"sink": {
-						"type": "SqlPoolSink",
+						"type": "SqlDWSink",
 						"allowCopyCommand": true,
 						"sqlWriterUseTableLock": false
 					},
@@ -2115,7 +2113,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "SqlPoolTable45",
+						"referenceName": "AzureSynapseAnalyticsTable9",
 						"type": "DatasetReference"
 					}
 				]
