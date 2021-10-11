@@ -1,0 +1,36 @@
+{
+	"name": "AzureSynapseAnalyticsTable1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "primeuser",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"schema": [
+			{
+				"name": "inv_item_sk",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "inv_warehouse_sk",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "inv_quantity_on_hand",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "inv_date_sk",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "inventory"
+		}
+	}
+}
