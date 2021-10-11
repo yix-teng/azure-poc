@@ -1,0 +1,17 @@
+{
+	"name": "allocating to Xlarge",
+	"properties": {
+		"content": {
+			"query": "-- use primeuser login\ncreate login primeuser with password = 'Password123!'\ncreate user primeuser for login primeuser\n\n-- add prime user to Xlargerc resource class\nEXEC sp_addrolemember 'Xlargerc', 'primeuser';\n\n-- grant required permissions to primeruser\nGRANT SELECT on SCHEMA :: dbo To primeuser;\nGRANT INSERT on SCHEMA :: dbo To primeuser;\nGRANT DELETE on SCHEMA :: dbo To primeuser;\nGRANT UPDATE on SCHEMA :: dbo To primeuser;\n-- GRANT CREATE on SCHEMA :: dbo To primeuser;\n\n-- MUST NOTE --\n-- in order for pipeline to use this user, must use synapse sink (not with deticated sql pool)\n\n-- select * from sys.workload_management_workload_groups\n-- select * from sys.workload_management_workload_classifiers\n-- select * from sys.workload_management_workload_classifiers_details\n\n-- EXECUTE AS USER = 'primeuser';\n\n\n-- select count(*) from web_returns\n\n-- SELECT *\n-- FROM   sys.database_principals\n-- WHERE  name LIKE '%rc%' AND type_desc = 'DATABASE_ROLE';",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "internal_1tb",
+				"poolName": "internal_1tb"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
