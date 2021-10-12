@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy catalog_returns",
+				"name": "Copy store_returns",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -20,379 +20,240 @@
 						"storeSettings": {
 							"type": "AzureBlobFSReadSettings",
 							"recursive": true,
-							"wildcardFolderPath": "TPC-DS/SourceFiles_parquet/catalog_returns",
+							"wildcardFolderPath": "TPC-DS/SourceFiles_parquet/store_returns",
 							"wildcardFileName": "*.parquet",
 							"enablePartitionDiscovery": true,
-							"partitionRootPath": "dbstorage1000/TPC-DS/SourceFiles_parquet/catalog_returns"
+							"partitionRootPath": "dbstorage1000/TPC-DS/SourceFiles_parquet/store_returns"
 						}
 					},
 					"sink": {
 						"type": "SqlPoolSink",
+						"allowCopyCommand": true,
 						"sqlWriterUseTableLock": false
 					},
-					"enableStaging": false,
-					"dataIntegrationUnits": 32,
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "data_source_link",
+							"type": "LinkedServiceReference"
+						}
+					},
+					"dataIntegrationUnits": 128,
 					"translator": {
 						"type": "TabularTranslator",
 						"mappings": [
 							{
 								"source": {
-									"name": "cr_returned_time_sk",
-									"type": "Int32",
-									"physicalType": "INT32"
+									"name": "sr_return_time_sk",
+									"type": "Int32"
 								},
 								"sink": {
-									"name": "cr_returned_time_sk",
-									"type": "Int32",
-									"physicalType": "int"
+									"name": "sr_return_time_sk",
+									"type": "Int32"
 								}
 							},
 							{
 								"source": {
-									"name": "cr_item_sk",
-									"type": "Int32",
-									"physicalType": "INT32"
+									"name": "sr_item_sk",
+									"type": "Int32"
 								},
 								"sink": {
-									"name": "cr_item_sk",
-									"type": "Int32",
-									"physicalType": "int"
+									"name": "sr_item_sk",
+									"type": "Int32"
 								}
 							},
 							{
 								"source": {
-									"name": "cr_refunded_customer_sk",
-									"type": "Int32",
-									"physicalType": "INT32"
+									"name": "sr_customer_sk",
+									"type": "Int32"
 								},
 								"sink": {
-									"name": "cr_refunded_customer_sk",
-									"type": "Int32",
-									"physicalType": "int"
+									"name": "sr_customer_sk",
+									"type": "Int32"
 								}
 							},
 							{
 								"source": {
-									"name": "cr_refunded_cdemo_sk",
-									"type": "Int32",
-									"physicalType": "INT32"
+									"name": "sr_cdemo_sk",
+									"type": "Int32"
 								},
 								"sink": {
-									"name": "cr_refunded_cdemo_sk",
-									"type": "Int32",
-									"physicalType": "int"
+									"name": "sr_cdemo_sk",
+									"type": "Int32"
 								}
 							},
 							{
 								"source": {
-									"name": "cr_refunded_hdemo_sk",
-									"type": "Int32",
-									"physicalType": "INT32"
+									"name": "sr_hdemo_sk",
+									"type": "Int32"
 								},
 								"sink": {
-									"name": "cr_refunded_hdemo_sk",
-									"type": "Int32",
-									"physicalType": "int"
+									"name": "sr_hdemo_sk",
+									"type": "Int32"
 								}
 							},
 							{
 								"source": {
-									"name": "cr_refunded_addr_sk",
-									"type": "Int32",
-									"physicalType": "INT32"
+									"name": "sr_addr_sk",
+									"type": "Int32"
 								},
 								"sink": {
-									"name": "cr_refunded_addr_sk",
-									"type": "Int32",
-									"physicalType": "int"
+									"name": "sr_addr_sk",
+									"type": "Int32"
 								}
 							},
 							{
 								"source": {
-									"name": "cr_returning_customer_sk",
-									"type": "Int32",
-									"physicalType": "INT32"
+									"name": "sr_store_sk",
+									"type": "Int32"
 								},
 								"sink": {
-									"name": "cr_returning_customer_sk",
-									"type": "Int32",
-									"physicalType": "int"
+									"name": "sr_store_sk",
+									"type": "Int32"
 								}
 							},
 							{
 								"source": {
-									"name": "cr_returning_cdemo_sk",
-									"type": "Int32",
-									"physicalType": "INT32"
+									"name": "sr_reason_sk",
+									"type": "Int32"
 								},
 								"sink": {
-									"name": "cr_returning_cdemo_sk",
-									"type": "Int32",
-									"physicalType": "int"
+									"name": "sr_reason_sk",
+									"type": "Int32"
 								}
 							},
 							{
 								"source": {
-									"name": "cr_returning_hdemo_sk",
-									"type": "Int32",
-									"physicalType": "INT32"
+									"name": "sr_ticket_number",
+									"type": "Int64"
 								},
 								"sink": {
-									"name": "cr_returning_hdemo_sk",
-									"type": "Int32",
-									"physicalType": "int"
+									"name": "sr_ticket_number",
+									"type": "Int64"
 								}
 							},
 							{
 								"source": {
-									"name": "cr_returning_addr_sk",
-									"type": "Int32",
-									"physicalType": "INT32"
+									"name": "sr_return_quantity",
+									"type": "Int32"
 								},
 								"sink": {
-									"name": "cr_returning_addr_sk",
-									"type": "Int32",
-									"physicalType": "int"
+									"name": "sr_return_quantity",
+									"type": "Int32"
 								}
 							},
 							{
 								"source": {
-									"name": "cr_call_center_sk",
-									"type": "Int32",
-									"physicalType": "INT32"
+									"name": "sr_return_amt",
+									"type": "Decimal"
 								},
 								"sink": {
-									"name": "cr_call_center_sk",
-									"type": "Int32",
-									"physicalType": "int"
+									"name": "sr_return_amt",
+									"type": "Decimal"
 								}
 							},
 							{
 								"source": {
-									"name": "cr_catalog_page_sk",
-									"type": "Int32",
-									"physicalType": "INT32"
+									"name": "sr_return_tax",
+									"type": "Decimal"
 								},
 								"sink": {
-									"name": "cr_catalog_page_sk",
-									"type": "Int32",
-									"physicalType": "int"
+									"name": "sr_return_tax",
+									"type": "Decimal"
 								}
 							},
 							{
 								"source": {
-									"name": "cr_ship_mode_sk",
-									"type": "Int32",
-									"physicalType": "INT32"
+									"name": "sr_return_amt_inc_tax",
+									"type": "Decimal"
 								},
 								"sink": {
-									"name": "cr_ship_mode_sk",
-									"type": "Int32",
-									"physicalType": "int"
+									"name": "sr_return_amt_inc_tax",
+									"type": "Decimal"
 								}
 							},
 							{
 								"source": {
-									"name": "cr_warehouse_sk",
-									"type": "Int32",
-									"physicalType": "INT32"
+									"name": "sr_fee",
+									"type": "Decimal"
 								},
 								"sink": {
-									"name": "cr_warehouse_sk",
-									"type": "Int32",
-									"physicalType": "int"
+									"name": "sr_fee",
+									"type": "Decimal"
 								}
 							},
 							{
 								"source": {
-									"name": "cr_reason_sk",
-									"type": "Int32",
-									"physicalType": "INT32"
+									"name": "sr_return_ship_cost",
+									"type": "Decimal"
 								},
 								"sink": {
-									"name": "cr_reason_sk",
-									"type": "Int32",
-									"physicalType": "int"
+									"name": "sr_return_ship_cost",
+									"type": "Decimal"
 								}
 							},
 							{
 								"source": {
-									"name": "cr_order_number",
-									"type": "Int64",
-									"physicalType": "INT64"
+									"name": "sr_refunded_cash",
+									"type": "Decimal"
 								},
 								"sink": {
-									"name": "cr_order_number",
-									"type": "Int64",
-									"physicalType": "bigint"
+									"name": "sr_refunded_cash",
+									"type": "Decimal"
 								}
 							},
 							{
 								"source": {
-									"name": "cr_return_quantity",
-									"type": "Int32",
-									"physicalType": "INT32"
+									"name": "sr_reversed_charge",
+									"type": "Decimal"
 								},
 								"sink": {
-									"name": "cr_return_quantity",
-									"type": "Int32",
-									"physicalType": "int"
+									"name": "sr_reversed_charge",
+									"type": "Decimal"
 								}
 							},
 							{
 								"source": {
-									"name": "cr_return_amount",
-									"type": "Decimal",
-									"physicalType": "DECIMAL"
+									"name": "sr_store_credit",
+									"type": "Decimal"
 								},
 								"sink": {
-									"name": "cr_return_amount",
-									"type": "Decimal",
-									"physicalType": "decimal",
-									"scale": 2,
-									"precision": 7
+									"name": "sr_store_credit",
+									"type": "Decimal"
 								}
 							},
 							{
 								"source": {
-									"name": "cr_return_tax",
-									"type": "Decimal",
-									"physicalType": "DECIMAL"
+									"name": "sr_net_loss",
+									"type": "Decimal"
 								},
 								"sink": {
-									"name": "cr_return_tax",
-									"type": "Decimal",
-									"physicalType": "decimal",
-									"scale": 2,
-									"precision": 7
+									"name": "sr_net_loss",
+									"type": "Decimal"
 								}
 							},
 							{
 								"source": {
-									"name": "cr_return_amt_inc_tax",
-									"type": "Decimal",
-									"physicalType": "DECIMAL"
-								},
-								"sink": {
-									"name": "cr_return_amt_inc_tax",
-									"type": "Decimal",
-									"physicalType": "decimal",
-									"scale": 2,
-									"precision": 7
-								}
-							},
-							{
-								"source": {
-									"name": "cr_fee",
-									"type": "Decimal",
-									"physicalType": "DECIMAL"
-								},
-								"sink": {
-									"name": "cr_fee",
-									"type": "Decimal",
-									"physicalType": "decimal",
-									"scale": 2,
-									"precision": 7
-								}
-							},
-							{
-								"source": {
-									"name": "cr_return_ship_cost",
-									"type": "Decimal",
-									"physicalType": "DECIMAL"
-								},
-								"sink": {
-									"name": "cr_return_ship_cost",
-									"type": "Decimal",
-									"physicalType": "decimal",
-									"scale": 2,
-									"precision": 7
-								}
-							},
-							{
-								"source": {
-									"name": "cr_refunded_cash",
-									"type": "Decimal",
-									"physicalType": "DECIMAL"
-								},
-								"sink": {
-									"name": "cr_refunded_cash",
-									"type": "Decimal",
-									"physicalType": "decimal",
-									"scale": 2,
-									"precision": 7
-								}
-							},
-							{
-								"source": {
-									"name": "cr_reversed_charge",
-									"type": "Decimal",
-									"physicalType": "DECIMAL"
-								},
-								"sink": {
-									"name": "cr_reversed_charge",
-									"type": "Decimal",
-									"physicalType": "decimal",
-									"scale": 2,
-									"precision": 7
-								}
-							},
-							{
-								"source": {
-									"name": "cr_store_credit",
-									"type": "Decimal",
-									"physicalType": "DECIMAL"
-								},
-								"sink": {
-									"name": "cr_store_credit",
-									"type": "Decimal",
-									"physicalType": "decimal",
-									"scale": 2,
-									"precision": 7
-								}
-							},
-							{
-								"source": {
-									"name": "cr_net_loss",
-									"type": "Decimal",
-									"physicalType": "DECIMAL"
-								},
-								"sink": {
-									"name": "cr_net_loss",
-									"type": "Decimal",
-									"physicalType": "decimal",
-									"scale": 2,
-									"precision": 7
-								}
-							},
-							{
-								"source": {
-									"name": "cr_returned_date_sk",
+									"name": "sr_returned_date_sk",
 									"type": "String"
 								},
 								"sink": {
-									"name": "cr_returned_date_sk",
-									"type": "String",
-									"physicalType": "varchar"
+									"name": "sr_returned_date_sk",
+									"type": "String"
 								}
 							}
-						],
-						"typeConversion": true,
-						"typeConversionSettings": {
-							"allowDataTruncation": true,
-							"treatBooleanAsNumber": false
-						}
+						]
 					}
 				},
 				"inputs": [
 					{
-						"referenceName": "Parquet14",
+						"referenceName": "Parquet46",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "SqlPoolTable14",
+						"referenceName": "SqlPoolTable68",
 						"type": "DatasetReference"
 					}
 				]
