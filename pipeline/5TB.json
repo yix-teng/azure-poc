@@ -23,18 +23,17 @@
 							"wildcardFolderPath": "TPC-DS/SourceFiles_parquet/store_sales",
 							"wildcardFileName": "*.parquet",
 							"enablePartitionDiscovery": true,
-							"partitionRootPath": "dbstorage10/TPC-DS/SourceFiles_parquet/store_sales"
+							"partitionRootPath": "dbstorage5000/TPC-DS/SourceFiles_parquet/store_sales"
 						}
 					},
 					"sink": {
-						"type": "SqlDWSink",
+						"type": "SqlPoolSink",
 						"allowPolyBase": true,
 						"polyBaseSettings": {
 							"rejectValue": 0,
 							"rejectType": "value",
 							"useTypeDefault": false
-						},
-						"disableMetricsCollection": false
+						}
 					},
 					"enableStaging": true,
 					"stagingSettings": {
@@ -288,7 +287,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "AzureSynapseAnalyticsTable4",
+						"referenceName": "SqlPoolTable69",
 						"type": "DatasetReference"
 					}
 				]
@@ -325,7 +324,7 @@
 						}
 					},
 					"sink": {
-						"type": "SqlDWSink",
+						"type": "SqlPoolSink",
 						"allowPolyBase": true,
 						"polyBaseSettings": {
 							"rejectValue": 0,
@@ -340,6 +339,7 @@
 							"type": "LinkedServiceReference"
 						}
 					},
+					"dataIntegrationUnits": 128,
 					"translator": {
 						"type": "TabularTranslator",
 						"mappings": [
@@ -624,7 +624,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "AzureSynapseAnalyticsTable5",
+						"referenceName": "SqlPoolTable70",
 						"type": "DatasetReference"
 					}
 				]
@@ -768,7 +768,7 @@
 						}
 					},
 					"sink": {
-						"type": "SqlDWSink",
+						"type": "SqlPoolSink",
 						"allowPolyBase": true,
 						"polyBaseSettings": {
 							"rejectValue": 0,
@@ -1138,7 +1138,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "AzureSynapseAnalyticsTable6",
+						"referenceName": "SqlPoolTable71",
 						"type": "DatasetReference"
 					}
 				]
