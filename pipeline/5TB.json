@@ -42,6 +42,7 @@
 							"type": "LinkedServiceReference"
 						}
 					},
+					"dataIntegrationUnits": 128,
 					"translator": {
 						"type": "TabularTranslator",
 						"mappings": [
@@ -323,7 +324,13 @@
 						}
 					},
 					"sink": {
-						"type": "SqlDWSink"
+						"type": "SqlDWSink",
+						"allowPolyBase": true,
+						"polyBaseSettings": {
+							"rejectValue": 0,
+							"rejectType": "value",
+							"useTypeDefault": true
+						}
 					},
 					"enableStaging": true,
 					"stagingSettings": {
@@ -653,7 +660,13 @@
 						}
 					},
 					"sink": {
-						"type": "SqlDWSink"
+						"type": "SqlDWSink",
+						"allowPolyBase": true,
+						"polyBaseSettings": {
+							"rejectValue": 0,
+							"rejectType": "value",
+							"useTypeDefault": true
+						}
 					},
 					"enableStaging": true,
 					"stagingSettings": {
@@ -754,7 +767,13 @@
 						}
 					},
 					"sink": {
-						"type": "SqlDWSink"
+						"type": "SqlDWSink",
+						"allowPolyBase": true,
+						"polyBaseSettings": {
+							"rejectValue": 0,
+							"rejectType": "value",
+							"useTypeDefault": true
+						}
 					},
 					"enableStaging": true,
 					"stagingSettings": {
@@ -1155,7 +1174,13 @@
 						}
 					},
 					"sink": {
-						"type": "SqlDWSink"
+						"type": "SqlDWSink",
+						"allowPolyBase": true,
+						"polyBaseSettings": {
+							"rejectValue": 0,
+							"rejectType": "value",
+							"useTypeDefault": true
+						}
 					},
 					"enableStaging": true,
 					"stagingSettings": {
@@ -1416,7 +1441,13 @@
 						}
 					},
 					"sink": {
-						"type": "SqlDWSink"
+						"type": "SqlDWSink",
+						"allowPolyBase": true,
+						"polyBaseSettings": {
+							"rejectValue": 0,
+							"rejectType": "value",
+							"useTypeDefault": true
+						}
 					},
 					"enableStaging": true,
 					"stagingSettings": {
@@ -1717,7 +1748,13 @@
 						}
 					},
 					"sink": {
-						"type": "SqlDWSink"
+						"type": "SqlDWSink",
+						"allowPolyBase": true,
+						"polyBaseSettings": {
+							"rejectValue": 0,
+							"rejectType": "value",
+							"useTypeDefault": true
+						}
 					},
 					"enableStaging": true,
 					"stagingSettings": {
