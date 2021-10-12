@@ -5,8 +5,8 @@
 		"annotations": [],
 		"type": "AzureBlobFS",
 		"typeProperties": {
-			"url": "https://scbpocdev.dfs.core.windows.net",
-			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIlBPQ1NRTEFETFNFTlZfNDY4ZmM2OTItYTNjNy00OWY0LWEzOGUtODVmZmFjMGMyMGE3Ig0KfQ=="
+			"url": "https://pocsqladlsenv.dfs.core.windows.net",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIlBPQ1NRTEFETFNFTlZfMzc0ZjUxMGItMDg1ZS00ZDU1LTkxYjAtYTFlNDM2MjcwYzNhIg0KfQ=="
 		},
 		"connectVia": {
 			"referenceName": "100gb-ir",
