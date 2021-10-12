@@ -191,7 +191,7 @@
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "web_sales"
+			"table": "inventory"
 		},
 		"sqlPool": {
 			"referenceName": "internal_1tb",
