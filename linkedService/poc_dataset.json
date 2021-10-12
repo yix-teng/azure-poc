@@ -6,7 +6,7 @@
 		"type": "AzureBlobFS",
 		"typeProperties": {
 			"url": "https://scbpocdev.dfs.core.windows.net",
-			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIlBPQ1NRTEFETFNFTlZfOGU1YWIxNjYtMTViZC00ZmQ3LWI1MjQtOWFmMDVjMTQ3ZjVjIg0KfQ=="
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIlBPQ1NRTEFETFNFTlZfMTRmMDU2Y2ItNjg2MS00MjUwLTkwZWYtMTIzNTk0MDE4NmVmIg0KfQ=="
 		},
 		"connectVia": {
 			"referenceName": "poc-ir",
