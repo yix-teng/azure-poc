@@ -28,298 +28,241 @@
 					},
 					"sink": {
 						"type": "SqlDWSink",
-						"sqlWriterUseTableLock": false
+						"allowPolyBase": true,
+						"polyBaseSettings": {
+							"rejectValue": 0,
+							"rejectType": "value",
+							"useTypeDefault": true
+						}
 					},
-					"enableStaging": false,
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "data_source_link",
+							"type": "LinkedServiceReference"
+						}
+					},
 					"translator": {
 						"type": "TabularTranslator",
 						"mappings": [
 							{
 								"source": {
 									"name": "ss_sold_time_sk",
-									"type": "Int32",
-									"physicalType": "INT32"
+									"type": "Int32"
 								},
 								"sink": {
 									"name": "ss_sold_time_sk",
-									"type": "Int32",
-									"physicalType": "int"
+									"type": "Int32"
 								}
 							},
 							{
 								"source": {
 									"name": "ss_item_sk",
-									"type": "Int32",
-									"physicalType": "INT32"
+									"type": "Int32"
 								},
 								"sink": {
 									"name": "ss_item_sk",
-									"type": "Int32",
-									"physicalType": "int"
+									"type": "Int32"
 								}
 							},
 							{
 								"source": {
 									"name": "ss_customer_sk",
-									"type": "Int32",
-									"physicalType": "INT32"
+									"type": "Int32"
 								},
 								"sink": {
 									"name": "ss_customer_sk",
-									"type": "Int32",
-									"physicalType": "int"
+									"type": "Int32"
 								}
 							},
 							{
 								"source": {
 									"name": "ss_cdemo_sk",
-									"type": "Int32",
-									"physicalType": "INT32"
+									"type": "Int32"
 								},
 								"sink": {
 									"name": "ss_cdemo_sk",
-									"type": "Int32",
-									"physicalType": "int"
+									"type": "Int32"
 								}
 							},
 							{
 								"source": {
 									"name": "ss_hdemo_sk",
-									"type": "Int32",
-									"physicalType": "INT32"
+									"type": "Int32"
 								},
 								"sink": {
 									"name": "ss_hdemo_sk",
-									"type": "Int32",
-									"physicalType": "int"
+									"type": "Int32"
 								}
 							},
 							{
 								"source": {
 									"name": "ss_addr_sk",
-									"type": "Int32",
-									"physicalType": "INT32"
+									"type": "Int32"
 								},
 								"sink": {
 									"name": "ss_addr_sk",
-									"type": "Int32",
-									"physicalType": "int"
+									"type": "Int32"
 								}
 							},
 							{
 								"source": {
 									"name": "ss_store_sk",
-									"type": "Int32",
-									"physicalType": "INT32"
+									"type": "Int32"
 								},
 								"sink": {
 									"name": "ss_store_sk",
-									"type": "Int32",
-									"physicalType": "int"
+									"type": "Int32"
 								}
 							},
 							{
 								"source": {
 									"name": "ss_promo_sk",
-									"type": "Int32",
-									"physicalType": "INT32"
+									"type": "Int32"
 								},
 								"sink": {
 									"name": "ss_promo_sk",
-									"type": "Int32",
-									"physicalType": "int"
+									"type": "Int32"
 								}
 							},
 							{
 								"source": {
 									"name": "ss_ticket_number",
-									"type": "Int64",
-									"physicalType": "INT64"
+									"type": "Int64"
 								},
 								"sink": {
 									"name": "ss_ticket_number",
-									"type": "Int64",
-									"physicalType": "bigint"
+									"type": "Int64"
 								}
 							},
 							{
 								"source": {
 									"name": "ss_quantity",
-									"type": "Int32",
-									"physicalType": "INT32"
+									"type": "Int32"
 								},
 								"sink": {
 									"name": "ss_quantity",
-									"type": "Int32",
-									"physicalType": "int"
+									"type": "Int32"
 								}
 							},
 							{
 								"source": {
 									"name": "ss_wholesale_cost",
-									"type": "Decimal",
-									"physicalType": "DECIMAL"
+									"type": "Decimal"
 								},
 								"sink": {
 									"name": "ss_wholesale_cost",
-									"type": "Decimal",
-									"physicalType": "decimal",
-									"scale": 2,
-									"precision": 7
+									"type": "Decimal"
 								}
 							},
 							{
 								"source": {
 									"name": "ss_list_price",
-									"type": "Decimal",
-									"physicalType": "DECIMAL"
+									"type": "Decimal"
 								},
 								"sink": {
 									"name": "ss_list_price",
-									"type": "Decimal",
-									"physicalType": "decimal",
-									"scale": 2,
-									"precision": 7
+									"type": "Decimal"
 								}
 							},
 							{
 								"source": {
 									"name": "ss_sales_price",
-									"type": "Decimal",
-									"physicalType": "DECIMAL"
+									"type": "Decimal"
 								},
 								"sink": {
 									"name": "ss_sales_price",
-									"type": "Decimal",
-									"physicalType": "decimal",
-									"scale": 2,
-									"precision": 7
+									"type": "Decimal"
 								}
 							},
 							{
 								"source": {
 									"name": "ss_ext_discount_amt",
-									"type": "Decimal",
-									"physicalType": "DECIMAL"
+									"type": "Decimal"
 								},
 								"sink": {
 									"name": "ss_ext_discount_amt",
-									"type": "Decimal",
-									"physicalType": "decimal",
-									"scale": 2,
-									"precision": 7
+									"type": "Decimal"
 								}
 							},
 							{
 								"source": {
 									"name": "ss_ext_sales_price",
-									"type": "Decimal",
-									"physicalType": "DECIMAL"
+									"type": "Decimal"
 								},
 								"sink": {
 									"name": "ss_ext_sales_price",
-									"type": "Decimal",
-									"physicalType": "decimal",
-									"scale": 2,
-									"precision": 7
+									"type": "Decimal"
 								}
 							},
 							{
 								"source": {
 									"name": "ss_ext_wholesale_cost",
-									"type": "Decimal",
-									"physicalType": "DECIMAL"
+									"type": "Decimal"
 								},
 								"sink": {
 									"name": "ss_ext_wholesale_cost",
-									"type": "Decimal",
-									"physicalType": "decimal",
-									"scale": 2,
-									"precision": 7
+									"type": "Decimal"
 								}
 							},
 							{
 								"source": {
 									"name": "ss_ext_list_price",
-									"type": "Decimal",
-									"physicalType": "DECIMAL"
+									"type": "Decimal"
 								},
 								"sink": {
 									"name": "ss_ext_list_price",
-									"type": "Decimal",
-									"physicalType": "decimal",
-									"scale": 2,
-									"precision": 7
+									"type": "Decimal"
 								}
 							},
 							{
 								"source": {
 									"name": "ss_ext_tax",
-									"type": "Decimal",
-									"physicalType": "DECIMAL"
+									"type": "Decimal"
 								},
 								"sink": {
 									"name": "ss_ext_tax",
-									"type": "Decimal",
-									"physicalType": "decimal",
-									"scale": 2,
-									"precision": 7
+									"type": "Decimal"
 								}
 							},
 							{
 								"source": {
 									"name": "ss_coupon_amt",
-									"type": "Decimal",
-									"physicalType": "DECIMAL"
+									"type": "Decimal"
 								},
 								"sink": {
 									"name": "ss_coupon_amt",
-									"type": "Decimal",
-									"physicalType": "decimal",
-									"scale": 2,
-									"precision": 7
+									"type": "Decimal"
 								}
 							},
 							{
 								"source": {
 									"name": "ss_net_paid",
-									"type": "Decimal",
-									"physicalType": "DECIMAL"
+									"type": "Decimal"
 								},
 								"sink": {
 									"name": "ss_net_paid",
-									"type": "Decimal",
-									"physicalType": "decimal",
-									"scale": 2,
-									"precision": 7
+									"type": "Decimal"
 								}
 							},
 							{
 								"source": {
 									"name": "ss_net_paid_inc_tax",
-									"type": "Decimal",
-									"physicalType": "DECIMAL"
+									"type": "Decimal"
 								},
 								"sink": {
 									"name": "ss_net_paid_inc_tax",
-									"type": "Decimal",
-									"physicalType": "decimal",
-									"scale": 2,
-									"precision": 7
+									"type": "Decimal"
 								}
 							},
 							{
 								"source": {
 									"name": "ss_net_profit",
-									"type": "Decimal",
-									"physicalType": "DECIMAL"
+									"type": "Decimal"
 								},
 								"sink": {
 									"name": "ss_net_profit",
-									"type": "Decimal",
-									"physicalType": "decimal",
-									"scale": 2,
-									"precision": 7
+									"type": "Decimal"
 								}
 							},
 							{
@@ -329,16 +272,10 @@
 								},
 								"sink": {
 									"name": "ss_sold_date_sk",
-									"type": "String",
-									"physicalType": "varchar"
+									"type": "String"
 								}
 							}
-						],
-						"typeConversion": true,
-						"typeConversionSettings": {
-							"allowDataTruncation": true,
-							"treatBooleanAsNumber": false
-						}
+						]
 					}
 				},
 				"inputs": [
@@ -386,10 +323,15 @@
 						}
 					},
 					"sink": {
-						"type": "SqlDWSink",
-						"sqlWriterUseTableLock": false
+						"type": "SqlDWSink"
 					},
-					"enableStaging": false,
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "data_source_link",
+							"type": "LinkedServiceReference"
+						}
+					},
 					"translator": {
 						"type": "TabularTranslator",
 						"mappings": [
@@ -711,10 +653,16 @@
 						}
 					},
 					"sink": {
-						"type": "SqlDWSink",
-						"sqlWriterUseTableLock": false
+						"type": "SqlDWSink"
 					},
-					"enableStaging": false,
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "data_source_link",
+							"type": "LinkedServiceReference"
+						}
+					},
+					"dataIntegrationUnits": 128,
 					"translator": {
 						"type": "TabularTranslator",
 						"mappings": [
@@ -806,10 +754,16 @@
 						}
 					},
 					"sink": {
-						"type": "SqlDWSink",
-						"sqlWriterUseTableLock": false
+						"type": "SqlDWSink"
 					},
-					"enableStaging": false,
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "data_source_link",
+							"type": "LinkedServiceReference"
+						}
+					},
+					"dataIntegrationUnits": 128,
 					"translator": {
 						"type": "TabularTranslator",
 						"mappings": [
@@ -1201,10 +1155,16 @@
 						}
 					},
 					"sink": {
-						"type": "SqlDWSink",
-						"sqlWriterUseTableLock": false
+						"type": "SqlDWSink"
 					},
-					"enableStaging": false,
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "data_source_link",
+							"type": "LinkedServiceReference"
+						}
+					},
+					"dataIntegrationUnits": 128,
 					"translator": {
 						"type": "TabularTranslator",
 						"mappings": [
@@ -1456,10 +1416,16 @@
 						}
 					},
 					"sink": {
-						"type": "SqlDWSink",
-						"sqlWriterUseTableLock": false
+						"type": "SqlDWSink"
 					},
-					"enableStaging": false,
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "data_source_link",
+							"type": "LinkedServiceReference"
+						}
+					},
+					"dataIntegrationUnits": 128,
 					"translator": {
 						"type": "TabularTranslator",
 						"mappings": [
@@ -1751,10 +1717,16 @@
 						}
 					},
 					"sink": {
-						"type": "SqlDWSink",
-						"sqlWriterUseTableLock": false
+						"type": "SqlDWSink"
 					},
-					"enableStaging": false,
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "data_source_link",
+							"type": "LinkedServiceReference"
+						}
+					},
+					"dataIntegrationUnits": 128,
 					"translator": {
 						"type": "TabularTranslator",
 						"mappings": [
