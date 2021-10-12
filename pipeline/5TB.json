@@ -23,7 +23,7 @@
 							"wildcardFolderPath": "TPC-DS/SourceFiles_parquet/store_sales",
 							"wildcardFileName": "*.parquet",
 							"enablePartitionDiscovery": true,
-							"partitionRootPath": "dbstorage5000/TPC-DS/SourceFiles_parquet/store_sales"
+							"partitionRootPath": "dbstorage10/TPC-DS/SourceFiles_parquet/store_sales"
 						}
 					},
 					"sink": {
@@ -33,7 +33,8 @@
 							"rejectValue": 0,
 							"rejectType": "value",
 							"useTypeDefault": false
-						}
+						},
+						"disableMetricsCollection": false
 					},
 					"enableStaging": true,
 					"stagingSettings": {
