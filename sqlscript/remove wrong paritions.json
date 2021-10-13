@@ -1,0 +1,17 @@
+{
+	"name": "remove wrong paritions",
+	"properties": {
+		"content": {
+			"query": "update catalog_returns set cr_returned_date_sk=0 where cr_returned_date_sk='__HIVE_DEFAULT_PARTITION__'\nupdate catalog_sales set cs_sold_date_sk=0 where cs_sold_date_sk='__HIVE_DEFAULT_PARTITION__'\nupdate inventory set inv_date_sk=0 where inv_date_sk='__HIVE_DEFAULT_PARTITION__'\nupdate store_returns set sr_returned_date_sk=0 where sr_returned_date_sk='__HIVE_DEFAULT_PARTITION__'\nupdate store_sales set ss_sold_date_sk=0 where ss_sold_date_sk='__HIVE_DEFAULT_PARTITION__'\nupdate web_returns set wr_returned_date_sk=0 where wr_returned_date_sk='__HIVE_DEFAULT_PARTITION__'\nupdate web_sales set ws_sold_date_sk=0 where ws_sold_date_sk='__HIVE_DEFAULT_PARTITION__'",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "internal_500gb",
+				"poolName": "internal_500gb"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
