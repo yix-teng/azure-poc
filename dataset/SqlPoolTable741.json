@@ -192,6 +192,10 @@
 		"typeProperties": {
 			"schema": "dbo",
 			"table": "web_sales"
+		},
+		"sqlPool": {
+			"referenceName": "internal_500gb",
+			"type": "SqlPoolReference"
 		}
 	}
 }
