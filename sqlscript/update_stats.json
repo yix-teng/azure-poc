@@ -1,8 +1,8 @@
 {
-	"name": "SQL script 1",
+	"name": "update_stats",
 	"properties": {
 		"content": {
-			"query": "\n\nSELECT TOP (100) [cs_sold_time_sk]\n,[cs_ship_date_sk]\n,[cs_bill_customer_sk]\n,[cs_bill_cdemo_sk]\n,[cs_bill_hdemo_sk]\n,[cs_bill_addr_sk]\n,[cs_ship_customer_sk]\n,[cs_ship_cdemo_sk]\n,[cs_ship_hdemo_sk]\n,[cs_ship_addr_sk]\n,[cs_call_center_sk]\n,[cs_catalog_page_sk]\n,[cs_ship_mode_sk]\n,[cs_warehouse_sk]\n,[cs_item_sk]\n,[cs_promo_sk]\n,[cs_order_number]\n,[cs_quantity]\n,[cs_wholesale_cost]\n,[cs_list_price]\n,[cs_sales_price]\n,[cs_ext_discount_amt]\n,[cs_ext_sales_price]\n,[cs_ext_wholesale_cost]\n,[cs_ext_list_price]\n,[cs_ext_tax]\n,[cs_coupon_amt]\n,[cs_ext_ship_cost]\n,[cs_net_paid]\n,[cs_net_paid_inc_tax]\n,[cs_net_paid_inc_ship]\n,[cs_net_paid_inc_ship_tax]\n,[cs_net_profit]\n,[cs_sold_date_sk]\n FROM [dbo].[catalog_sales]",
+			"query": "UPDATE STATISTICS call_center\nUPDATE STATISTICS catalog_page\nUPDATE STATISTICS catalog_returns\nUPDATE STATISTICS catalog_sales\nUPDATE STATISTICS customer\nUPDATE STATISTICS customer_address\nUPDATE STATISTICS customer_demographics\nUPDATE STATISTICS date_dim\nUPDATE STATISTICS household_demographics\nUPDATE STATISTICS income_band\nUPDATE STATISTICS inventory\nUPDATE STATISTICS item\nUPDATE STATISTICS promotion\nUPDATE STATISTICS reason\nUPDATE STATISTICS ship_mode\nUPDATE STATISTICS store\nUPDATE STATISTICS store_returns\nUPDATE STATISTICS store_sales\nUPDATE STATISTICS time_dim\nUPDATE STATISTICS warehouse\nUPDATE STATISTICS web_page\nUPDATE STATISTICS web_returns\nUPDATE STATISTICS web_sales\nUPDATE STATISTICS web_site\n",
 			"metadata": {
 				"language": "sql"
 			},
