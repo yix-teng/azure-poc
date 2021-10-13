@@ -1,13 +1,17 @@
 {
 	"name": "Parquet451",
 	"properties": {
+		"linkedServiceName": {
+			"referenceName": "data_source_link",
+			"type": "LinkedServiceReference"
+		},
 		"annotations": [],
 		"type": "Parquet",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"folderPath": "TPC-DS/SourceFiles_parquet/store_returns",
-				"fileSystem": "dbstorage5000"
+				"fileSystem": "dbstorage500"
 			},
 			"compressionCodec": "snappy"
 		},
