@@ -2,7 +2,7 @@
 	"name": "Parquet4",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "poc_dataset",
+			"referenceName": "data_source_link",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "TPC-DS/SourceFiles_parquet/store_returns",
+				"folderPath": "TPC-DS/SourceFiles_parquet/store_sales",
 				"fileSystem": "dbstorage1000"
 			},
 			"compressionCodec": "snappy"
