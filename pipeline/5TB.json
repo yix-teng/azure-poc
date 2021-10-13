@@ -661,12 +661,12 @@
 						}
 					},
 					"sink": {
-						"type": "SqlDWSink",
+						"type": "SqlPoolSink",
 						"allowPolyBase": true,
 						"polyBaseSettings": {
 							"rejectValue": 0,
 							"rejectType": "value",
-							"useTypeDefault": false
+							"useTypeDefault": true
 						}
 					},
 					"enableStaging": true,
@@ -731,7 +731,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "AzureSynapseAnalyticsTable7",
+						"referenceName": "SqlPoolTable72",
 						"type": "DatasetReference"
 					}
 				]
@@ -1175,13 +1175,8 @@
 						}
 					},
 					"sink": {
-						"type": "SqlDWSink",
-						"allowPolyBase": true,
-						"polyBaseSettings": {
-							"rejectValue": 0,
-							"rejectType": "value",
-							"useTypeDefault": false
-						}
+						"type": "SqlPoolSink",
+						"allowCopyCommand": true
 					},
 					"enableStaging": true,
 					"stagingSettings": {
@@ -1405,7 +1400,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "AzureSynapseAnalyticsTable8",
+						"referenceName": "SqlPoolTable73",
 						"type": "DatasetReference"
 					}
 				]
@@ -1442,13 +1437,8 @@
 						}
 					},
 					"sink": {
-						"type": "SqlDWSink",
-						"allowPolyBase": true,
-						"polyBaseSettings": {
-							"rejectValue": 0,
-							"rejectType": "value",
-							"useTypeDefault": false
-						}
+						"type": "SqlPoolSink",
+						"allowCopyCommand": true
 					},
 					"enableStaging": true,
 					"stagingSettings": {
@@ -1712,7 +1702,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "AzureSynapseAnalyticsTable10",
+						"referenceName": "SqlPoolTable75",
 						"type": "DatasetReference"
 					}
 				]
@@ -1749,13 +1739,8 @@
 						}
 					},
 					"sink": {
-						"type": "SqlDWSink",
-						"allowPolyBase": true,
-						"polyBaseSettings": {
-							"rejectValue": 0,
-							"rejectType": "value",
-							"useTypeDefault": false
-						}
+						"type": "SqlPoolSink",
+						"allowCopyCommand": true
 					},
 					"enableStaging": true,
 					"stagingSettings": {
@@ -2119,7 +2104,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "AzureSynapseAnalyticsTable9",
+						"referenceName": "SqlPoolTable74",
 						"type": "DatasetReference"
 					}
 				]
