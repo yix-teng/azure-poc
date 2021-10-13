@@ -1,0 +1,18 @@
+{
+	"name": "SP_create statistics",
+	"properties": {
+		"description": "Use a stored procedure to create statistics on all columns in a SQL pool\n\n\nhttps://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-statistics",
+		"content": {
+			"query": "CREATE PROCEDURE    [dbo].[prc_sqldw_create_stats]\n(   @create_type    tinyint -- 1 default 2 Fullscan 3 Sample\n,   @sample_pct     tinyint\n)\nAS\n\nIF @create_type IS NULL\nBEGIN\n    SET @create_type = 1;\nEND;\n\nIF @create_type NOT IN (1,2,3)\nBEGIN\n    THROW 151000,'Invalid value for @stats_type parameter. Valid range 1 (default), 2 (fullscan) or 3 (sample).',1;\nEND;\n\nIF @sample_pct IS NULL\nBEGIN;\n    SET @sample_pct = 20;\nEND;\n\nIF OBJECT_ID('tempdb..#stats_ddl') IS NOT NULL\nBEGIN;\n    DROP TABLE #stats_ddl;\nEND;\n\nCREATE TABLE #stats_ddl\nWITH    (   DISTRIBUTION    = HASH([seq_nmbr])\n        ,   LOCATION        = USER_DB\n        )\nAS\nWITH T\nAS\n(\nSELECT      t.[name]                        AS [table_name]\n,           s.[name]                        AS [table_schema_name]\n,           c.[name]                        AS [column_name]\n,           c.[column_id]                   AS [column_id]\n,           t.[object_id]                   AS [object_id]\n,           ROW_NUMBER()\n            OVER(ORDER BY (SELECT NULL))    AS [seq_nmbr]\nFROM        sys.[tables] t\nJOIN        sys.[schemas] s         ON  t.[schema_id]       = s.[schema_id]\nJOIN        sys.[columns] c         ON  t.[object_id]       = c.[object_id]\nLEFT JOIN   sys.[stats_columns] l   ON  l.[object_id]       = c.[object_id]\n                                    AND l.[column_id]       = c.[column_id]\n                                    AND l.[stats_column_id] = 1\nLEFT JOIN    sys.[external_tables] e    ON    e.[object_id]        = t.[object_id]\nWHERE       l.[object_id] IS NULL\nAND            e.[object_id] IS NULL -- not an external table\n)\nSELECT  [table_schema_name]\n,       [table_name]\n,       [column_name]\n,       [column_id]\n,       [object_id]\n,       [seq_nmbr]\n,       CASE @create_type\n        WHEN 1\n        THEN    CAST('CREATE STATISTICS '+QUOTENAME('stat_'+table_schema_name+ '_' + table_name + '_'+column_name)+' ON '+QUOTENAME(table_schema_name)+'.'+QUOTENAME(table_name)+'('+QUOTENAME(column_name)+')' AS VARCHAR(8000))\n        WHEN 2\n        THEN    CAST('CREATE STATISTICS '+QUOTENAME('stat_'+table_schema_name+ '_' + table_name + '_'+column_name)+' ON '+QUOTENAME(table_schema_name)+'.'+QUOTENAME(table_name)+'('+QUOTENAME(column_name)+') WITH FULLSCAN' AS VARCHAR(8000))\n        WHEN 3\n        THEN    CAST('CREATE STATISTICS '+QUOTENAME('stat_'+table_schema_name+ '_' + table_name + '_'+column_name)+' ON '+QUOTENAME(table_schema_name)+'.'+QUOTENAME(table_name)+'('+QUOTENAME(column_name)+') WITH SAMPLE '+CONVERT(varchar(4),@sample_pct)+' PERCENT' AS VARCHAR(8000))\n        END AS create_stat_ddl\nFROM T\n;\n\nDECLARE @i INT              = 1\n,       @t INT              = (SELECT COUNT(*) FROM #stats_ddl)\n,       @s NVARCHAR(4000)   = N''\n;\n\nWHILE @i <= @t\nBEGIN\n    SET @s=(SELECT create_stat_ddl FROM #stats_ddl WHERE seq_nmbr = @i);\n\n    PRINT @s\n    EXEC sp_executesql @s\n    SET @i+=1;\nEND\n\nDROP TABLE #stats_ddl;",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "internal_1tb",
+				"poolName": "internal_1tb"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
