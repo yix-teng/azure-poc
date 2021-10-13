@@ -151,10 +151,10 @@
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "catalog_returns"
+			"table": "store_sales"
 		},
 		"sqlPool": {
-			"referenceName": "internal_100gb",
+			"referenceName": "internal_1tb",
 			"type": "SqlPoolReference"
 		}
 	}
