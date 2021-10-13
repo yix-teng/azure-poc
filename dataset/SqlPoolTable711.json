@@ -1,0 +1,16 @@
+{
+	"name": "SqlPoolTable711",
+	"properties": {
+		"annotations": [],
+		"type": "SqlPoolTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "catalog_sales"
+		},
+		"sqlPool": {
+			"referenceName": "internal_500gb",
+			"type": "SqlPoolReference"
+		}
+	}
+}
