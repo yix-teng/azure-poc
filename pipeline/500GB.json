@@ -1171,7 +1171,7 @@
 							"wildcardFolderPath": "TPC-DS/SourceFiles_parquet/store_returns",
 							"wildcardFileName": "*.parquet",
 							"enablePartitionDiscovery": true,
-							"partitionRootPath": "dbstorage5000/TPC-DS/SourceFiles_parquet/store_returns"
+							"partitionRootPath": "dbstorage500/TPC-DS/SourceFiles_parquet/store_returns"
 						}
 					},
 					"sink": {
@@ -1179,6 +1179,12 @@
 						"allowCopyCommand": true
 					},
 					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "data_source_link",
+							"type": "LinkedServiceReference"
+						}
+					},
 					"dataIntegrationUnits": 128,
 					"translator": {
 						"type": "TabularTranslator",
@@ -1427,7 +1433,7 @@
 							"wildcardFolderPath": "TPC-DS/SourceFiles_parquet/web_returns",
 							"wildcardFileName": "*.parquet",
 							"enablePartitionDiscovery": true,
-							"partitionRootPath": "/dbstorage5000/TPC-DS/SourceFiles_parquet/web_returns"
+							"partitionRootPath": "/dbstorage500/TPC-DS/SourceFiles_parquet/web_returns"
 						}
 					},
 					"sink": {
@@ -1435,6 +1441,12 @@
 						"allowCopyCommand": true
 					},
 					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "data_source_link",
+							"type": "LinkedServiceReference"
+						}
+					},
 					"dataIntegrationUnits": 128,
 					"translator": {
 						"type": "TabularTranslator",
@@ -1723,7 +1735,7 @@
 							"wildcardFolderPath": "TPC-DS/SourceFiles_parquet/web_sales",
 							"wildcardFileName": "*.parquet",
 							"enablePartitionDiscovery": true,
-							"partitionRootPath": "dbstorage5000/TPC-DS/SourceFiles_parquet/web_sales"
+							"partitionRootPath": "dbstorage500/TPC-DS/SourceFiles_parquet/web_sales"
 						}
 					},
 					"sink": {
@@ -1731,6 +1743,12 @@
 						"allowCopyCommand": true
 					},
 					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "data_source_link",
+							"type": "LinkedServiceReference"
+						}
+					},
 					"dataIntegrationUnits": 128,
 					"translator": {
 						"type": "TabularTranslator",
