@@ -7,6 +7,10 @@
 		"typeProperties": {
 			"schema": "dbo",
 			"table": "catalog_sales"
+		},
+		"sqlPool": {
+			"referenceName": "internal_3tb",
+			"type": "SqlPoolReference"
 		}
 	}
 }
