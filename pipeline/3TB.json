@@ -23,7 +23,7 @@
 							"wildcardFolderPath": "TPC-DS/SourceFiles_parquet/store_sales",
 							"wildcardFileName": "*.parquet",
 							"enablePartitionDiscovery": true,
-							"partitionRootPath": "dbstorage5000/TPC-DS/SourceFiles_parquet/store_sales"
+							"partitionRootPath": "dbstorage3000/TPC-DS/SourceFiles_parquet/store_sales"
 						}
 					},
 					"sink": {
@@ -36,6 +36,12 @@
 						}
 					},
 					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "poc_dataset",
+							"type": "LinkedServiceReference"
+						}
+					},
 					"dataIntegrationUnits": 128,
 					"translator": {
 						"type": "TabularTranslator",
