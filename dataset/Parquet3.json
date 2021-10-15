@@ -11,7 +11,7 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"folderPath": "TPC-DS/SourceFiles_parquet/inventory",
-				"fileSystem": "dbstorage1000"
+				"fileSystem": "dbstorage100"
 			},
 			"compressionCodec": "snappy"
 		},

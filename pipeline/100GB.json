@@ -659,51 +659,58 @@
 							"wildcardFolderPath": "TPC-DS/SourceFiles_parquet/inventory",
 							"wildcardFileName": "*.parquet",
 							"enablePartitionDiscovery": true,
-							"partitionRootPath": "dbstorage1000/TPC-DS/SourceFiles_parquet/inventory"
+							"partitionRootPath": "dbstorage100/TPC-DS/SourceFiles_parquet/inventory"
 						}
 					},
 					"sink": {
 						"type": "SqlPoolSink",
+						"allowPolyBase": true,
+						"polyBaseSettings": {
+							"rejectValue": 0,
+							"rejectType": "value",
+							"useTypeDefault": false
+						},
 						"sqlWriterUseTableLock": false
 					},
-					"enableStaging": false,
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "data_source_link",
+							"type": "LinkedServiceReference"
+						}
+					},
+					"dataIntegrationUnits": 128,
 					"translator": {
 						"type": "TabularTranslator",
 						"mappings": [
 							{
 								"source": {
 									"name": "inv_item_sk",
-									"type": "Int32",
-									"physicalType": "INT32"
+									"type": "Int32"
 								},
 								"sink": {
 									"name": "inv_item_sk",
-									"type": "Int32",
-									"physicalType": "int"
+									"type": "Int32"
 								}
 							},
 							{
 								"source": {
 									"name": "inv_warehouse_sk",
-									"type": "Int32",
-									"physicalType": "INT32"
+									"type": "Int32"
 								},
 								"sink": {
 									"name": "inv_warehouse_sk",
-									"type": "Int32",
-									"physicalType": "int"
+									"type": "Int32"
 								}
 							},
 							{
 								"source": {
 									"name": "inv_quantity_on_hand",
-									"type": "Int32",
-									"physicalType": "INT32"
+									"type": "Int32"
 								},
 								"sink": {
 									"name": "inv_quantity_on_hand",
-									"type": "Int32",
-									"physicalType": "int"
+									"type": "Int32"
 								}
 							},
 							{
@@ -713,16 +720,10 @@
 								},
 								"sink": {
 									"name": "inv_date_sk",
-									"type": "String",
-									"physicalType": "varchar"
+									"type": "String"
 								}
 							}
-						],
-						"typeConversion": true,
-						"typeConversionSettings": {
-							"allowDataTruncation": true,
-							"treatBooleanAsNumber": false
-						}
+						]
 					}
 				},
 				"inputs": [
