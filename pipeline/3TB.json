@@ -320,7 +320,7 @@
 							"wildcardFolderPath": "TPC-DS/SourceFiles_parquet/catalog_returns",
 							"wildcardFileName": "*.parquet",
 							"enablePartitionDiscovery": true,
-							"partitionRootPath": "dbstorage5000/TPC-DS/SourceFiles_parquet/catalog_returns"
+							"partitionRootPath": "dbstorage3000/TPC-DS/SourceFiles_parquet/catalog_returns"
 						}
 					},
 					"sink": {
@@ -333,6 +333,12 @@
 						}
 					},
 					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "poc_dataset",
+							"type": "LinkedServiceReference"
+						}
+					},
 					"dataIntegrationUnits": 128,
 					"translator": {
 						"type": "TabularTranslator",
