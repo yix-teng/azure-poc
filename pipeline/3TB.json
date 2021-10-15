@@ -1178,6 +1178,12 @@
 						}
 					},
 					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "data_source_link",
+							"type": "LinkedServiceReference"
+						}
+					},
 					"dataIntegrationUnits": 128,
 					"translator": {
 						"type": "TabularTranslator",
