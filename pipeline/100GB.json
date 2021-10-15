@@ -296,14 +296,7 @@
 			{
 				"name": "Copy catalog_returns",
 				"type": "Copy",
-				"dependsOn": [
-					{
-						"activity": "Copy store_sales",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
+				"dependsOn": [],
 				"policy": {
 					"timeout": "7.00:00:00",
 					"retry": 0,
@@ -636,7 +629,7 @@
 				"type": "Copy",
 				"dependsOn": [
 					{
-						"activity": "Copy catalog_sales",
+						"activity": "Copy store_sales",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -742,14 +735,7 @@
 			{
 				"name": "Copy catalog_sales",
 				"type": "Copy",
-				"dependsOn": [
-					{
-						"activity": "Copy catalog_returns",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
+				"dependsOn": [],
 				"policy": {
 					"timeout": "7.00:00:00",
 					"retry": 0,
@@ -1152,7 +1138,7 @@
 				"type": "Copy",
 				"dependsOn": [
 					{
-						"activity": "Copy inventory",
+						"activity": "Copy catalog_returns",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -1418,14 +1404,7 @@
 			{
 				"name": "Copy web_returns",
 				"type": "Copy",
-				"dependsOn": [
-					{
-						"activity": "Copy web_sales",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
+				"dependsOn": [],
 				"policy": {
 					"timeout": "7.00:00:00",
 					"retry": 0,
@@ -1728,7 +1707,7 @@
 				"type": "Copy",
 				"dependsOn": [
 					{
-						"activity": "Copy store_returns",
+						"activity": "Copy catalog_sales",
 						"dependencyConditions": [
 							"Succeeded"
 						]
