@@ -1,0 +1,12 @@
+{
+	"name": "SqlPoolTable712",
+	"properties": {
+		"annotations": [],
+		"type": "SqlPoolTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "catalog_sales"
+		}
+	}
+}
