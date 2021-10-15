@@ -136,6 +136,10 @@
 		"typeProperties": {
 			"schema": "dbo",
 			"table": "web_returns"
+		},
+		"sqlPool": {
+			"referenceName": "internal_3tb",
+			"type": "SqlPoolReference"
 		}
 	}
 }
