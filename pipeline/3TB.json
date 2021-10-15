@@ -38,7 +38,7 @@
 					"enableStaging": true,
 					"stagingSettings": {
 						"linkedServiceName": {
-							"referenceName": "poc_dataset",
+							"referenceName": "data_source_link",
 							"type": "LinkedServiceReference"
 						}
 					},
@@ -335,7 +335,7 @@
 					"enableStaging": true,
 					"stagingSettings": {
 						"linkedServiceName": {
-							"referenceName": "poc_dataset",
+							"referenceName": "data_source_link",
 							"type": "LinkedServiceReference"
 						}
 					},
@@ -672,7 +672,7 @@
 					"enableStaging": true,
 					"stagingSettings": {
 						"linkedServiceName": {
-							"referenceName": "poc_dataset",
+							"referenceName": "data_source_link",
 							"type": "LinkedServiceReference"
 						}
 					},
@@ -777,6 +777,12 @@
 						}
 					},
 					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "data_source_link",
+							"type": "LinkedServiceReference"
+						}
+					},
 					"dataIntegrationUnits": 128,
 					"translator": {
 						"type": "TabularTranslator",
