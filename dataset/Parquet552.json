@@ -1,13 +1,17 @@
 {
 	"name": "Parquet552",
 	"properties": {
+		"linkedServiceName": {
+			"referenceName": "poc_dataset",
+			"type": "LinkedServiceReference"
+		},
 		"annotations": [],
 		"type": "Parquet",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"folderPath": "TPC-DS/SourceFiles_parquet/web_sales",
-				"fileSystem": "dbstorage5000"
+				"fileSystem": "dbstorage3000"
 			},
 			"compressionCodec": "snappy"
 		},
