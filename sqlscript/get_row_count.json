@@ -1,0 +1,17 @@
+{
+	"name": "get_row_count",
+	"properties": {
+		"content": {
+			"query": "select count(*), 'call_center' from call_center union\nselect count(*), 'catalog_page' from catalog_page union\nselect count(*), 'catalog_returns' from catalog_returns union\nselect count(*), 'catalog_sales' from catalog_sales union\nselect count(*), 'customer' from customer union\nselect count(*), 'customer_address' from customer_address union\nselect count(*), 'customer_demographics' from customer_demographics union\nselect count(*), 'date_dim' from date_dim union\nselect count(*), 'household_demographics' from household_demographics union\nselect count(*), 'income_band' from income_band union\nselect count(*), 'inventory' from inventory union\nselect count(*), 'item' from item union\nselect count(*), 'promotion' from promotion union\nselect count(*), 'reason' from reason union\nselect count(*), 'ship_mode' from ship_mode union\nselect count(*), 'store' from store union\nselect count(*), 'store_returns' from store_returns union\nselect count(*), 'store_sales' from store_sales union\nselect count(*), 'time_dim' from time_dim union\nselect count(*), 'warehouse' from warehouse union\nselect count(*), 'web_page' from web_page union\nselect count(*), 'web_returns' from web_returns union\nselect count(*), 'web_sales' from web_sales union\nselect count(*), 'web_site' from web_site",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "master",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
