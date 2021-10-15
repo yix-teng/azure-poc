@@ -151,6 +151,10 @@
 		"typeProperties": {
 			"schema": "dbo",
 			"table": "catalog_returns"
+		},
+		"sqlPool": {
+			"referenceName": "internal_3tb",
+			"type": "SqlPoolReference"
 		}
 	}
 }
