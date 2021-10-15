@@ -1443,309 +1443,258 @@
 							"wildcardFolderPath": "TPC-DS/SourceFiles_parquet/web_returns",
 							"wildcardFileName": "*.parquet",
 							"enablePartitionDiscovery": true,
-							"partitionRootPath": "/dbstorage1000/TPC-DS/SourceFiles_parquet/web_returns"
+							"partitionRootPath": "/dbstorage100/TPC-DS/SourceFiles_parquet/web_returns"
 						}
 					},
 					"sink": {
 						"type": "SqlPoolSink",
+						"allowPolyBase": true,
+						"polyBaseSettings": {
+							"rejectValue": 0,
+							"rejectType": "value",
+							"useTypeDefault": false
+						},
 						"sqlWriterUseTableLock": false
 					},
-					"enableStaging": false,
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "data_source_link",
+							"type": "LinkedServiceReference"
+						}
+					},
+					"dataIntegrationUnits": 128,
 					"translator": {
 						"type": "TabularTranslator",
 						"mappings": [
 							{
 								"source": {
 									"name": "wr_returned_time_sk",
-									"type": "Int32",
-									"physicalType": "INT32"
+									"type": "Int32"
 								},
 								"sink": {
 									"name": "wr_returned_time_sk",
-									"type": "Int32",
-									"physicalType": "int"
+									"type": "Int32"
 								}
 							},
 							{
 								"source": {
 									"name": "wr_item_sk",
-									"type": "Int32",
-									"physicalType": "INT32"
+									"type": "Int32"
 								},
 								"sink": {
 									"name": "wr_item_sk",
-									"type": "Int32",
-									"physicalType": "int"
+									"type": "Int32"
 								}
 							},
 							{
 								"source": {
 									"name": "wr_refunded_customer_sk",
-									"type": "Int32",
-									"physicalType": "INT32"
+									"type": "Int32"
 								},
 								"sink": {
 									"name": "wr_refunded_customer_sk",
-									"type": "Int32",
-									"physicalType": "int"
+									"type": "Int32"
 								}
 							},
 							{
 								"source": {
 									"name": "wr_refunded_cdemo_sk",
-									"type": "Int32",
-									"physicalType": "INT32"
+									"type": "Int32"
 								},
 								"sink": {
 									"name": "wr_refunded_cdemo_sk",
-									"type": "Int32",
-									"physicalType": "int"
+									"type": "Int32"
 								}
 							},
 							{
 								"source": {
 									"name": "wr_refunded_hdemo_sk",
-									"type": "Int32",
-									"physicalType": "INT32"
+									"type": "Int32"
 								},
 								"sink": {
 									"name": "wr_refunded_hdemo_sk",
-									"type": "Int32",
-									"physicalType": "int"
+									"type": "Int32"
 								}
 							},
 							{
 								"source": {
 									"name": "wr_refunded_addr_sk",
-									"type": "Int32",
-									"physicalType": "INT32"
+									"type": "Int32"
 								},
 								"sink": {
 									"name": "wr_refunded_addr_sk",
-									"type": "Int32",
-									"physicalType": "int"
+									"type": "Int32"
 								}
 							},
 							{
 								"source": {
 									"name": "wr_returning_customer_sk",
-									"type": "Int32",
-									"physicalType": "INT32"
+									"type": "Int32"
 								},
 								"sink": {
 									"name": "wr_returning_customer_sk",
-									"type": "Int32",
-									"physicalType": "int"
+									"type": "Int32"
 								}
 							},
 							{
 								"source": {
 									"name": "wr_returning_cdemo_sk",
-									"type": "Int32",
-									"physicalType": "INT32"
+									"type": "Int32"
 								},
 								"sink": {
 									"name": "wr_returning_cdemo_sk",
-									"type": "Int32",
-									"physicalType": "int"
+									"type": "Int32"
 								}
 							},
 							{
 								"source": {
 									"name": "wr_returning_hdemo_sk",
-									"type": "Int32",
-									"physicalType": "INT32"
+									"type": "Int32"
 								},
 								"sink": {
 									"name": "wr_returning_hdemo_sk",
-									"type": "Int32",
-									"physicalType": "int"
+									"type": "Int32"
 								}
 							},
 							{
 								"source": {
 									"name": "wr_returning_addr_sk",
-									"type": "Int32",
-									"physicalType": "INT32"
+									"type": "Int32"
 								},
 								"sink": {
 									"name": "wr_returning_addr_sk",
-									"type": "Int32",
-									"physicalType": "int"
+									"type": "Int32"
 								}
 							},
 							{
 								"source": {
 									"name": "wr_web_page_sk",
-									"type": "Int32",
-									"physicalType": "INT32"
+									"type": "Int32"
 								},
 								"sink": {
 									"name": "wr_web_page_sk",
-									"type": "Int32",
-									"physicalType": "int"
+									"type": "Int32"
 								}
 							},
 							{
 								"source": {
 									"name": "wr_reason_sk",
-									"type": "Int32",
-									"physicalType": "INT32"
+									"type": "Int32"
 								},
 								"sink": {
 									"name": "wr_reason_sk",
-									"type": "Int32",
-									"physicalType": "int"
+									"type": "Int32"
 								}
 							},
 							{
 								"source": {
 									"name": "wr_order_number",
-									"type": "Int64",
-									"physicalType": "INT64"
+									"type": "Int64"
 								},
 								"sink": {
 									"name": "wr_order_number",
-									"type": "Int64",
-									"physicalType": "bigint"
+									"type": "Int64"
 								}
 							},
 							{
 								"source": {
 									"name": "wr_return_quantity",
-									"type": "Int32",
-									"physicalType": "INT32"
+									"type": "Int32"
 								},
 								"sink": {
 									"name": "wr_return_quantity",
-									"type": "Int32",
-									"physicalType": "int"
+									"type": "Int32"
 								}
 							},
 							{
 								"source": {
 									"name": "wr_return_amt",
-									"type": "Decimal",
-									"physicalType": "DECIMAL"
+									"type": "Decimal"
 								},
 								"sink": {
 									"name": "wr_return_amt",
-									"type": "Decimal",
-									"physicalType": "decimal",
-									"scale": 2,
-									"precision": 7
+									"type": "Decimal"
 								}
 							},
 							{
 								"source": {
 									"name": "wr_return_tax",
-									"type": "Decimal",
-									"physicalType": "DECIMAL"
+									"type": "Decimal"
 								},
 								"sink": {
 									"name": "wr_return_tax",
-									"type": "Decimal",
-									"physicalType": "decimal",
-									"scale": 2,
-									"precision": 7
+									"type": "Decimal"
 								}
 							},
 							{
 								"source": {
 									"name": "wr_return_amt_inc_tax",
-									"type": "Decimal",
-									"physicalType": "DECIMAL"
+									"type": "Decimal"
 								},
 								"sink": {
 									"name": "wr_return_amt_inc_tax",
-									"type": "Decimal",
-									"physicalType": "decimal",
-									"scale": 2,
-									"precision": 7
+									"type": "Decimal"
 								}
 							},
 							{
 								"source": {
 									"name": "wr_fee",
-									"type": "Decimal",
-									"physicalType": "DECIMAL"
+									"type": "Decimal"
 								},
 								"sink": {
 									"name": "wr_fee",
-									"type": "Decimal",
-									"physicalType": "decimal",
-									"scale": 2,
-									"precision": 7
+									"type": "Decimal"
 								}
 							},
 							{
 								"source": {
 									"name": "wr_return_ship_cost",
-									"type": "Decimal",
-									"physicalType": "DECIMAL"
+									"type": "Decimal"
 								},
 								"sink": {
 									"name": "wr_return_ship_cost",
-									"type": "Decimal",
-									"physicalType": "decimal",
-									"scale": 2,
-									"precision": 7
+									"type": "Decimal"
 								}
 							},
 							{
 								"source": {
 									"name": "wr_refunded_cash",
-									"type": "Decimal",
-									"physicalType": "DECIMAL"
+									"type": "Decimal"
 								},
 								"sink": {
 									"name": "wr_refunded_cash",
-									"type": "Decimal",
-									"physicalType": "decimal",
-									"scale": 2,
-									"precision": 7
+									"type": "Decimal"
 								}
 							},
 							{
 								"source": {
 									"name": "wr_reversed_charge",
-									"type": "Decimal",
-									"physicalType": "DECIMAL"
+									"type": "Decimal"
 								},
 								"sink": {
 									"name": "wr_reversed_charge",
-									"type": "Decimal",
-									"physicalType": "decimal",
-									"scale": 2,
-									"precision": 7
+									"type": "Decimal"
 								}
 							},
 							{
 								"source": {
 									"name": "wr_account_credit",
-									"type": "Decimal",
-									"physicalType": "DECIMAL"
+									"type": "Decimal"
 								},
 								"sink": {
 									"name": "wr_account_credit",
-									"type": "Decimal",
-									"physicalType": "decimal",
-									"scale": 2,
-									"precision": 7
+									"type": "Decimal"
 								}
 							},
 							{
 								"source": {
 									"name": "wr_net_loss",
-									"type": "Decimal",
-									"physicalType": "DECIMAL"
+									"type": "Decimal"
 								},
 								"sink": {
 									"name": "wr_net_loss",
-									"type": "Decimal",
-									"physicalType": "decimal",
-									"scale": 2,
-									"precision": 7
+									"type": "Decimal"
 								}
 							},
 							{
@@ -1755,16 +1704,10 @@
 								},
 								"sink": {
 									"name": "wr_returned_date_sk",
-									"type": "String",
-									"physicalType": "varchar"
+									"type": "String"
 								}
 							}
-						],
-						"typeConversion": true,
-						"typeConversionSettings": {
-							"allowDataTruncation": true,
-							"treatBooleanAsNumber": false
-						}
+						]
 					}
 				},
 				"inputs": [
