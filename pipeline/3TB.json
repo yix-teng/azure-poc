@@ -657,7 +657,7 @@
 							"wildcardFolderPath": "TPC-DS/SourceFiles_parquet/inventory",
 							"wildcardFileName": "*.parquet",
 							"enablePartitionDiscovery": true,
-							"partitionRootPath": "dbstorage5000/TPC-DS/SourceFiles_parquet/inventory"
+							"partitionRootPath": "dbstorage3000/TPC-DS/SourceFiles_parquet/inventory"
 						}
 					},
 					"sink": {
@@ -666,10 +666,16 @@
 						"polyBaseSettings": {
 							"rejectValue": 0,
 							"rejectType": "value",
-							"useTypeDefault": true
+							"useTypeDefault": false
 						}
 					},
 					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "poc_dataset",
+							"type": "LinkedServiceReference"
+						}
+					},
 					"dataIntegrationUnits": 128,
 					"translator": {
 						"type": "TabularTranslator",
@@ -758,7 +764,7 @@
 							"wildcardFolderPath": "TPC-DS/SourceFiles_parquet/catalog_sales",
 							"wildcardFileName": "*.parquet",
 							"enablePartitionDiscovery": true,
-							"partitionRootPath": "dbstorage5000/TPC-DS/SourceFiles_parquet/catalog_sales"
+							"partitionRootPath": "dbstorage3000/TPC-DS/SourceFiles_parquet/catalog_sales"
 						}
 					},
 					"sink": {
@@ -1159,12 +1165,17 @@
 							"wildcardFolderPath": "TPC-DS/SourceFiles_parquet/store_returns",
 							"wildcardFileName": "*.parquet",
 							"enablePartitionDiscovery": true,
-							"partitionRootPath": "dbstorage5000/TPC-DS/SourceFiles_parquet/store_returns"
+							"partitionRootPath": "dbstorage3000/TPC-DS/SourceFiles_parquet/store_returns"
 						}
 					},
 					"sink": {
 						"type": "SqlPoolSink",
-						"allowCopyCommand": true
+						"allowPolyBase": true,
+						"polyBaseSettings": {
+							"rejectValue": 0,
+							"rejectType": "value",
+							"useTypeDefault": false
+						}
 					},
 					"enableStaging": true,
 					"dataIntegrationUnits": 128,
@@ -1415,14 +1426,25 @@
 							"wildcardFolderPath": "TPC-DS/SourceFiles_parquet/web_returns",
 							"wildcardFileName": "*.parquet",
 							"enablePartitionDiscovery": true,
-							"partitionRootPath": "/dbstorage5000/TPC-DS/SourceFiles_parquet/web_returns"
+							"partitionRootPath": "/dbstorage3000/TPC-DS/SourceFiles_parquet/web_returns"
 						}
 					},
 					"sink": {
 						"type": "SqlPoolSink",
-						"allowCopyCommand": true
+						"allowPolyBase": true,
+						"polyBaseSettings": {
+							"rejectValue": 0,
+							"rejectType": "value",
+							"useTypeDefault": false
+						}
 					},
 					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "data_source_link",
+							"type": "LinkedServiceReference"
+						}
+					},
 					"dataIntegrationUnits": 128,
 					"translator": {
 						"type": "TabularTranslator",
@@ -1711,14 +1733,25 @@
 							"wildcardFolderPath": "TPC-DS/SourceFiles_parquet/web_sales",
 							"wildcardFileName": "*.parquet",
 							"enablePartitionDiscovery": true,
-							"partitionRootPath": "dbstorage5000/TPC-DS/SourceFiles_parquet/web_sales"
+							"partitionRootPath": "dbstorage3000/TPC-DS/SourceFiles_parquet/web_sales"
 						}
 					},
 					"sink": {
 						"type": "SqlPoolSink",
-						"allowCopyCommand": true
+						"allowPolyBase": true,
+						"polyBaseSettings": {
+							"rejectValue": 0,
+							"rejectType": "value",
+							"useTypeDefault": false
+						}
 					},
 					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "data_source_link",
+							"type": "LinkedServiceReference"
+						}
+					},
 					"dataIntegrationUnits": 128,
 					"translator": {
 						"type": "TabularTranslator",
