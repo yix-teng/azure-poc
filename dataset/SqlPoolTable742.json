@@ -192,6 +192,10 @@
 		"typeProperties": {
 			"schema": "dbo",
 			"table": "web_sales"
+		},
+		"sqlPool": {
+			"referenceName": "internal_3tb",
+			"type": "SqlPoolReference"
 		}
 	}
 }
