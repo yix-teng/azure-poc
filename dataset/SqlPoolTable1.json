@@ -154,7 +154,7 @@
 			"table": "store_sales"
 		},
 		"sqlPool": {
-			"referenceName": "internal_1tb",
+			"referenceName": "internal_100gb",
 			"type": "SqlPoolReference"
 		}
 	}
