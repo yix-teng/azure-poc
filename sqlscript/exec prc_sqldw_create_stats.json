@@ -1,0 +1,17 @@
+{
+	"name": "exec prc_sqldw_create_stats",
+	"properties": {
+		"content": {
+			"query": "EXEC [dbo].[prc_sqldw_create_stats] 1, NULL;\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "internal_100gb",
+				"poolName": "internal_100gb"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
