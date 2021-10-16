@@ -2,7 +2,7 @@
 	"name": "scbpocdev42",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "poc_dataset",
+			"referenceName": "data_source_link",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
