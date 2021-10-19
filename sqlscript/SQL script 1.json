@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 1",
+	"properties": {
+		"content": {
+			"query": "select distinct pdw_node_id\t  from sys.dm_pdw_nodes_os_schedulers where status = 'VISIBLE ONLINE' ",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "internal_5tb",
+				"poolName": "internal_5tb"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
