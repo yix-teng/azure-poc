@@ -4,7 +4,7 @@
 		"nbformat": 4,
 		"nbformat_minor": 2,
 		"bigDataPool": {
-			"referenceName": "SparkRd2Cluster",
+			"referenceName": "SparkRd2WL",
 			"type": "BigDataPoolReference"
 		},
 		"sessionProperties": {
@@ -12,11 +12,12 @@
 			"driverCores": 8,
 			"executorMemory": "56g",
 			"executorCores": 8,
-			"numExecutors": 3,
+			"numExecutors": 2,
 			"conf": {
 				"spark.dynamicAllocation.enabled": "false",
 				"spark.dynamicAllocation.minExecutors": "2",
-				"spark.dynamicAllocation.maxExecutors": "3"
+				"spark.dynamicAllocation.maxExecutors": "2",
+				"spark.autotune.trackingId": "4c345647-d6a6-47bd-9712-6846b58b2d62"
 			}
 		},
 		"metadata": {
@@ -30,18 +31,19 @@
 				"name": "scala"
 			},
 			"a365ComputeOptions": {
-				"id": "/subscriptions/dedfa758-9fb0-4c1b-b0e2-25c590d4f804/resourceGroups/POC-Spark-Env/providers/Microsoft.Synapse/workspaces/pocsparkenv/bigDataPools/SparkRd2Cluster",
-				"name": "SparkRd2Cluster",
+				"id": "/subscriptions/dedfa758-9fb0-4c1b-b0e2-25c590d4f804/resourceGroups/POC-Spark-Env/providers/Microsoft.Synapse/workspaces/pocsparkenv/bigDataPools/SparkRd2WL",
+				"name": "SparkRd2WL",
 				"type": "Spark",
-				"endpoint": "https://pocsparkenv.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/SparkRd2Cluster",
+				"endpoint": "https://pocsparkenv.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/SparkRd2WL",
 				"auth": {
 					"type": "AAD",
 					"authResource": "https://dev.azuresynapse.net"
 				},
 				"sparkVersion": "3.1",
-				"nodeCount": 4,
+				"nodeCount": 5,
 				"cores": 8,
-				"memory": 56
+				"memory": 56,
+				"automaticScaleJobs": false
 			},
 			"sessionKeepAliveTimeout": 30
 		},
@@ -76,8 +78,8 @@
 					"// Set:\n",
 					"val databaseName = \"External_spark_tables_1TB_DB\" // name of database with TPCDS data.\n",
 					"sql(s\"use $databaseName\")\n",
-					"val resultLocation = \"abfss://dbstorage1000@scbpocdev.dfs.core.windows.net/External_spark_tables_1TB_DB_results\" // place to write results\n",
-					"val iterations = 1 // how many iterations of queries to run.\n",
+					"val resultLocation = \"abfss://dbstorage1000@scbpocdev.dfs.core.windows.net/External_spark_tables_1TB_DB_results_wl\" // place to write results\n",
+					"val iterations = 3 // how many iterations of queries to run.\n",
 					"val queries = tpcds.tpcds2_4Queries // queries to run.\n",
 					"val timeout = 24*60*60 // timeout, in seconds.\n",
 					"// Run:\n",
@@ -106,7 +108,7 @@
 				"source": [
 					"import org.apache.spark.sql.functions._\n",
 					"\n",
-					"val resultLocation = \"abfss://dbstorage1000@scbpocdev.dfs.core.windows.net/synpase_tpcds_results\" // place to write results\n",
+					"val resultLocation = \"abfss://dbstorage1000@scbpocdev.dfs.core.windows.net/External_spark_tables_1TB_DB_results_wl\" // place to write results\n",
 					"val result = spark.read.json(resultLocation).filter(\"timestamp = 1631102177772\").select(explode($\"results\").as(\"r\"))\n",
 					"result.createOrReplaceTempView(\"result\") \n",
 					"spark.sql(\"select substring(r.name,1,100) as Name, bround((r.parsingTime+r.analysisTime+r.optimizationTime+r.planningTime+r.executionTime)/1000.0,1) as Runtime_sec  from result\").show(150)"
