@@ -17,7 +17,7 @@
 				"spark.dynamicAllocation.enabled": "false",
 				"spark.dynamicAllocation.minExecutors": "2",
 				"spark.dynamicAllocation.maxExecutors": "2",
-				"spark.autotune.trackingId": "77937d5f-4ed2-4aef-bfac-b53cb91c5ff9"
+				"spark.autotune.trackingId": "e0b45242-d6bc-4723-b212-36376bdf8440"
 			}
 		},
 		"metadata": {
@@ -113,8 +113,8 @@
 					"// Set:\n",
 					"val databaseName = \"External_spark_tables_3TB_DB\" // name of database with TPCDS data.\n",
 					"sql(s\"use $databaseName\")\n",
-					"val resultLocation = \"abfss://dbstorage3000@scbpocdev.dfs.core.windows.net/rd2_3_tb_synpase_tpcds_results\" // place to write results\n",
-					"val iterations = 1 // how many iterations of queries to run.\n",
+					"val resultLocation = \"abfss://dbstorage3000@scbpocdev.dfs.core.windows.net/rd2_3_tb_synpase_tpcds_results_wl\" // place to write results\n",
+					"val iterations = 3 // how many iterations of queries to run.\n",
 					"val queries = tpcds.tpcds2_4Queries // queries to run.\n",
 					"val timeout = 24*60*60 // timeout, in seconds.\n",
 					"// Run:\n",
