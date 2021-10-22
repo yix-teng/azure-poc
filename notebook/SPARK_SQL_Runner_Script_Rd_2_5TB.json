@@ -17,7 +17,7 @@
 				"spark.dynamicAllocation.enabled": "false",
 				"spark.dynamicAllocation.minExecutors": "4",
 				"spark.dynamicAllocation.maxExecutors": "4",
-				"spark.autotune.trackingId": "8c34e801-4fc9-4cbe-8398-1011a0378fcf"
+				"spark.autotune.trackingId": "40c0b90e-72ba-42aa-8061-8df155205e63"
 			}
 		},
 		"metadata": {
@@ -63,6 +63,43 @@
 					"* Make sure to have the *interations = 3* (for 3 runs)\n",
 					"* The 2nd script will load the resultant json files and populate the timings in a nice table. This output should go into the confluence page."
 				]
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"import com.databricks.spark.sql.perf.tpcds.TPCDSTables\n",
+					"\n",
+					"\n",
+					"val sqlContext = new org.apache.spark.sql.SQLContext(sc)\n",
+					"\n",
+					"val databaseName = \"External_spark_tables_5TB_DB\" // name of database with TPCDS data.\n",
+					"val scaleFactor = \"5000\" // scaleFactor defines the size of the dataset to generate (in GB).\n",
+					"val format = \"parquet\" // valid spark format like parquet \"parquet\".\n",
+					"\n",
+					"val tables = new TPCDSTables(sqlContext,\n",
+					"    dsdgenDir = \"/tmp/tpcds-kit/tools\", // location of dsdgen\n",
+					"    scaleFactor = scaleFactor,\n",
+					"    useDoubleForDecimal = false, // true to replace DecimalType with DoubleType\n",
+					"    useStringForDate = false) // true to replace DateType with StringType\n",
+					" \n",
+					"// Set:\n",
+					"sql(s\"use $databaseName\")\n",
+					" \n",
+					"// For CBO only, gather statistics on all columns:\n",
+					"tables.analyzeTables(databaseName, analyzeColumns = true)  "
+				],
+				"execution_count": null
 			},
 			{
 				"cell_type": "code",
