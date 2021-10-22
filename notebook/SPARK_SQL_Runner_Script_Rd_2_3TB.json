@@ -4,7 +4,7 @@
 		"nbformat": 4,
 		"nbformat_minor": 2,
 		"bigDataPool": {
-			"referenceName": "SparkRd2Cluster",
+			"referenceName": "SparkRd2WL",
 			"type": "BigDataPoolReference"
 		},
 		"sessionProperties": {
@@ -12,11 +12,12 @@
 			"driverCores": 8,
 			"executorMemory": "56g",
 			"executorCores": 8,
-			"numExecutors": 3,
+			"numExecutors": 2,
 			"conf": {
 				"spark.dynamicAllocation.enabled": "false",
 				"spark.dynamicAllocation.minExecutors": "2",
-				"spark.dynamicAllocation.maxExecutors": "3"
+				"spark.dynamicAllocation.maxExecutors": "2",
+				"spark.autotune.trackingId": "77937d5f-4ed2-4aef-bfac-b53cb91c5ff9"
 			}
 		},
 		"metadata": {
@@ -30,18 +31,19 @@
 				"name": "scala"
 			},
 			"a365ComputeOptions": {
-				"id": "/subscriptions/dedfa758-9fb0-4c1b-b0e2-25c590d4f804/resourceGroups/POC-Spark-Env/providers/Microsoft.Synapse/workspaces/pocsparkenv/bigDataPools/SparkRd2Cluster",
-				"name": "SparkRd2Cluster",
+				"id": "/subscriptions/dedfa758-9fb0-4c1b-b0e2-25c590d4f804/resourceGroups/POC-Spark-Env/providers/Microsoft.Synapse/workspaces/pocsparkenv/bigDataPools/SparkRd2WL",
+				"name": "SparkRd2WL",
 				"type": "Spark",
-				"endpoint": "https://pocsparkenv.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/SparkRd2Cluster",
+				"endpoint": "https://pocsparkenv.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/SparkRd2WL",
 				"auth": {
 					"type": "AAD",
 					"authResource": "https://dev.azuresynapse.net"
 				},
 				"sparkVersion": "3.1",
-				"nodeCount": 4,
+				"nodeCount": 5,
 				"cores": 8,
-				"memory": 56
+				"memory": 56,
+				"automaticScaleJobs": false
 			},
 			"sessionKeepAliveTimeout": 30
 		},
@@ -61,6 +63,43 @@
 					"* Make sure to have the *interations = 3* (for 3 runs)\n",
 					"* The 2nd script will load the resultant json files and populate the timings in a nice table. This output should go into the confluence page."
 				]
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"import com.databricks.spark.sql.perf.tpcds.TPCDSTables\n",
+					"\n",
+					"\n",
+					"val sqlContext = new org.apache.spark.sql.SQLContext(sc)\n",
+					"\n",
+					"val databaseName = \"External_spark_tables_3TB_DB\" // name of database with TPCDS data.\n",
+					"val scaleFactor = \"1000\" // scaleFactor defines the size of the dataset to generate (in GB).\n",
+					"val format = \"parquet\" // valid spark format like parquet \"parquet\".\n",
+					"\n",
+					"val tables = new TPCDSTables(sqlContext,\n",
+					"    dsdgenDir = \"/tmp/tpcds-kit/tools\", // location of dsdgen\n",
+					"    scaleFactor = scaleFactor,\n",
+					"    useDoubleForDecimal = false, // true to replace DecimalType with DoubleType\n",
+					"    useStringForDate = false) // true to replace DateType with StringType\n",
+					" \n",
+					"// Set:\n",
+					"sql(s\"use $databaseName\")\n",
+					" \n",
+					"// For CBO only, gather statistics on all columns:\n",
+					"tables.analyzeTables(databaseName, analyzeColumns = true)  "
+				],
+				"execution_count": 1
 			},
 			{
 				"cell_type": "code",
@@ -87,6 +126,24 @@
 					"experiment.waitForFinish(timeout)"
 				],
 				"execution_count": 2
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					""
+				],
+				"execution_count": null
 			},
 			{
 				"cell_type": "code",
