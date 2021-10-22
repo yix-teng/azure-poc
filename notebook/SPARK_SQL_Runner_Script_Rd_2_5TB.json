@@ -4,7 +4,7 @@
 		"nbformat": 4,
 		"nbformat_minor": 2,
 		"bigDataPool": {
-			"referenceName": "SparkRd2Cluster",
+			"referenceName": "SparkRd2WL",
 			"type": "BigDataPoolReference"
 		},
 		"sessionProperties": {
@@ -12,11 +12,12 @@
 			"driverCores": 8,
 			"executorMemory": "56g",
 			"executorCores": 8,
-			"numExecutors": 3,
+			"numExecutors": 4,
 			"conf": {
 				"spark.dynamicAllocation.enabled": "false",
-				"spark.dynamicAllocation.minExecutors": "2",
-				"spark.dynamicAllocation.maxExecutors": "3"
+				"spark.dynamicAllocation.minExecutors": "4",
+				"spark.dynamicAllocation.maxExecutors": "4",
+				"spark.autotune.trackingId": "8c34e801-4fc9-4cbe-8398-1011a0378fcf"
 			}
 		},
 		"metadata": {
@@ -30,18 +31,19 @@
 				"name": "scala"
 			},
 			"a365ComputeOptions": {
-				"id": "/subscriptions/dedfa758-9fb0-4c1b-b0e2-25c590d4f804/resourceGroups/POC-Spark-Env/providers/Microsoft.Synapse/workspaces/pocsparkenv/bigDataPools/SparkRd2Cluster",
-				"name": "SparkRd2Cluster",
+				"id": "/subscriptions/dedfa758-9fb0-4c1b-b0e2-25c590d4f804/resourceGroups/POC-Spark-Env/providers/Microsoft.Synapse/workspaces/pocsparkenv/bigDataPools/SparkRd2WL",
+				"name": "SparkRd2WL",
 				"type": "Spark",
-				"endpoint": "https://pocsparkenv.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/SparkRd2Cluster",
+				"endpoint": "https://pocsparkenv.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/SparkRd2WL",
 				"auth": {
 					"type": "AAD",
 					"authResource": "https://dev.azuresynapse.net"
 				},
 				"sparkVersion": "3.1",
-				"nodeCount": 4,
+				"nodeCount": 5,
 				"cores": 8,
-				"memory": 56
+				"memory": 56,
+				"automaticScaleJobs": false
 			},
 			"sessionKeepAliveTimeout": 30
 		},
@@ -74,8 +76,8 @@
 					"// Set:\n",
 					"val databaseName = \"External_spark_tables_5TB_DB\" // name of database with TPCDS data.\n",
 					"sql(s\"use $databaseName\")\n",
-					"val resultLocation = \"abfss://dbstorage5000@scbpocdev.dfs.core.windows.net/rd2_5_tb_synpase_tpcds_results\" // place to write results\n",
-					"val iterations = 1 // how many iterations of queries to run.\n",
+					"val resultLocation = \"abfss://dbstorage5000@scbpocdev.dfs.core.windows.net/rd2_5_tb_synpase_tpcds_results_wl\" // place to write results\n",
+					"val iterations = 3 // how many iterations of queries to run.\n",
 					"val queries = tpcds.tpcds2_4Queries // queries to run.\n",
 					"val timeout = 24*60*60 // timeout, in seconds.\n",
 					"// Run:\n",
