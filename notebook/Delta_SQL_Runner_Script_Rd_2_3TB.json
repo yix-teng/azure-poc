@@ -12,12 +12,12 @@
 			"driverCores": 8,
 			"executorMemory": "56g",
 			"executorCores": 8,
-			"numExecutors": 3,
+			"numExecutors": 4,
 			"conf": {
 				"spark.dynamicAllocation.enabled": "false",
-				"spark.dynamicAllocation.minExecutors": "2",
-				"spark.dynamicAllocation.maxExecutors": "3",
-				"spark.autotune.trackingId": "73d34bb0-0341-4b2c-ac73-74c8b4ec2644"
+				"spark.dynamicAllocation.minExecutors": "4",
+				"spark.dynamicAllocation.maxExecutors": "4",
+				"spark.autotune.trackingId": "ff37becb-6ec3-40be-9a5a-57a3da240d28"
 			}
 		},
 		"metadata": {
@@ -76,7 +76,7 @@
 					"// Set:\n",
 					"val databaseName = \"external_delta_tables_3TB_DB\" // name of database with TPCDS data.\n",
 					"sql(s\"use $databaseName\")\n",
-					"val resultLocation = \"abfss://dbstorage3000d@scbpocdev.dfs.core.windows.net/Delta_SQL_Runner_Script_Rd_2_3TB\" // place to write results\n",
+					"val resultLocation = \"abfss://dbstorage3000d@scbpocdev.dfs.core.windows.net/Delta_SQL_Runner_Script_Rd_2_3TB_wl\" // place to write results\n",
 					"val iterations = 3 // how many iterations of queries to run.\n",
 					"val queries = tpcds.tpcds2_4Queries // queries to run.\n",
 					"val timeout = 24*60*60 // timeout, in seconds.\n",
