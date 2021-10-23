@@ -12,12 +12,12 @@
 			"driverCores": 8,
 			"executorMemory": "56g",
 			"executorCores": 8,
-			"numExecutors": 4,
+			"numExecutors": 19,
 			"conf": {
 				"spark.dynamicAllocation.enabled": "false",
-				"spark.dynamicAllocation.minExecutors": "4",
-				"spark.dynamicAllocation.maxExecutors": "4",
-				"spark.autotune.trackingId": "40c0b90e-72ba-42aa-8061-8df155205e63"
+				"spark.dynamicAllocation.minExecutors": "19",
+				"spark.dynamicAllocation.maxExecutors": "19",
+				"spark.autotune.trackingId": "a25594c2-57bf-4584-ba3e-be43a60e74ba"
 			}
 		},
 		"metadata": {
@@ -99,7 +99,7 @@
 					"// For CBO only, gather statistics on all columns:\n",
 					"tables.analyzeTables(databaseName, analyzeColumns = true)  "
 				],
-				"execution_count": null
+				"execution_count": 1
 			},
 			{
 				"cell_type": "code",
