@@ -4,7 +4,7 @@
 		"nbformat": 4,
 		"nbformat_minor": 2,
 		"bigDataPool": {
-			"referenceName": "DeltaRd2Cluster",
+			"referenceName": "DeltaClusterWl",
 			"type": "BigDataPoolReference"
 		},
 		"sessionProperties": {
@@ -12,12 +12,12 @@
 			"driverCores": 8,
 			"executorMemory": "56g",
 			"executorCores": 8,
-			"numExecutors": 4,
+			"numExecutors": 2,
 			"conf": {
 				"spark.dynamicAllocation.enabled": "false",
-				"spark.dynamicAllocation.minExecutors": "4",
-				"spark.dynamicAllocation.maxExecutors": "4",
-				"spark.autotune.trackingId": "ff37becb-6ec3-40be-9a5a-57a3da240d28"
+				"spark.dynamicAllocation.minExecutors": "2",
+				"spark.dynamicAllocation.maxExecutors": "2",
+				"spark.autotune.trackingId": "111bc23d-c8e2-46e5-8857-bcbc7a83f7a8"
 			}
 		},
 		"metadata": {
@@ -31,10 +31,10 @@
 				"name": "scala"
 			},
 			"a365ComputeOptions": {
-				"id": "/subscriptions/dedfa758-9fb0-4c1b-b0e2-25c590d4f804/resourceGroups/POC-DeltaLake-Env/providers/Microsoft.Synapse/workspaces/pocdeltalake/bigDataPools/DeltaRd2Cluster",
-				"name": "DeltaRd2Cluster",
+				"id": "/subscriptions/dedfa758-9fb0-4c1b-b0e2-25c590d4f804/resourceGroups/POC-DeltaLake-Env/providers/Microsoft.Synapse/workspaces/pocdeltalake/bigDataPools/DeltaClusterWl",
+				"name": "DeltaClusterWl",
 				"type": "Spark",
-				"endpoint": "https://pocdeltalake.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/DeltaRd2Cluster",
+				"endpoint": "https://pocdeltalake.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/DeltaClusterWl",
 				"auth": {
 					"type": "AAD",
 					"authResource": "https://dev.azuresynapse.net"
@@ -88,7 +88,7 @@
 					"  forkThread = true)\n",
 					"experiment.waitForFinish(timeout)"
 				],
-				"execution_count": 3
+				"execution_count": 1
 			},
 			{
 				"cell_type": "code",
