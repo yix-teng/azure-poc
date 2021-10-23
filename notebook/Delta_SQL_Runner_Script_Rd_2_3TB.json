@@ -12,12 +12,12 @@
 			"driverCores": 8,
 			"executorMemory": "56g",
 			"executorCores": 8,
-			"numExecutors": 2,
+			"numExecutors": 4,
 			"conf": {
 				"spark.dynamicAllocation.enabled": "false",
-				"spark.dynamicAllocation.minExecutors": "2",
-				"spark.dynamicAllocation.maxExecutors": "2",
-				"spark.autotune.trackingId": "111bc23d-c8e2-46e5-8857-bcbc7a83f7a8"
+				"spark.dynamicAllocation.minExecutors": "4",
+				"spark.dynamicAllocation.maxExecutors": "4",
+				"spark.autotune.trackingId": "7270c007-0e28-4083-bbf1-4b851b8a204f"
 			}
 		},
 		"metadata": {
