@@ -4,7 +4,7 @@
 		"nbformat": 4,
 		"nbformat_minor": 2,
 		"bigDataPool": {
-			"referenceName": "DeltaRd2Cluster",
+			"referenceName": "DeltaClusterWl",
 			"type": "BigDataPoolReference"
 		},
 		"sessionProperties": {
@@ -12,11 +12,12 @@
 			"driverCores": 8,
 			"executorMemory": "56g",
 			"executorCores": 8,
-			"numExecutors": 3,
+			"numExecutors": 4,
 			"conf": {
 				"spark.dynamicAllocation.enabled": "false",
-				"spark.dynamicAllocation.minExecutors": "2",
-				"spark.dynamicAllocation.maxExecutors": "3"
+				"spark.dynamicAllocation.minExecutors": "4",
+				"spark.dynamicAllocation.maxExecutors": "4",
+				"spark.autotune.trackingId": "6c1f5144-7a8b-4841-89cd-b23d6543b1d4"
 			}
 		},
 		"metadata": {
@@ -30,10 +31,10 @@
 				"name": "scala"
 			},
 			"a365ComputeOptions": {
-				"id": "/subscriptions/dedfa758-9fb0-4c1b-b0e2-25c590d4f804/resourceGroups/POC-DeltaLake-Env/providers/Microsoft.Synapse/workspaces/pocdeltalake/bigDataPools/DeltaRd2Cluster",
-				"name": "DeltaRd2Cluster",
+				"id": "/subscriptions/dedfa758-9fb0-4c1b-b0e2-25c590d4f804/resourceGroups/POC-DeltaLake-Env/providers/Microsoft.Synapse/workspaces/pocdeltalake/bigDataPools/DeltaClusterWl",
+				"name": "DeltaClusterWl",
 				"type": "Spark",
-				"endpoint": "https://pocdeltalake.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/DeltaRd2Cluster",
+				"endpoint": "https://pocdeltalake.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/DeltaClusterWl",
 				"auth": {
 					"type": "AAD",
 					"authResource": "https://dev.azuresynapse.net"
@@ -41,7 +42,8 @@
 				"sparkVersion": "3.1",
 				"nodeCount": 5,
 				"cores": 8,
-				"memory": 56
+				"memory": 56,
+				"automaticScaleJobs": false
 			},
 			"sessionKeepAliveTimeout": 30
 		},
@@ -74,8 +76,8 @@
 					"// Set:\n",
 					"val databaseName = \"external_delta_tables_5TB_DB\" // name of database with TPCDS data.\n",
 					"sql(s\"use $databaseName\")\n",
-					"val resultLocation = \"abfss://dbstorage5000d@scbpocdev.dfs.core.windows.net/Delta_SQL_Runner_Script_Rd_2_5TB\" // place to write results\n",
-					"val iterations = 1 // how many iterations of queries to run.\n",
+					"val resultLocation = \"abfss://dbstorage5000d@scbpocdev.dfs.core.windows.net/Delta_SQL_Runner_Script_Rd_2_5TB_wl\" // place to write results\n",
+					"val iterations = 3 // how many iterations of queries to run.\n",
 					"val queries = tpcds.tpcds2_4Queries // queries to run.\n",
 					"val timeout = 24*60*60 // timeout, in seconds.\n",
 					"// Run:\n",
