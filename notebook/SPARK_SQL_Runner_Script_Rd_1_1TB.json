@@ -17,15 +17,15 @@
 				"spark.dynamicAllocation.enabled": "false",
 				"spark.dynamicAllocation.minExecutors": "8",
 				"spark.dynamicAllocation.maxExecutors": "8",
-				"spark.autotune.trackingId": "2656bae0-b368-4877-a309-0e9840b5b508"
+				"spark.autotune.trackingId": "570b0ef5-a3b8-4ee3-8d35-e785b082e4ee"
 			}
 		},
 		"metadata": {
 			"saveOutput": true,
 			"enableDebugMode": false,
 			"kernelspec": {
-				"name": "synapse_spark",
-				"display_name": "Synapse Spark"
+				"name": "synapse_pyspark",
+				"display_name": "Synapse PySpark"
 			},
 			"language_info": {
 				"name": "scala"
@@ -90,7 +90,7 @@
 					"  forkThread = true)\n",
 					"experiment.waitForFinish(timeout)"
 				],
-				"execution_count": 2
+				"execution_count": 1
 			},
 			{
 				"cell_type": "code",
@@ -108,12 +108,12 @@
 				"source": [
 					"import org.apache.spark.sql.functions._\n",
 					"\n",
-					"val resultLocation = \"abfss://dbstorage1000@scbpocdev.dfs.core.windows.net/synpase_tpcds_results\" // place to write results\n",
-					"val result = spark.read.json(resultLocation).filter(\"timestamp = 1631102177772\").select(explode($\"results\").as(\"r\"))\n",
+					"val resultLocation = \"abfss://dbstorage1000@scbpocdev.dfs.core.windows.net/synpase_tpcds_results_double\" // place to write results\n",
+					"val result = spark.read.json(resultLocation).filter(\"timestamp = 1635264404268\").select(explode($\"results\").as(\"r\"))\n",
 					"result.createOrReplaceTempView(\"result\") \n",
 					"spark.sql(\"select substring(r.name,1,100) as Name, bround((r.parsingTime+r.analysisTime+r.optimizationTime+r.planningTime+r.executionTime)/1000.0,1) as Runtime_sec  from result\").show(150)"
 				],
-				"execution_count": null
+				"execution_count": 2
 			}
 		]
 	}
