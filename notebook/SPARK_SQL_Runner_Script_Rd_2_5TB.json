@@ -12,12 +12,12 @@
 			"driverCores": 8,
 			"executorMemory": "56g",
 			"executorCores": 8,
-			"numExecutors": 19,
+			"numExecutors": 7,
 			"conf": {
 				"spark.dynamicAllocation.enabled": "false",
-				"spark.dynamicAllocation.minExecutors": "19",
-				"spark.dynamicAllocation.maxExecutors": "19",
-				"spark.autotune.trackingId": "34222328-b8e4-4138-8801-421d4b74ec80"
+				"spark.dynamicAllocation.minExecutors": "7",
+				"spark.dynamicAllocation.maxExecutors": "7",
+				"spark.autotune.trackingId": "5e057d2d-5016-4281-be22-121516f7b83b"
 			}
 		},
 		"metadata": {
@@ -40,7 +40,7 @@
 					"authResource": "https://dev.azuresynapse.net"
 				},
 				"sparkVersion": "3.1",
-				"nodeCount": 5,
+				"nodeCount": 8,
 				"cores": 8,
 				"memory": 56,
 				"automaticScaleJobs": false
@@ -113,7 +113,7 @@
 					"// Set:\n",
 					"val databaseName = \"External_spark_tables_5TB_DB\" // name of database with TPCDS data.\n",
 					"sql(s\"use $databaseName\")\n",
-					"val resultLocation = \"abfss://dbstorage5000@scbpocdev.dfs.core.windows.net/rd2_5_tb_synpase_tpcds_results_wl\" // place to write results\n",
+					"val resultLocation = \"abfss://dbstorage5000@scbpocdev.dfs.core.windows.net/rd2_5_tb_synpase_tpcds_results_wl_double\" // place to write results\n",
 					"val iterations = 3 // how many iterations of queries to run.\n",
 					"val queries = tpcds.tpcds2_4Queries // queries to run.\n",
 					"val timeout = 24*60*60 // timeout, in seconds.\n",
@@ -143,10 +143,10 @@
 				"source": [
 					"import org.apache.spark.sql.functions._\n",
 					"\n",
-					"val resultLocation = \"abfss://dbstorage5000@scbpocdev.dfs.core.windows.net/rd2_5_tb_synpase_tpcds_results\" // place to write results\n",
+					"val resultLocation = \"abfss://dbstorage5000@scbpocdev.dfs.core.windows.net/rd2_5_tb_synpase_tpcds_results_wl_double\" // place to write results\n",
 					"val result = spark.read.json(resultLocation).filter(\"timestamp = 1632223118514\").select(explode($\"results\").as(\"r\"))\n",
 					"result.createOrReplaceTempView(\"result\") \n",
-					"spark.sql(\"select substring(r.name,1,100) as Name, bround((r.parsingTime+r.analysisTime+r.optimizationTime+r.planningTime+r.executionTime)/1000.0,1) as Runtime_sec  from result\").show(150)"
+					"spark.sql(\"select substring(r.name,1,100) as Name, bround((r.parsingTime+r.analysisTime+r.optimizationTime+r.planningTime+r.executionTime)/1000.0,1) as Runtime_sec  from result\").show(1500)"
 				],
 				"execution_count": 3
 			}
