@@ -17,15 +17,15 @@
 				"spark.dynamicAllocation.enabled": "false",
 				"spark.dynamicAllocation.minExecutors": "14",
 				"spark.dynamicAllocation.maxExecutors": "14",
-				"spark.autotune.trackingId": "6888e4d6-a9cb-47ae-90e0-546886e137fb"
+				"spark.autotune.trackingId": "e86e60f5-4c80-484d-84bf-b10f396947f6"
 			}
 		},
 		"metadata": {
 			"saveOutput": true,
 			"enableDebugMode": false,
 			"kernelspec": {
-				"name": "synapse_spark",
-				"display_name": "Synapse Spark"
+				"name": "synapse_pyspark",
+				"display_name": "Synapse PySpark"
 			},
 			"language_info": {
 				"name": "scala"
@@ -40,7 +40,7 @@
 					"authResource": "https://dev.azuresynapse.net"
 				},
 				"sparkVersion": "3.1",
-				"nodeCount": 5,
+				"nodeCount": 8,
 				"cores": 8,
 				"memory": 56,
 				"automaticScaleJobs": false
@@ -146,12 +146,16 @@
 				"source": [
 					"import org.apache.spark.sql.functions._\n",
 					"\n",
-					"val resultLocation = \"abfss://dbstorage1000@scbpocdev.dfs.core.windows.net/External_spark_tables_1TB_DB_results_wl\" // place to write results\n",
-					"val result = spark.read.json(resultLocation).filter(\"timestamp = 1631102177772\").select(explode($\"results\").as(\"r\"))\n",
+					"\n",
+					"// synpase_tpcds_results_double\n",
+					"// timestamp=1635291270494\n",
+					"\n",
+					"val resultLocation = \"abfss://dbstorage1000@scbpocdev.dfs.core.windows.net/synpase_tpcds_results_double\" // place to write results\n",
+					"val result = spark.read.json(resultLocation).filter(\"timestamp = 1635291270494\").select(explode($\"results\").as(\"r\"))\n",
 					"result.createOrReplaceTempView(\"result\") \n",
 					"spark.sql(\"select substring(r.name,1,100) as Name, bround((r.parsingTime+r.analysisTime+r.optimizationTime+r.planningTime+r.executionTime)/1000.0,1) as Runtime_sec  from result\").show(150)"
 				],
-				"execution_count": null
+				"execution_count": 1
 			}
 		]
 	}
